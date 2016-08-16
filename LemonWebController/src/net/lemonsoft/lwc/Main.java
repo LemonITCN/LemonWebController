@@ -1,19 +1,16 @@
 package net.lemonsoft.lwc;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import net.lemonsoft.lwc.core.MainManager;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        MainManager manager = MainManager.defaultManager();
+        manager.createSubController();
+        manager.getGUIStage().show();
     }
 
 

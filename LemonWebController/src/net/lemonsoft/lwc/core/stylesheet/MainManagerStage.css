@@ -1,0 +1,19 @@
+.root{
+    -fx-min-width: 680px;
+    -fx-min-height: 520px;
+    -fx-max-width: 680px;
+    -fx-max-height: 520px;
+}
+.rootFlowPane{
+    -fx-orientation: vertical;
+}
+#rootTableView{
+    -fx-min-width: 680px;
+    -fx-min-height: 480px;
+    -fx-max-width: 680px;
+    -fx-max-height: 480px;
+}
+.operateBox{
+    -fx-padding: 6px 6px;
+    -fx-spacing: 10px;
+}

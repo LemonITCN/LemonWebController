@@ -1,0 +1,37 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.MainManagerViewController"
+          styleClass="rootFlowPane">
+    <TableView fx:id="rootTableView">
+        <columns>
+            <TableColumn text="Identifier" minWidth="210">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Browser Count" minWidth="130">
+                <cellValueFactory>
+                    <PropertyValueFactory property="browserCount"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="System Command Count" minWidth="170">
+                <cellValueFactory>
+                    <PropertyValueFactory property="systemCommandCount"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Custom Command Count" minWidth="170">
+                <cellValueFactory>
+                    <PropertyValueFactory property="customCommandCount"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <HBox styleClass="operateBox">
+        <Button text="Refresh" onMouseClicked="#refresh" />
+        <Button text="Add a subController" onMouseClicked="#addSubController"/>
+        <Button text="Destroy the subController" onMouseClicked="#removeSubController" fx:id="destroySubControllerButton"/>
+        <Button text="Manage the subController" onMouseClicked="#manageSubController" fx:id="manageSubControllerButton"/>
+    </HBox>
+</FlowPane>

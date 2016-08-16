@@ -1,0 +1,51 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.SubControllerViewController"
+          styleClass="rootFlowPane">
+    <TableView fx:id="rootTableView">
+        <columns>
+            <TableColumn text="Browser Identifier" minWidth="220">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Browser Title" minWidth="330">
+                <cellValueFactory>
+                    <PropertyValueFactory property="title"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Current URL" minWidth="330">
+                <cellValueFactory>
+                    <PropertyValueFactory property="url"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="visibility" minWidth="40">
+                <cellValueFactory>
+                    <PropertyValueFactory property="visibility"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <HBox styleClass="operateBox">
+        <Button text="Refresh" onMouseClicked="#refresh" />
+        <Button text="Add a browser" onMouseClicked="#addBrowser"/>
+        <!--<Button text="管理子控制器" onMouseClicked="#manageSubController" fx:id="manageSubControllerButton"/>-->
+    </HBox>
+    <Label fx:id="currentSelectedLabel"/>
+    <VBox styleClass="consoleVBox">
+        <Label text="Console output:"/>
+        <TextArea fx:id="consoleOutputTextArea" />
+    </VBox>
+    <VBox styleClass="consoleVBox">
+        <Label text="Console input:"/>
+        <HBox>
+            <TextArea fx:id="consoleInputTextArea"/>
+            <Button text="Run" fx:id="consoleInputRunButton" onMouseClicked="#consoleInputRun"/>
+        </HBox>
+    </VBox>
+    <HBox styleClass="operateBox">
+        <Button text="Close the browser" onMouseClicked="#closeBrowser" fx:id="closeBrowserButton"/>
+        <Button text="Show the browser" onMouseClicked="#closeBrowser" fx:id="hideOrShowButton"/>
+    </HBox>
+</FlowPane>
