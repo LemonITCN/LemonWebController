@@ -3,6 +3,7 @@ package net.lemonsoft.lwc.core;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import net.lemonsoft.lwc.core.viewController.MainManagerViewController;
 
 import java.net.URL;
 import java.util.HashMap;

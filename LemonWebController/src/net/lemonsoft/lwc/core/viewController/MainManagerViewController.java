@@ -1,4 +1,4 @@
-package net.lemonsoft.lwc.core;
+package net.lemonsoft.lwc.core.viewController;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -7,8 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+import net.lemonsoft.lwc.core.MainManager;
+import net.lemonsoft.lwc.core.SubController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,7 +20,7 @@ import java.util.ResourceBundle;
  */
 public class MainManagerViewController implements Initializable , CoreController {
 
-    MainManager mainManager;
+    public MainManager mainManager;
 
     private ObservableList<SubControllerCellModel> data;
 

@@ -45,6 +45,19 @@
     <LWC-CmdGrp name="DataCollection"
                 introduce="The function in this group can help you collect the specified data into the data collection pool.">
         <LWC-CmdItm>
+            <name>saveKeyValue</name>
+            <introduce>
+
+            </introduce>
+            <parameters>
+                <param>n:t|i</param>
+            </parameters>
+            <return>void</return>
+            <code>
+
+            </code>
+        </LWC-CmdItm>
+        <LWC-CmdItm>
             <name></name>
             <introduce>
 

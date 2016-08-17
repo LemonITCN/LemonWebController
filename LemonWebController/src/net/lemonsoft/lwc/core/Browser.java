@@ -101,6 +101,18 @@ public class Browser extends Stage {
     }
 
     /**
+     * 设置当前浏览器窗口是否显示
+     *
+     * @param isShow 设置浏览器窗口是否显示的布尔值
+     */
+    public void setShowOrHide(boolean isShow) {
+        if (isShow)
+            this.show();
+        else
+            this.hide();
+    }
+
+    /**
      * 在浏览器中执行命令对象
      *
      * @param command 要执行的浏览器命令对象
@@ -119,7 +131,7 @@ public class Browser extends Stage {
             }
         }
 
-        public void result(String info){
+        public void result(String info) {
             String out = String.format("[Browser executeResult] %s", info);
             System.out.println(out);
             if (belongSubController.viewController != null) {

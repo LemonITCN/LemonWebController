@@ -1,7 +1,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.*?>
-<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.SubControllerViewController"
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.viewController.SubControllerViewController"
           styleClass="rootFlowPane">
     <TableView fx:id="rootTableView">
         <columns>
@@ -46,6 +46,7 @@
     </VBox>
     <HBox styleClass="operateBox">
         <Button text="Close the browser" onMouseClicked="#closeBrowser" fx:id="closeBrowserButton"/>
-        <Button text="Show the browser" onMouseClicked="#closeBrowser" fx:id="hideOrShowButton"/>
+        <Button text="Show the browser" onMouseClicked="#hideOrShowBrowser" fx:id="hideOrShowButton"/>
     </HBox>
+    <Label styleClass="copyrightLabel">Powered by Lemon Software Studio LiuRi</Label>
 </FlowPane>

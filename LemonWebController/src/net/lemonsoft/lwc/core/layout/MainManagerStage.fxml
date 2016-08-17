@@ -2,7 +2,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.MainManagerViewController"
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.viewController.MainManagerViewController"
           styleClass="rootFlowPane">
     <TableView fx:id="rootTableView">
         <columns>
@@ -34,4 +34,5 @@
         <Button text="Destroy the subController" onMouseClicked="#removeSubController" fx:id="destroySubControllerButton"/>
         <Button text="Manage the subController" onMouseClicked="#manageSubController" fx:id="manageSubControllerButton"/>
     </HBox>
+    <Label styleClass="copyrightLabel">Powered by Lemon Software Studio LiuRi</Label>
 </FlowPane>

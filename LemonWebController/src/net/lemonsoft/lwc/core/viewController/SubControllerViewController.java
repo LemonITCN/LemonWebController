@@ -1,4 +1,4 @@
-package net.lemonsoft.lwc.core;
+package net.lemonsoft.lwc.core.viewController;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -6,12 +6,11 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import net.lemonsoft.lwc.core.Browser;
+import net.lemonsoft.lwc.core.SubController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,6 +36,8 @@ public class SubControllerViewController implements Initializable, CoreControlle
     private Button consoleInputRunButton;
     @FXML
     private Button closeBrowserButton;
+    @FXML
+    private Button hideOrShowButton;
 
     private ObservableList<BrowserCellModel> data;
 
@@ -48,11 +49,18 @@ public class SubControllerViewController implements Initializable, CoreControlle
     public void refresh() {
         data = rootTableView.getItems();
         data.removeAll(data);
+        currentSelectedLabel.setText("Current selected: none!");
+        int i = 0;
         for (Browser browser : subController.getBrowserPool().values()) {
             BrowserCellModel currentModel = new BrowserCellModel(browser);
             data.add(currentModel);
+            if (browser.getId().equals(selectedBrowserId)) {
+                TableView.TableViewSelectionModel singleSelectionModel = rootTableView.getSelectionModel();
+                singleSelectionModel.select(i);
+                setShowOrHideButtonTitle(browser.isShowing());
+            }
+            i++;
         }
-        currentSelectedLabel.setText("Current selected: none!");
     }
 
     @Override
@@ -60,8 +68,10 @@ public class SubControllerViewController implements Initializable, CoreControlle
         rootTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                selectedBrowserId = getCurrentSelectedBrowser().getId();
+                Browser browser = getCurrentSelectedBrowser();
+                selectedBrowserId = browser.getId();
                 currentSelectedLabel.setText(String.format("Current selected: %s", selectedBrowserId));
+                setShowOrHideButtonTitle(browser.isShowing());
             }
         });
         final boolean[] shift_press = {false};
@@ -70,7 +80,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
             @Override
             public void handle(KeyEvent event) {
                 KeyCode code = event.getCode();
-                switch (code){
+                switch (code) {
                     case SHIFT:
                         shift_press[0] = true;
                         break;
@@ -87,7 +97,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
             @Override
             public void handle(KeyEvent event) {
                 KeyCode code = event.getCode();
-                switch (code){
+                switch (code) {
                     case SHIFT:
                         shift_press[0] = false;
                         break;
@@ -108,8 +118,9 @@ public class SubControllerViewController implements Initializable, CoreControlle
      * 添加一个新的浏览器 - GUI调用
      */
     public void addBrowser() {
-        subController.createBrowser();
-        refresh();
+        String browserId = subController.createBrowser();
+        if (subController.countBrowsers() == 1)
+            selectedBrowserId = browserId;
     }
 
     /**
@@ -120,11 +131,44 @@ public class SubControllerViewController implements Initializable, CoreControlle
     }
 
     /**
+     * 设置tableView选中指定的浏览器ID对应的行
+     *
+     * @param browserId 要设置选中行的浏览器id
+     */
+    public void setCurrentSelectRowByBrowserId(String browserId) {
+        int i = 0;
+        for (Browser browser : subController.getBrowserPool().values()) {
+            if (browser.getId().equals(selectedBrowserId)) {
+                TableView.TableViewSelectionModel singleSelectionModel = rootTableView.getSelectionModel();
+                singleSelectionModel.select(i);
+                break;
+            }
+            i++;
+        }
+    }
+
+    /**
+     * 显示或者关闭浏览器 - GUI调用
+     */
+    public void hideOrShowBrowser() {
+        subController.hideOrShowBrowser(selectedBrowserId);
+    }
+
+    /**
      * 运行出控制台输入的代码
      */
     public void consoleInputRun() {
         getCurrentSelectedBrowser().executeJavaScript(consoleInputTextArea.getText());
         consoleInputTextArea.setText("");// 置空代码输入区域
+    }
+
+    /**
+     * 根据当前指定的浏览器是否处于显示状态来设置显示隐藏按钮的标题
+     *
+     * @param isShow 当前对应的浏览器是否已经显示的布尔值
+     */
+    private void setShowOrHideButtonTitle(boolean isShow) {
+        hideOrShowButton.setText(String.format("%s the browser", isShow ? "Hide" : "Show"));
     }
 
     public class BrowserCellModel {

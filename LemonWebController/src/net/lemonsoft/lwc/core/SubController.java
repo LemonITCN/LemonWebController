@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -79,6 +80,7 @@ public class SubController implements Core {
         Browser browser = new Browser(this);
         browser.show();
         browserPool.put(browser.getId(), browser);
+        refreshGUI();
         return browser.getId();
     }
 
@@ -99,6 +101,7 @@ public class SubController implements Core {
      */
     public void addBrowserCommand(BrowserCommand command) {
         this.systemCommandPool.put(UUID.randomUUID().toString(), command);
+        refreshGUI();
     }
 
     /**
@@ -134,6 +137,15 @@ public class SubController implements Core {
         this.addBrowserCommand(command);
     }
 
+    /**
+     * 显示或隐藏指定浏览器ID对应的浏览器窗口
+     *
+     * @param browserId 要操作的浏览器的id
+     */
+    public void hideOrShowBrowser(String browserId) {
+        Browser browser = getBrowserById(browserId);
+        browser.setShowOrHide(!browser.isShowing());
+    }
 
     /**
      * 获取当前子控制器对应的GUI界面Stage
