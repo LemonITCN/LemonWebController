@@ -1,7 +1,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.*?>
-<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.viewController.SubControllerViewController"
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.SubControllerConsole"
           styleClass="rootFlowPane">
     <TableView fx:id="rootTableView">
         <columns>

@@ -7,9 +7,7 @@ import javafx.stage.Stage;
 import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * 子控制器 - 每一个子控制器都会对应一个浏览器组，子控制器负责分发和协调各个浏览器的工作
@@ -24,11 +22,15 @@ public class SubController implements Core {
     private Map<String, Object> dataCollectionPool;// 数据收集池, 每个子控制器有一个独立的数据收集池,子控制器下所有的浏览器收集到的数据都会集中放到这个池中
     private Map<String, BrowserCommand> systemCommandPool;// 系统命令池
     private Map<String, BrowserCommand> customCommandPool;// 自定义命令池
+    private List<SubControllerConsole> consoleList;// 控制台列表
     private MainManager belongMainManager;
     public SubControllerViewController viewController;
 
     private static final String FILE_NAME = "SubControllerStage";
     private static final String WINDOW_NAME = "SubController[GUI]";
+
+    private static final String CONSOLE_FILE_NAME = "";
+    private static final String CONSOLE_WINDOW_NAME = "SubControllerConsole[GUI]";
 
     protected SubController(MainManager belongMainManager) {
         super();
@@ -38,6 +40,7 @@ public class SubController implements Core {
         this.dataCollectionPool = new HashMap<>();
         this.systemCommandPool = new HashMap<>();
         this.customCommandPool = new HashMap<>();
+        this.consoleList = new ArrayList<>();
         this.belongMainManager = belongMainManager;
     }
 
@@ -82,6 +85,16 @@ public class SubController implements Core {
         browserPool.put(browser.getId(), browser);
         refreshGUI();
         return browser.getId();
+    }
+
+    /**
+     * 创建一个控制台
+     * @return 新创建出来的控制台对象
+     */
+    public SubControllerConsole createConsole(){
+        SubControllerConsole console = new SubControllerConsole(this);
+        consoleList.add(console);
+        return console;
     }
 
     /**
@@ -199,6 +212,33 @@ public class SubController implements Core {
     public void cleanConsoleOutput(String browserId) {
         this.consoleOutputPool.put(browserId, String.format("%s%s\n", consoleOutputPool.getOrDefault(browserId, ""), ""));
         viewController.consoleOutputTextArea.setText("");
+    }
+
+    /**
+     * 获取指定的浏览器的当前加载的URL
+     * @param browserId 要获取URL的浏览器的ID
+     * @return 当前加载的URL字符串
+     */
+    public String getBrowserCurrentUrlByBrowserId(String browserId){
+        return getBrowserById(browserId).getCurrentUrl();
+    }
+
+    /**
+     * 获取指定的浏览器的当前的标题
+     * @param browserId 要获取标题的浏览器的ID
+     * @return 当前浏览器中加载的页面的标题
+     */
+    public String getBrowserCurrentTitleByBrowserId(String browserId){
+        return getBrowserById(browserId).getCurrentTitle();
+    }
+
+    /**
+     * 获取指定的浏览器是否现在被显示
+     * @param browserId 要判断是否显示的浏览器id
+     * @return 指定的浏览器现在是否显示的布尔值
+     */
+    public boolean getBrowserIsShowingByBrowserId(String browserId){
+        return getBrowserById(browserId).isShowing();
     }
 
     @Override

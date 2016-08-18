@@ -195,9 +195,9 @@ public class SubControllerViewController implements Initializable, CoreControlle
 
         public BrowserCellModel(Browser browser) {
             this.id = browser.getId();
-            this.url = browser.getCurrentUrl();
-            this.title = browser.getCurrentTitle();
-            this.visibility = browser.isShowing() ? "Yes" : "No";
+            this.url = subController.getBrowserCurrentUrlByBrowserId(this.id);
+            this.title = subController.getBrowserCurrentTitleByBrowserId(this.id);
+            this.visibility = subController.getBrowserIsShowingByBrowserId(this.id) ? "Yes" : "No";
         }
     }
 
