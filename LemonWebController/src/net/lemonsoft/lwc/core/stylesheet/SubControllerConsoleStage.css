@@ -1,49 +1,17 @@
-.root {
-    -fx-min-width: 960px;
-    -fx-min-height: 640px;
-    -fx-max-width: 960px;
-    -fx-max-height: 640px;
+.root{
+    -fx-pref-width: 720px;
+    -fx-pref-height: 640px;
 }
-
-#rootTableView {
-    -fx-min-width: 960px;
-    -fx-min-height: 240px;
-    -fx-max-width: 960px;
-    -fx-max-height: 240px;
+#consoleTabPane{
+    -fx-pref-width: 720px;
+    -fx-pref-height: 620px;
 }
-
-.operateBox {
-    -fx-spacing: 10px;
-    -fx-padding: 6px;
-}
-
-#currentSelectedLabel {
-    -fx-pref-width: 960px;
-    -fx-padding: 5px;
-}
-
-.consoleVBox {
+.operateBox{
     -fx-padding: 10px;
+    -fx-spacing: 5px;
+    -fx-alignment: baseline-center;
 }
-
-#consoleOutputTextArea {
-    -fx-pref-width: 940px;
-    -fx-pref-height: 120;
-}
-
-#consoleInputTextArea {
-    -fx-pref-width: 870px;
-    -fx-pref-height: 80px;
-}
-
-#consoleInputRunButton {
-    -fx-start-margin: 10px;
-    -fx-pref-width: 70px;
-    -fx-pref-height: 80px;
-}
-
-.copyrightLabel {
-    -fx-pref-width: 960px;
-    -fx-padding: 0px 20px;
-    -fx-alignment: center;
+.ttyWebView{
+    -fx-pref-width: 720px;
+    -fx-pref-height: 600px;
 }

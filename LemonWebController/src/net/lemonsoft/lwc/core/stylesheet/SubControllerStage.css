@@ -26,17 +26,17 @@
     -fx-padding: 10px;
 }
 
-#consoleOutputTextArea {
+#browserOutputTextArea {
     -fx-pref-width: 940px;
     -fx-pref-height: 120;
 }
 
-#consoleInputTextArea {
+#browserCommandInputTextArea {
     -fx-pref-width: 870px;
     -fx-pref-height: 80px;
 }
 
-#consoleInputRunButton {
+#browserCommandInputRunButton {
     -fx-start-margin: 10px;
     -fx-pref-width: 70px;
     -fx-pref-height: 80px;

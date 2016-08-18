@@ -30,18 +30,18 @@
     <HBox styleClass="operateBox">
         <Button text="Refresh" onMouseClicked="#refresh" />
         <Button text="Add a browser" onMouseClicked="#addBrowser"/>
-        <!--<Button text="管理子控制器" onMouseClicked="#manageSubController" fx:id="manageSubControllerButton"/>-->
+        <Button text="Open GUI console" onMouseClicked="#openGUIConsole"/>
     </HBox>
     <Label fx:id="currentSelectedLabel"/>
     <VBox styleClass="consoleVBox">
         <Label text="Browser output:"/>
-        <TextArea fx:id="consoleOutputTextArea" />
+        <TextArea fx:id="browserOutputTextArea" />
     </VBox>
     <VBox styleClass="consoleVBox">
         <Label text="Browser control command:"/>
         <HBox>
-            <TextArea fx:id="consoleInputTextArea"/>
-            <Button text="Run" fx:id="consoleInputRunButton" onMouseClicked="#consoleInputRun"/>
+            <TextArea fx:id="browserCommandInputTextArea"/>
+            <Button text="Run" fx:id="browserCommandInputRunButton" onMouseClicked="#consoleInputRun"/>
         </HBox>
     </VBox>
     <HBox styleClass="operateBox">

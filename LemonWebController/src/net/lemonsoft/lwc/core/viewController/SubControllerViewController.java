@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
  */
 public class SubControllerViewController implements Initializable, CoreController {
 
-    public SubController subController;
+    public SubController belongSubController;
 
     @FXML
     private Label currentSelectedLabel;
@@ -29,11 +29,11 @@ public class SubControllerViewController implements Initializable, CoreControlle
     private TableView rootTableView;
 
     @FXML
-    public TextArea consoleOutputTextArea;
+    public TextArea browserOutputTextArea;
     @FXML
-    private TextArea consoleInputTextArea;
+    private TextArea browserCommandInputTextArea;
     @FXML
-    private Button consoleInputRunButton;
+    private Button browserCommandInputRunButton;
     @FXML
     private Button closeBrowserButton;
     @FXML
@@ -51,7 +51,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
         data.removeAll(data);
         currentSelectedLabel.setText("Current selected: none!");
         int i = 0;
-        for (Browser browser : subController.getBrowserPool().values()) {
+        for (Browser browser : belongSubController.getBrowserPool().values()) {
             BrowserCellModel currentModel = new BrowserCellModel(browser);
             data.add(currentModel);
             if (browser.getId().equals(selectedBrowserId)) {
@@ -76,7 +76,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
         });
         final boolean[] shift_press = {false};
         final boolean[] enter_press = {false};
-        consoleInputTextArea.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+        browserCommandInputTextArea.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 KeyCode code = event.getCode();
@@ -93,7 +93,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
                     consoleInputRun();// 触发shift-enter执行代码
             }
         });
-        consoleInputTextArea.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
+        browserCommandInputTextArea.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 KeyCode code = event.getCode();
@@ -111,16 +111,17 @@ public class SubControllerViewController implements Initializable, CoreControlle
     }
 
     public Browser getCurrentSelectedBrowser() {
-        return subController.getBrowserById(data.get(rootTableView.getSelectionModel().selectedIndexProperty().getValue()).getId());
+        return belongSubController.getBrowserById(data.get(rootTableView.getSelectionModel().selectedIndexProperty().getValue()).getId());
     }
 
     /**
      * 添加一个新的浏览器 - GUI调用
      */
     public void addBrowser() {
-        String browserId = subController.createBrowser();
-        if (subController.countBrowsers() == 1)
+        String browserId = belongSubController.createBrowser();
+        if (belongSubController.countBrowsers() == 1)
             selectedBrowserId = browserId;
+        refresh();
     }
 
     /**
@@ -131,13 +132,20 @@ public class SubControllerViewController implements Initializable, CoreControlle
     }
 
     /**
+     * 打开控制台的GUI界面
+     */
+    public void openGUIConsole(){
+        belongSubController.getConsole().show();
+    }
+
+    /**
      * 设置tableView选中指定的浏览器ID对应的行
      *
      * @param browserId 要设置选中行的浏览器id
      */
     public void setCurrentSelectRowByBrowserId(String browserId) {
         int i = 0;
-        for (Browser browser : subController.getBrowserPool().values()) {
+        for (Browser browser : belongSubController.getBrowserPool().values()) {
             if (browser.getId().equals(selectedBrowserId)) {
                 TableView.TableViewSelectionModel singleSelectionModel = rootTableView.getSelectionModel();
                 singleSelectionModel.select(i);
@@ -151,15 +159,15 @@ public class SubControllerViewController implements Initializable, CoreControlle
      * 显示或者关闭浏览器 - GUI调用
      */
     public void hideOrShowBrowser() {
-        subController.hideOrShowBrowser(selectedBrowserId);
+        belongSubController.hideOrShowBrowser(selectedBrowserId);
     }
 
     /**
      * 运行出控制台输入的代码
      */
     public void consoleInputRun() {
-        getCurrentSelectedBrowser().executeJavaScript(consoleInputTextArea.getText());
-        consoleInputTextArea.setText("");// 置空代码输入区域
+        getCurrentSelectedBrowser().executeJavaScript(browserCommandInputTextArea.getText());
+        browserCommandInputTextArea.setText("");// 置空代码输入区域
     }
 
     /**
@@ -195,9 +203,9 @@ public class SubControllerViewController implements Initializable, CoreControlle
 
         public BrowserCellModel(Browser browser) {
             this.id = browser.getId();
-            this.url = subController.getBrowserCurrentUrlByBrowserId(this.id);
-            this.title = subController.getBrowserCurrentTitleByBrowserId(this.id);
-            this.visibility = subController.getBrowserIsShowingByBrowserId(this.id) ? "Yes" : "No";
+            this.url = belongSubController.getBrowserCurrentUrlByBrowserId(this.id);
+            this.title = belongSubController.getBrowserCurrentTitleByBrowserId(this.id);
+            this.visibility = belongSubController.getBrowserIsShowingByBrowserId(this.id) ? "Yes" : "No";
         }
     }
 

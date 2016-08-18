@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import net.lemonsoft.lwc.core.viewController.SubControllerConsoleViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
 
 import java.net.URL;
@@ -22,15 +23,16 @@ public class SubController implements Core {
     private Map<String, Object> dataCollectionPool;// 数据收集池, 每个子控制器有一个独立的数据收集池,子控制器下所有的浏览器收集到的数据都会集中放到这个池中
     private Map<String, BrowserCommand> systemCommandPool;// 系统命令池
     private Map<String, BrowserCommand> customCommandPool;// 自定义命令池
-    private List<SubControllerConsole> consoleList;// 控制台列表
     private MainManager belongMainManager;
     public SubControllerViewController viewController;
+    private SubControllerConsoleViewController defaultConsole;
+    private Stage defaultConsoleStage;// 默认的控制台stage
 
     private static final String FILE_NAME = "SubControllerStage";
     private static final String WINDOW_NAME = "SubController[GUI]";
 
-    private static final String CONSOLE_FILE_NAME = "";
-    private static final String CONSOLE_WINDOW_NAME = "SubControllerConsole[GUI]";
+    private static final String CONSOLE_FILE_NAME = "SubControllerConsoleStage";
+    private static final String CONSOLE_WINDOW_NAME = "SubControllerConsoleViewController[GUI]";
 
     protected SubController(MainManager belongMainManager) {
         super();
@@ -40,7 +42,6 @@ public class SubController implements Core {
         this.dataCollectionPool = new HashMap<>();
         this.systemCommandPool = new HashMap<>();
         this.customCommandPool = new HashMap<>();
-        this.consoleList = new ArrayList<>();
         this.belongMainManager = belongMainManager;
     }
 
@@ -85,16 +86,6 @@ public class SubController implements Core {
         browserPool.put(browser.getId(), browser);
         refreshGUI();
         return browser.getId();
-    }
-
-    /**
-     * 创建一个控制台
-     * @return 新创建出来的控制台对象
-     */
-    public SubControllerConsole createConsole(){
-        SubControllerConsole console = new SubControllerConsole(this);
-        consoleList.add(console);
-        return console;
     }
 
     /**
@@ -177,7 +168,7 @@ public class SubController implements Core {
                 defaultStage.setTitle(String.format("%s - %s", WINDOW_NAME, this.getId()));
                 defaultStage.setResizable(false);
                 viewController = loader.getController();
-                viewController.subController = this;
+                viewController.belongSubController = this;
                 if (belongMainManager.getGUIStage() != null) {// 判断是否为空
                     defaultStage.initModality(Modality.WINDOW_MODAL);
                     defaultStage.initOwner(belongMainManager.getGUIStage());
@@ -191,6 +182,33 @@ public class SubController implements Core {
     }
 
     /**
+     * 创建一个控制台
+     * @return 新创建出来的控制台对象
+     */
+    public SubControllerConsoleViewController getConsole(){
+        if (defaultConsoleStage == null) {
+            defaultConsoleStage = new Stage();
+            defaultConsole = new SubControllerConsoleViewController();
+            try {
+                String corePath = getClass().getResource("").toString();
+                FXMLLoader loader = new FXMLLoader(new URL(String.format("%slayout/%s.fxml", corePath, CONSOLE_FILE_NAME)));
+                Scene rootScene = new Scene(loader.load());
+                rootScene.getStylesheets().add(String.format("%sstylesheet/%s.css", corePath, CONSOLE_FILE_NAME));
+                defaultConsoleStage.setScene(rootScene);
+                defaultConsoleStage.setTitle(String.format("%s - %s", CONSOLE_WINDOW_NAME, this.getId()));
+                defaultConsoleStage.setResizable(false);
+                defaultConsole = loader.getController();
+                defaultConsole.setConsoleStage(defaultConsoleStage);
+                defaultConsole.belongSubController = this;
+                this.refreshGUI();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return defaultConsole;
+    }
+
+    /**
      * 控制台输出指定的文本
      *
      * @param browserId 要进行输出控制台的浏览器id
@@ -199,8 +217,8 @@ public class SubController implements Core {
     public void consoleOut(String browserId, String info) {
         this.consoleOutputPool.put(browserId, String.format("%s%s\n", consoleOutputPool.getOrDefault(browserId, ""), info));
         if (viewController != null) {
-            viewController.consoleOutputTextArea.setText(consoleOutputPool.get(browserId));
-            viewController.consoleOutputTextArea.setScrollTop(viewController.consoleOutputTextArea.getPrefRowCount() * 100);// 控制其始终滚动到底部
+            viewController.browserOutputTextArea.setText(consoleOutputPool.get(browserId));
+            viewController.browserOutputTextArea.setScrollTop(viewController.browserOutputTextArea.getPrefRowCount() * 100);// 控制其始终滚动到底部
         }
     }
 
@@ -211,7 +229,7 @@ public class SubController implements Core {
      */
     public void cleanConsoleOutput(String browserId) {
         this.consoleOutputPool.put(browserId, String.format("%s%s\n", consoleOutputPool.getOrDefault(browserId, ""), ""));
-        viewController.consoleOutputTextArea.setText("");
+        viewController.browserOutputTextArea.setText("");
     }
 
     /**
