@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LWC-TTY</title>
+    <style>
+        body{
+            padding:0px;
+            margin:0px;
+        }
+        .ttyConsoleOutput{
+            position: fixed;
+            width: 100%;
+            height: 75%;
+            overflow: scroll;
+            top: 0;
+        }
+        .ttyConsoleOutput div{
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: 微软雅黑;
+        }
+        .ttyConsoleOutput div:hover{
+            background: #eeeeee;
+        }
+        .ttyConsoleOutput .logItemSuccess{
+            color: #5bb75b;
+        }
+        .ttyConsoleOutput .logItemError{
+            color: #da4f49;
+        }
+        .ttyConsoleOutput .logItemInfo{
+            color: #363636;
+        }
+        .ttyConsoleOutput .logItemWarning{
+            color: #faa732;
+        }
+        .ttyConsoleInput{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25%;
+        }
+        .ttyConsoleInput #ttyConsoleInputTextArea{
+            position: relative;
+            left: 0;
+            top: 0;
+            min-width: 90%;
+            min-height: 99%;
+            max-height: 99%;
+            max-width: 90%;
+            border:0;
+        }
+        .ttyConsoleInput #ttyConsoleInputRunButton{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 9%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="ttyConsoleOutput" id="logList">
+</div>
+<div class="ttyConsoleInput">
+    <textarea id="ttyConsoleInputTextArea" placeholder="Please enter console code and run. Shortcut key: shift+enter"></textarea>
+    <input type="button" value="Run" id="ttyConsoleInputRunButton">
+</div>
+<script>
+    function LogItem(content , type) {
+        this.content;
+        this.type;
+        this.time = Math.round(new Date().getTime());
+    }
+    function Log() {
+    }
+    Log.msg = function (typeIndex, info) {
+        var classArr = ["logItemSuccess" , "logItemError" , "logItemInfo" , "logItemWarning"];
+        var logElement = document.createElement("div");
+        logElement.setAttribute("class" , classArr[typeIndex]);
+        logElement.innerText = "[LOG]" + info;
+        document.getElementById("logList").appendChild(logElement);
+    };
+    Log.success = function (info) {
+        this.msg(0 , info);
+    };
+    Log.error = function (info) {
+        this.msg(1 , info);
+    };
+    Log.info = function (info) {
+        this.msg(2 , info);
+    };
+    Log.warning = function (info) {
+        this.msg(3 , info);
+    };
+
+    var runButton = document.getElementById("ttyConsoleInputRunButton");
+    var inputTextArea = document.getElementById("ttyConsoleInputTextArea");
+    runButton.onclick = function () {
+        try{
+            var code = inputTextArea.value;
+            inputTextArea.value = "";
+            Log.info(eval(code));
+        }
+        catch (e){
+            Log.error("Occur a error at line:" + e.lineNumber + ", message: " + e.message);
+        }
+    };
+    inputTextArea.onkeyup = function () {
+        if (event.shiftKey && window.event.keyCode == 13){
+            // shift回车
+            runButton.onclick();
+        }
+    };
+    window.onload = function () {
+        Log.success("Good job. You have successfully created a new TTY!");
+    };
+</script>
+</body>
+</html>

@@ -15,3 +15,7 @@
     -fx-pref-width: 720px;
     -fx-pref-height: 600px;
 }
+.copyrightLabel{
+    -fx-pref-width: 720px;
+    -fx-alignment: center;
+}

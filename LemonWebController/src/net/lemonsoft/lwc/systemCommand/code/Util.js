@@ -24,7 +24,7 @@ Util.createUUID = function () {
  * @returns {number} 当前的UNIX时间戳
  */
 Util.getUnixTimeStamp = function () {
-    return Math.round(new Date().getTime() / 1000);
+    return Math.round(new Date().getTime());
 };
 
 /**

@@ -98,7 +98,8 @@ public class SubControllerConsoleViewController implements Initializable {
 
                 }
             });
-            container.getEngine().loadContent("<div style=''>Welcome use LemonWebController Console!</div><div><textarea></textarea></div>");
+            System.out.println(getClass().getResource("../") + "layout/SubControllerConsoleTty.html");
+            container.getEngine().load(getClass().getResource("../") + "layout/SubControllerConsoleTty.html");
         }
 
         public String getId() {
