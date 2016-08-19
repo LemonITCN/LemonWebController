@@ -3,6 +3,8 @@ package net.lemonsoft.lwc.core.viewController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -14,9 +16,7 @@ import javafx.stage.Stage;
 import net.lemonsoft.lwc.core.SubController;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.ResourceBundle;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * 子控制器的控制台
@@ -26,7 +26,8 @@ public class SubControllerConsoleViewController implements Initializable {
 
     public SubController belongSubController;
     private Stage consoleStage;
-    private HashMap<String , Tty> ttyPools;// 控制台单位池
+    private HashMap<String , Tty> ttyPool;// 控制台单位池
+    private List<String> ttyList;// 控制台单位列表，用于记录TTY ID与GUI界面的顺序对应
 
     @FXML
     private TabPane consoleTabPane;
@@ -35,7 +36,8 @@ public class SubControllerConsoleViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ttyPools = new HashMap<>();
+        ttyPool = new HashMap<>();
+        ttyList = new ArrayList<>();
         // create a default tty
         createATty("defaultTTY");
         consoleTabPane.getTabs().get(0).setClosable(false);
@@ -86,7 +88,26 @@ public class SubControllerConsoleViewController implements Initializable {
         Tab tab = new Tab(ttyName);
         tab.setContent(tty.getContainer());
         consoleTabPane.getTabs().add(tab);
+        ttyPool.put(tty.getId() , tty);
+        tab.setOnClosed(new EventHandler<Event>() {
+            @Override
+            public void handle(Event event) {// 设置TTY的GUI关闭事件
+                removeTtyById(tty.getId());
+            }
+        });
         return tty;
+    }
+
+    /**
+     * 通过TTYID移除tty
+     * @param ttyId 要移除的TTYid
+     */
+    public void removeTtyById(String ttyId){
+        Tty tty = ttyPool.get(ttyId);
+        tty.container.getEngine().load("http://");
+        ttyPool.remove(ttyId);
+        int index = ttyList.indexOf(ttyId);
+        consoleTabPane.getTabs().remove(index);
     }
 
     /**
