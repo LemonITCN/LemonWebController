@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
@@ -35,6 +36,9 @@ public class SubControllerConsoleViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ttyPools = new HashMap<>();
+        // create a default tty
+        createATty("defaultTTY");
+        consoleTabPane.getTabs().get(0).setClosable(false);
     }
 
     public Stage getConsoleStage() {
@@ -66,16 +70,23 @@ public class SubControllerConsoleViewController implements Initializable {
         if (newTtyNameTextField.getText().length() > 0) {
             this.createATty(newTtyNameTextField.getText());
         }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR,"");
+            alert.setTitle("Create new tty error");
+            alert.getDialogPane().setContentText("Can not create new tty, because you have not entered the name of the TTY!");
+            alert.showAndWait();
+        }
     }
 
     /**
      * 添加一个TTY
      */
-    public void createATty(String ttyName){
+    public Tty createATty(String ttyName){
         Tty tty = new Tty(ttyName);
         Tab tab = new Tab(ttyName);
         tab.setContent(tty.getContainer());
         consoleTabPane.getTabs().add(tab);
+        return tty;
     }
 
     /**
@@ -126,4 +137,5 @@ public class SubControllerConsoleViewController implements Initializable {
             this.container = container;
         }
     }
+
 }

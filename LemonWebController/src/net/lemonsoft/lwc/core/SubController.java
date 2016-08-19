@@ -89,6 +89,25 @@ public class SubController implements Core {
     }
 
     /**
+     * 关闭指定id的浏览器
+     * @param id 要关闭的浏览器的id
+     */
+    public void closeBrowserById(String id){
+        Browser browser = browserPool.get(id);
+        browser.close();
+        browserPool.remove(id);
+    }
+
+    /**
+     * 是否存在这个浏览器的ID
+     * @param id 要判断是否存在的浏览器的ID
+     * @return 是否存在这个浏览器的布尔值
+     */
+    public boolean containTheBrowserId(String id){
+        return browserPool.containsKey(id);
+    }
+
+    /**
      * 通过浏览器ID获取浏览器对象
      *
      * @param id 要获取的浏览器id
