@@ -9,14 +9,22 @@ function Browser() {
      * 显示这个浏览器
      */
     this.show = function () {
-        window.browser.show(id);
+        Log.info("run show");
+        try {
+            window.browser.show(id);
+        } catch (e){
+            Log.error("e.message" + e.message);
+        }
+        Log.info("run show over");
     };
 
     /**
      * 隐藏这个浏览器
      */
     this.hide = function () {
+        Log.info("run hide");
         window.browser.hide(id);
+        Log.info("run hide over");
     };
 
     /**
@@ -49,10 +57,10 @@ function Browser() {
      * @param jsCode
      */
     this.executeJavaScript = function (jsCode) {
-        window.browser.executeJavaScript(id , jsCode);
+        return window.browser.executeJavaScript(id , jsCode);
     };
 
     this.operate = new BrowserOperate(this);
-    this.dataGet = new BorwserDataGet(this);
+    this.dataGet = new BrowserDataGet(this);
 
 }

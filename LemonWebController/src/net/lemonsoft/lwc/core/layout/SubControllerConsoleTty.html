@@ -13,40 +13,13 @@
     <input type="button" value="Run" id="ttyConsoleInputRunButton">
 </div>
 <script>
-    function LogItem(content , type) {
-        this.content;
-        this.type;
-        this.time = Math.round(new Date().getTime());
-    }
-    function Log() {
-    }
-    Log.msg = function (typeIndex, info) {
-        var classArr = ["logItemSuccess" , "logItemError" , "logItemInfo" , "logItemWarning"];
-        var logElement = document.createElement("div");
-        logElement.setAttribute("class" , classArr[typeIndex]);
-        logElement.innerText = "[LOG]" + info;
-        document.getElementById("logList").appendChild(logElement);
-    };
-    Log.success = function (info) {
-        this.msg(0 , info);
-    };
-    Log.error = function (info) {
-        this.msg(1 , info);
-    };
-    Log.info = function (info) {
-        this.msg(2 , info);
-    };
-    Log.warning = function (info) {
-        this.msg(3 , info);
-    };
-
     var runButton = document.getElementById("ttyConsoleInputRunButton");
     var inputTextArea = document.getElementById("ttyConsoleInputTextArea");
     runButton.onclick = function () {
         try{
             var code = inputTextArea.value;
             inputTextArea.value = "";
-            Log.info(eval(code));
+            Log.info(window.execute.execute(code));
         }
         catch (e){
             Log.error("Occur a error: " + e.message);
@@ -62,6 +35,6 @@
         Log.success("Good job. You have successfully created a new TTY!");
     };
 </script>
-<script type="text/javascript" src="../SystemCommand.min.js"></script>
+<script type="text/javascript" src="../systemCommand/SystemCommand.min.js"></script>
 </body>
 </html>

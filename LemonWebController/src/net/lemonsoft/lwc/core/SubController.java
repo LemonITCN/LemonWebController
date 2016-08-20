@@ -207,7 +207,6 @@ public class SubController implements Core {
     public SubControllerConsoleViewController getConsole(){
         if (defaultConsoleStage == null) {
             defaultConsoleStage = new Stage();
-            defaultConsole = new SubControllerConsoleViewController();
             try {
                 String corePath = getClass().getResource("").toString();
                 FXMLLoader loader = new FXMLLoader(new URL(String.format("%slayout/%s.fxml", corePath, CONSOLE_FILE_NAME)));
@@ -219,6 +218,8 @@ public class SubController implements Core {
                 defaultConsole = loader.getController();
                 defaultConsole.setConsoleStage(defaultConsoleStage);
                 defaultConsole.belongSubController = this;
+                defaultConsole.createATty("defaultTTY");
+                defaultConsole.getConsoleTabPane().getTabs().get(0).setClosable(false);
                 this.refreshGUI();
             } catch (Exception e) {
                 e.printStackTrace();

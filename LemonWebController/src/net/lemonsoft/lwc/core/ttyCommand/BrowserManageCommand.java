@@ -77,8 +77,8 @@ public class BrowserManageCommand {
      * @param browserId 要执行命令的浏览器的id
      * @param jsCode 要执行的js代码
      */
-    public void executeJavaScript(String browserId , String jsCode){
-        controller.getBrowserById(browserId).executeJavaScript(jsCode);
+    public Object executeJavaScript(String browserId , String jsCode){
+        return controller.getBrowserById(browserId).executeJavaScript(jsCode);
     }
 
 }
