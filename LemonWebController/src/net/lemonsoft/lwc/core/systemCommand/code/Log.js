@@ -23,10 +23,14 @@ function LogModel(content , type) {
  */
 Log.msg = function (typeIndex, info) {
     var classArr = ["logItemSuccess" , "logItemError" , "logItemInfo" , "logItemWarning"];
-    var logElement = document.createElement("div");
-    logElement.setAttribute("class" , classArr[typeIndex]);
-    logElement.innerText = "[LOG]" + info;
-    document.getElementById("logList").appendChild(logElement);
+    try {
+        var logElement = document.createElement("div");
+        logElement.setAttribute("class", classArr[typeIndex]);
+        logElement.innerText = "[LOG]" + info;
+        document.getElementById("logList").appendChild(logElement);
+    } catch (e){
+        console.log("No GUI to log:" + info);
+    }
 };
 
 /**

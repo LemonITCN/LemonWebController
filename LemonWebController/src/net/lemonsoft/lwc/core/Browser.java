@@ -41,8 +41,13 @@ public class Browser extends Stage {
         this.webView.getEngine().getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
             @Override
             public void changed(ObservableValue<? extends Worker.State> observable, Worker.State oldValue, Worker.State newValue) {
+                System.out.println("STATE:" + newValue);
+                if (newValue == Worker.State.SUCCEEDED){
+                    System.out.println("OKOK");
+                }
                 try {
                     belongSubController.refreshGUI();
+                    setTitle(String.format("[%s] - %s" , id , (String) webView.getEngine().executeScript("document.title")));
                     JSObject window = (JSObject) webView.getEngine().executeScript("window");
                     window.setMember("console", browserConsoleCommand);// 设置控制台命令
                 } catch (Exception e) {

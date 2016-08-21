@@ -82,7 +82,6 @@ public class SubController implements Core {
      */
     public String createBrowser() {
         Browser browser = new Browser(this);
-        browser.show();
         browserPool.put(browser.getId(), browser);
         refreshGUI();
         return browser.getId();
@@ -90,9 +89,10 @@ public class SubController implements Core {
 
     /**
      * 关闭指定id的浏览器
+     *
      * @param id 要关闭的浏览器的id
      */
-    public void closeBrowserById(String id){
+    public void closeBrowserById(String id) {
         Browser browser = browserPool.get(id);
         browser.close();
         browserPool.remove(id);
@@ -100,10 +100,11 @@ public class SubController implements Core {
 
     /**
      * 是否存在这个浏览器的ID
+     *
      * @param id 要判断是否存在的浏览器的ID
      * @return 是否存在这个浏览器的布尔值
      */
-    public boolean containTheBrowserId(String id){
+    public boolean containTheBrowserId(String id) {
         return browserPool.containsKey(id);
     }
 
@@ -171,6 +172,25 @@ public class SubController implements Core {
     }
 
     /**
+     * 获取数据收集池对象
+     *
+     * @return 数据收集池对象
+     */
+    public Map<String, Object> getDataCollectionPool() {
+        return dataCollectionPool;
+    }
+
+    /**
+     * 向数据收集池中放入一个键值对数据
+     *
+     * @param key   要放入的键
+     * @param value 放入的值
+     */
+    public void putData(String key, Object value) {
+        dataCollectionPool.put(key, value);
+    }
+
+    /**
      * 获取当前子控制器对应的GUI界面Stage
      *
      * @return 对应的GUI Stage对象
@@ -202,9 +222,10 @@ public class SubController implements Core {
 
     /**
      * 创建一个控制台
+     *
      * @return 新创建出来的控制台对象
      */
-    public SubControllerConsoleViewController getConsole(){
+    public SubControllerConsoleViewController getConsole() {
         if (defaultConsoleStage == null) {
             defaultConsoleStage = new Stage();
             try {
@@ -254,28 +275,31 @@ public class SubController implements Core {
 
     /**
      * 获取指定的浏览器的当前加载的URL
+     *
      * @param browserId 要获取URL的浏览器的ID
      * @return 当前加载的URL字符串
      */
-    public String getBrowserCurrentUrlByBrowserId(String browserId){
+    public String getBrowserCurrentUrlByBrowserId(String browserId) {
         return getBrowserById(browserId).getCurrentUrl();
     }
 
     /**
      * 获取指定的浏览器的当前的标题
+     *
      * @param browserId 要获取标题的浏览器的ID
      * @return 当前浏览器中加载的页面的标题
      */
-    public String getBrowserCurrentTitleByBrowserId(String browserId){
+    public String getBrowserCurrentTitleByBrowserId(String browserId) {
         return getBrowserById(browserId).getCurrentTitle();
     }
 
     /**
      * 获取指定的浏览器是否现在被显示
+     *
      * @param browserId 要判断是否显示的浏览器id
      * @return 指定的浏览器现在是否显示的布尔值
      */
-    public boolean getBrowserIsShowingByBrowserId(String browserId){
+    public boolean getBrowserIsShowingByBrowserId(String browserId) {
         return getBrowserById(browserId).isShowing();
     }
 

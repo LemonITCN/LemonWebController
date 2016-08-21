@@ -5,12 +5,14 @@ import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.scene.web.WebView;
 import net.lemonsoft.lwc.core.ttyCommand.BrowserManageCommand;
+import net.lemonsoft.lwc.core.ttyCommand.DataCollectionCommand;
 import netscape.javascript.JSObject;
 
 import java.io.*;
 import java.util.UUID;
 
 /**
+ * Tty - 控制台单位
  * Created by LiuRi on 16/8/20.
  */
 public class Tty {
@@ -24,19 +26,17 @@ public class Tty {
 
     public Tty(String name, SubController controller) {
         super();
-        if (systemCommandJSCode == null){
+        if (systemCommandJSCode == null) {
             systemCommandJSCode = new StringBuilder();
-            System.out.println(getClass().getResource("").toString().substring(5) + "systemCommand/SystemCommand.min.js");
             File file = new File(getClass().getResource("").toString().substring(5) + "systemCommand/SystemCommand.min.js");
-            if (file.isFile() && file.exists()){
+            if (file.isFile() && file.exists()) {
                 try {
-                    InputStreamReader reader = new InputStreamReader(new FileInputStream(file) , "UTF-8");
+                    InputStreamReader reader = new InputStreamReader(new FileInputStream(file), "UTF-8");
                     BufferedReader bufferedReader = new BufferedReader(reader);
                     String line = null;
-                    while ((line = bufferedReader.readLine()) != null){
+                    while ((line = bufferedReader.readLine()) != null) {
                         systemCommandJSCode.append(line);
                     }
-                    System.out.println("CODE;:" + systemCommandJSCode.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -49,14 +49,21 @@ public class Tty {
         container = new WebView();
         container.getStyleClass().add("ttyWebView");
         JSObject window = (JSObject) container.getEngine().executeScript("window");
-        window.setMember("execute", new TtyExecute(container));
-        window.setMember("browser", new BrowserManageCommand(belongSubController));
+
+        TtyExecute ttyExecute = new TtyExecute(container);
+        BrowserManageCommand manageCommand = new BrowserManageCommand(belongSubController);
+        DataCollectionCommand collectionCommand = new DataCollectionCommand(belongSubController);
+
+        window.setMember("execute", ttyExecute);
+        window.setMember("browser", manageCommand);
+        window.setMember("dataCollection" , collectionCommand);
         container.getEngine().executeScript(systemCommandJSCode.toString());
         container.getEngine().getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
             @Override
             public void changed(ObservableValue<? extends Worker.State> observable, Worker.State oldValue, Worker.State newValue) {
-                window.setMember("execute", new TtyExecute(container));
-                window.setMember("browser", new BrowserManageCommand(belongSubController));
+                window.setMember("execute", ttyExecute);
+                window.setMember("browser", manageCommand);
+                window.setMember("dataCollection" , collectionCommand);
                 container.getEngine().executeScript(systemCommandJSCode.toString());
             }
         });
