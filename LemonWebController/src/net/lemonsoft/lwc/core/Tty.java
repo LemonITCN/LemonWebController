@@ -51,7 +51,7 @@ public class Tty {
         JSObject window = (JSObject) container.getEngine().executeScript("window");
 
         TtyExecute ttyExecute = new TtyExecute(container);
-        BrowserManageCommand manageCommand = new BrowserManageCommand(belongSubController);
+        BrowserManageCommand manageCommand = new BrowserManageCommand(belongSubController , this);
         DataCollectionCommand collectionCommand = new DataCollectionCommand(belongSubController);
 
         window.setMember("execute", ttyExecute);

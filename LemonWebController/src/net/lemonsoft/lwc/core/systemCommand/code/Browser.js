@@ -6,13 +6,21 @@ function Browser() {
     var id = window.browser.create();
 
     /**
+     * 获取浏览器ID
+     * @returns {Object} 浏览器的id
+     */
+    this.getId = function () {
+        return id;
+    };
+
+    /**
      * 显示这个浏览器
      */
     this.show = function () {
         Log.info("run show");
         try {
             window.browser.show(id);
-        } catch (e){
+        } catch (e) {
             Log.error("e.message" + e.message);
         }
         Log.info("run show over");
@@ -40,7 +48,7 @@ function Browser() {
      * @param height 浏览器的窗口高度
      */
     this.setSize = function (width, height) {
-        window.browser.setSize(id , width , height);
+        window.browser.setSize(id, width, height);
     };
 
     /**
@@ -49,7 +57,7 @@ function Browser() {
      * @param y 新位置的y坐标
      */
     this.setPosition = function (x, y) {
-        window.browser.setPosition(id , x , y);
+        window.browser.setPosition(id, x, y);
     };
 
     /**
@@ -57,7 +65,7 @@ function Browser() {
      * @param jsCode
      */
     this.executeJavaScript = function (jsCode) {
-        return window.browser.executeJavaScript(id , jsCode);
+        return window.browser.executeJavaScript(id, jsCode);
     };
 
     this.operate = new BrowserOperate(this);

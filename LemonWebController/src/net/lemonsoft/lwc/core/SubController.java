@@ -239,7 +239,7 @@ public class SubController implements Core {
                 defaultConsole = loader.getController();
                 defaultConsole.setConsoleStage(defaultConsoleStage);
                 defaultConsole.belongSubController = this;
-                defaultConsole.createATty("defaultTTY");
+                defaultConsole.setDefaultTty(defaultConsole.createATty("defaultTTY"));
                 defaultConsole.getConsoleTabPane().getTabs().get(0).setClosable(false);
                 this.refreshGUI();
             } catch (Exception e) {

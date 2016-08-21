@@ -2,6 +2,7 @@ package net.lemonsoft.lwc.core.ttyCommand;
 
 import net.lemonsoft.lwc.core.Browser;
 import net.lemonsoft.lwc.core.SubController;
+import net.lemonsoft.lwc.core.Tty;
 
 /**
  * 浏览器管理命令
@@ -10,75 +11,108 @@ import net.lemonsoft.lwc.core.SubController;
  */
 public class BrowserManageCommand {
 
-    private SubController controller;
+    private SubController belongController;
 
-    public BrowserManageCommand(SubController controller){
+    private Tty belongTty;
+
+    public BrowserManageCommand(SubController belongController, Tty tty) {
         super();
-        this.controller = controller;
+        this.belongController = belongController;
+        this.belongTty = tty;
     }
 
     /**
      * 创建一个浏览器
+     *
      * @return 创建一个浏览器
      */
-    public String create(){
-        return controller.createBrowser();
+    public String create() {
+        return belongController.createBrowser();
     }
 
     /**
      * 显示指定的浏览器
+     *
      * @param browserId 要显示的浏览器的ID
      */
-    public void show(String browserId){
-        controller.getBrowserById(browserId).show();
+    public void show(String browserId) {
+        belongController.getBrowserById(browserId).show();
     }
 
     /**
      * 隐藏指定的浏览器
+     *
      * @param browserId 要隐藏的浏览器的ID
      */
-    public void hide(String browserId){
-        controller.getBrowserById(browserId).hide();
+    public void hide(String browserId) {
+        belongController.getBrowserById(browserId).hide();
     }
 
     /**
      * 关闭这个浏览器
+     *
      * @param browserId 要关闭的浏览器的id
      */
-    public void close(String browserId){
-        controller.closeBrowserById(browserId);
+    public void close(String browserId) {
+        belongController.closeBrowserById(browserId);
     }
 
     /**
      * 设置浏览器的窗口尺寸
+     *
      * @param browserId 要设置的浏览器的id
-     * @param width 浏览器的宽度
-     * @param height 浏览器的高度
+     * @param width     浏览器的宽度
+     * @param height    浏览器的高度
      */
-    public void setSize(String browserId , double width , double height){
-        controller.getBrowserById(browserId).setWidth(width);
-        controller.getBrowserById(browserId).setHeight(height);
+    public void setSize(String browserId, double width, double height) {
+        belongController.getBrowserById(browserId).setWidth(width);
+        belongController.getBrowserById(browserId).setHeight(height);
     }
 
     /**
      * 设置浏览器的位置信息
+     *
      * @param browserId 要设置位置的浏览器id
-     * @param x 要设置成的x坐标
-     * @param y 要设置成的y坐标
+     * @param x         要设置成的x坐标
+     * @param y         要设置成的y坐标
      */
-    public void setPosition(String browserId , double x ,double y){
-        Browser browser = controller.getBrowserById(browserId);
+    public void setPosition(String browserId, double x, double y) {
+        Browser browser = belongController.getBrowserById(browserId);
         browser.setX(x);
         browser.setY(y);
     }
 
     /**
      * 让指定的浏览器执行指定的js代码
+     *
      * @param browserId 要执行命令的浏览器的id
-     * @param jsCode 要执行的js代码
+     * @param jsCode    要执行的js代码
      */
-    public Object executeJavaScript(String browserId , String jsCode){
-        return controller.getBrowserById(browserId).executeJavaScript(jsCode);
+    public Object executeJavaScript(String browserId, String jsCode) {
+        return belongController.getBrowserById(browserId).executeJavaScript(jsCode);
+    }
+
+    /**
+     * 让浏览器加载指定的URL
+     *
+     * @param browserId       要加载URL的id
+     * @param url             要加载的URL
+     * @param successCallback 加载成功的回调函数
+     * @param failedCallback  加载失败的回调函数
+     */
+    public void loadURL(String browserId, String url, Object successCallback, Object failedCallback) {
+        Browser browser = belongController.getBrowserById(browserId);
+        browser.loadUrl(url, new Browser.LoadURLHandler() {
+            @Override
+            public void loadSuccess() {
+                Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();" , successCallback));
+            }
+
+            @Override
+            public void loadFailed() {
+                belongTty.executeJavaScript(String.format("var _lk_failed_c = %s();" , failedCallback));
+            }
+        });
     }
 
 }

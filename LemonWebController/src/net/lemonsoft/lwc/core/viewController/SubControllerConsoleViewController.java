@@ -29,6 +29,8 @@ public class SubControllerConsoleViewController implements Initializable {
     private HashMap<String, Tty> ttyPool;// 控制台单位池
     private List<String> ttyList;// 控制台单位列表，用于记录TTY ID与GUI界面的顺序对应
 
+    private Tty defaultTty;
+
     @FXML
     private TabPane consoleTabPane;
     @FXML
@@ -122,4 +124,11 @@ public class SubControllerConsoleViewController implements Initializable {
         return ttyPool.get(ttyId);
     }
 
+    public Tty getDefaultTty() {
+        return defaultTty;
+    }
+
+    public void setDefaultTty(Tty defaultTty) {
+        this.defaultTty = defaultTty;
+    }
 }

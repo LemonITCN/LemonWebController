@@ -5,8 +5,8 @@ function BrowserOperate(browserObj) {
      * 加载URL
      * @param url 要加载的URL
      */
-    this.loadURL = function (url) {
-        browser.executeJavaScript("location.href = '" + url + "'");
+    this.loadURL = function (url , successCallback , failedCallback) {
+        window.browser.loadURL(browser.getId() , url , successCallback , failedCallback);
     };
 
     /**

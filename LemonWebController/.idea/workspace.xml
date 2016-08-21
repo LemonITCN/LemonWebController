@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_6_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/DataCollection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/DataCollectionCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LemonWebController.iml" afterPath="$PROJECT_DIR$/LemonWebController.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/Main.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Browser.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Browser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Tty.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Tty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/MainManagerStage.fxml" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/MainManagerStage.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerStage.fxml" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerStage.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.min.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Log.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Log.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerConsoleViewController.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerConsoleViewController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,58 +82,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SubControllerViewController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerViewController.java">
+      <file leaf-file-name="SubControllerConsoleViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerConsoleViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-152">
-              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="190" column="5" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
+            <state relative-caret-position="1940">
+              <caret line="126" column="32" selection-start-line="126" selection-start-column="32" selection-end-line="126" selection-end-column="32" />
               <folding>
-                <element signature="e#3129#3130#0" expanded="true" />
-                <element signature="e#4830#4831#0" expanded="true" />
-                <element signature="e#4871#4872#0" expanded="true" />
-                <element signature="e#5022#5023#0" expanded="true" />
-                <element signature="e#5072#5073#0" expanded="true" />
-                <element signature="e#9285#9286#0" expanded="true" />
+                <element signature="e#3170#3171#0" expanded="true" />
+                <element signature="e#3211#3212#0" expanded="true" />
+                <element signature="e#3278#3279#0" expanded="true" />
+                <element signature="e#3327#3328#0" expanded="true" />
+                <element signature="e#3371#3372#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataCollection.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/DataCollection.js">
+      <file leaf-file-name="Browser.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="807">
-              <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+            <state relative-caret-position="297">
+              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BrowserOperate.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3432">
-              <caret line="104" column="47" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tty.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Tty.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Tty.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="65" column="71" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
+            <state relative-caret-position="0">
+              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,11 +120,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SubController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="653">
+              <caret line="241" column="84" selection-start-line="241" selection-start-column="84" selection-end-line="241" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DataCollectionCommand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/DataCollectionCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="22" selection-end-column="7" />
+            <state relative-caret-position="264">
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
               <folding>
                 <element signature="e#497#498#0" expanded="true" />
                 <element signature="e#552#553#0" expanded="true" />
@@ -158,12 +147,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Browser.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Browser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Browser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+            <state relative-caret-position="-3010">
+              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrowserOperate.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrowserManageCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="775">
+              <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+              <folding>
+                <element signature="e#616#617#0" expanded="true" />
+                <element signature="e#671#672#0" expanded="true" />
+                <element signature="e#787#788#0" expanded="true" />
+                <element signature="e#968#969#0" expanded="true" />
+                <element signature="e#1149#1150#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,7 +187,7 @@
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,18 +198,8 @@
       <file leaf-file-name="BrowserDataGet.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
+            <state relative-caret-position="1122">
               <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Log.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -254,7 +259,6 @@
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubControllerConsole.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerConsole.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerStage.fxml" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerConsoleStage.fxml" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/stylesheet/SubControllerConsoleStage.css" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/systemCommand/code/Util.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/stylesheet/SubControllerConsoleTty.css" />
@@ -262,20 +266,21 @@
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/systemCommand/code/Browser.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/systemCommand/code/BrowserDataGet.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerViewController.java" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerConsoleTty.html" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerConsoleViewController.java" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/Main.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Log.js" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Browser.java" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/DataCoolection.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/DataCollectionCommand.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/DataCollection.js" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Tty.java" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerConsoleStage.fxml" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerConsoleViewController.java" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/Main.java" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Browser.java" />
       </list>
     </option>
   </component>
@@ -1044,7 +1049,7 @@
       <workItem from="1471491870024" duration="12491000" />
       <workItem from="1471565885051" duration="26524000" />
       <workItem from="1471651161895" duration="15158000" />
-      <workItem from="1471735688748" duration="4817000" />
+      <workItem from="1471735688748" duration="7922000" />
     </task>
     <task id="LOCAL-00001" summary="临时提交一次">
       <created>1471505650228</created>
@@ -1081,11 +1086,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471679385748</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="增加了数据收集池的功能">
+      <created>1471774171040</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1471774171040</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109712000" />
+    <option name="totallyTimeSpent" value="112817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-367" y="-1440" width="2560" height="1440" extended-state="0" />
@@ -1099,12 +1111,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16590703" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19820493" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16529544" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19820493" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17133707" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17133707" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32834706" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1120,7 +1133,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1172,19 +1184,12 @@
     <MESSAGE value="完善了Console" />
     <MESSAGE value="完成了TTY的删除功能" />
     <MESSAGE value="修改了TTY的机制,保证直接用代码调用TTY命令控制浏览器的可用性" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了TTY的机制,保证直接用代码调用TTY命令控制浏览器的可用性" />
+    <MESSAGE value="增加了数据收集池的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了数据收集池的功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java</url>
-          <line>24</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="47" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1193,7 +1198,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/beans/property/BooleanPropertyBase.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/stage/Window.java" />
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerConsoleViewController.java" />
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Core.java">
@@ -1336,14 +1340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/scene/web/WebEngine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1383,17 +1379,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerConsoleStage.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/beans/property/ReadOnlyObjectPropertyBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1584">
@@ -1413,39 +1398,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#530#531#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerConsoleViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1063#1064#0" expanded="true" />
-            <element signature="e#1493#1494#0" expanded="true" />
-            <element signature="e#1528#1529#0" expanded="true" />
-            <element signature="e#2540#2541#0" expanded="true" />
-            <element signature="e#2614#2615#0" expanded="true" />
-            <element signature="e#3141#3142#0" expanded="true" />
-            <element signature="e#3182#3183#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1489,51 +1446,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Browser.java">
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/DataCollection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+        <state relative-caret-position="807">
+          <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+          <folding>
+            <marker date="1471773684000" expanded="true" signature="26:29" ph="{...}" />
+            <marker date="1471773684000" expanded="true" signature="287:333" ph="{...}" />
+            <marker date="1471773684000" expanded="true" signature="425:474" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LemonWebController.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerConsoleStage.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="190" column="5" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
-          <folding>
-            <element signature="e#3129#3130#0" expanded="true" />
-            <element signature="e#4830#4831#0" expanded="true" />
-            <element signature="e#4871#4872#0" expanded="true" />
-            <element signature="e#5022#5023#0" expanded="true" />
-            <element signature="e#5072#5073#0" expanded="true" />
-            <element signature="e#9285#9286#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="653">
+          <caret line="241" column="84" selection-start-line="241" selection-start-column="84" selection-end-line="241" selection-end-column="84" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="297">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Tty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/DataCollectionCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="22" selection-end-column="7" />
+        <state relative-caret-position="264">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
           <folding>
             <element signature="e#497#498#0" expanded="true" />
             <element signature="e#552#553#0" expanded="true" />
@@ -1545,29 +1534,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/DataCollection.js">
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerConsoleViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
-          <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="1940">
+          <caret line="126" column="32" selection-start-line="126" selection-start-column="32" selection-end-line="126" selection-end-column="32" />
+          <folding>
+            <element signature="e#3170#3171#0" expanded="true" />
+            <element signature="e#3211#3212#0" expanded="true" />
+            <element signature="e#3278#3279#0" expanded="true" />
+            <element signature="e#3327#3328#0" expanded="true" />
+            <element signature="e#3371#3372#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js">
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3432">
-          <caret line="104" column="47" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
-          <folding />
+        <state relative-caret-position="775">
+          <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+          <folding>
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#968#969#0" expanded="true" />
+            <element signature="e#1149#1150#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Tty.java">
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="65" column="71" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
+        <state relative-caret-position="561">
+          <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Browser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3010">
+          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

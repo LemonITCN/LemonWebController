@@ -11,6 +11,7 @@ import netscape.javascript.JSObject;
 import java.util.UUID;
 
 /**
+ * 浏览器对象
  * Created by lemonsoft on 2016/8/14.
  */
 public class Browser extends Stage {
@@ -24,6 +25,8 @@ public class Browser extends Stage {
     private SubController belongSubController;// 归属于的子控制器
 
     private BrowserConsoleCommand browserConsoleCommand;
+
+    private LoadURLHandler loadURLHandler;
 
     private Browser() {
         super();
@@ -41,13 +44,17 @@ public class Browser extends Stage {
         this.webView.getEngine().getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
             @Override
             public void changed(ObservableValue<? extends Worker.State> observable, Worker.State oldValue, Worker.State newValue) {
-                System.out.println("STATE:" + newValue);
-                if (newValue == Worker.State.SUCCEEDED){
-                    System.out.println("OKOK");
+                if (newValue == Worker.State.SUCCEEDED) {
+                    if (loadURLHandler != null)
+                        loadURLHandler.loadSuccess();
+                }
+                if (newValue == Worker.State.FAILED) {
+                    if (loadURLHandler != null)
+                        loadURLHandler.loadFailed();
                 }
                 try {
                     belongSubController.refreshGUI();
-                    setTitle(String.format("[%s] - %s" , id , (String) webView.getEngine().executeScript("document.title")));
+                    setTitle(String.format("[%s] - %s", id, (String) webView.getEngine().executeScript("document.title")));
                     JSObject window = (JSObject) webView.getEngine().executeScript("window");
                     window.setMember("console", browserConsoleCommand);// 设置控制台命令
                 } catch (Exception e) {
@@ -106,6 +113,17 @@ public class Browser extends Stage {
     }
 
     /**
+     * 加载URL
+     *
+     * @param url            要加载的指定的url
+     * @param loadURLHandler 加载的回调机制
+     */
+    public void loadUrl(String url, LoadURLHandler loadURLHandler) {
+        this.loadURLHandler = loadURLHandler;
+        this.webView.getEngine().load(url);
+    }
+
+    /**
      * 设置当前浏览器窗口是否显示
      *
      * @param isShow 设置浏览器窗口是否显示的布尔值
@@ -151,6 +169,22 @@ public class Browser extends Stage {
                 belongSubController.consoleOut(getId(), out);
             }
         }
+    }
+
+    /**
+     * 加载URL的机制
+     */
+    public interface LoadURLHandler {
+
+        /**
+         * 加载成功
+         */
+        void loadSuccess();
+
+        /**
+         * 加载失败
+         */
+        void loadFailed();
     }
 
 }
