@@ -105,12 +105,12 @@ public class BrowserManageCommand {
         browser.loadUrl(url, new Browser.LoadURLHandler() {
             @Override
             public void loadSuccess() {
-                Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();" , successCallback));
+                Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();_lk_success_c=null;" , successCallback));
             }
 
             @Override
             public void loadFailed() {
-                belongTty.executeJavaScript(String.format("var _lk_failed_c = %s();" , failedCallback));
+                belongTty.executeJavaScript(String.format("var _lk_failed_c = %s();_lk_failed_c=null;" , failedCallback));
             }
         });
     }

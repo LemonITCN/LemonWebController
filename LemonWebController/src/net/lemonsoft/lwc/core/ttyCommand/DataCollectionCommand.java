@@ -43,7 +43,7 @@ public class DataCollectionCommand {
      */
     public Object remove(String key) {
         Object value = belongSubController.getDataCollectionPool().get(key);
-        belongSubController.getDataCollectionPool().remove(key);
+        belongSubController.removeData(key);
         return value;
     }
 
@@ -51,7 +51,7 @@ public class DataCollectionCommand {
      * 移除所有的采集数据
      */
     public void removeAll() {
-        belongSubController.getDataCollectionPool().clear();
+        belongSubController.removeAllData();
     }
 
 }

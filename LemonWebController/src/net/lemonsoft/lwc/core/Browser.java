@@ -3,7 +3,10 @@ package net.lemonsoft.lwc.core;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import netscape.javascript.JSObject;
@@ -66,6 +69,40 @@ public class Browser extends Stage {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 belongSubController.refreshGUI();
+            }
+        });
+        final boolean[] shift_press = {false};
+        final boolean[] s_press = {false};
+        this.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                KeyCode code = event.getCode();
+                switch (code) {
+                    case SHIFT:
+                        shift_press[0] = true;
+                        break;
+                    case S:
+                        s_press[0] = true;
+                        break;
+                    default:
+                }
+                if (shift_press[0] && s_press[0])
+                    belongSubController.getGUIStage().show();// 触发shift-s执行代码
+            }
+        });
+        this.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                KeyCode code = event.getCode();
+                switch (code) {
+                    case SHIFT:
+                        shift_press[0] = false;
+                        break;
+                    case S:
+                        s_press[0] = false;
+                        break;
+                    default:
+                }
             }
         });
     }

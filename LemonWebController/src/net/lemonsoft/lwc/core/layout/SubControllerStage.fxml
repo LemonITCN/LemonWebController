@@ -1,7 +1,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.*?>
-<FlowPane xmlns:fx="http://javafx.com/fxml" fx:belongController="net.lemonsoft.lwc.core.viewController.SubControllerViewController"
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.viewController.SubControllerViewController"
           styleClass="rootFlowPane">
     <TableView fx:id="rootTableView">
         <columns>
@@ -31,6 +31,7 @@
         <Button text="Refresh" onMouseClicked="#refresh" />
         <Button text="Add a browser" onMouseClicked="#addBrowser"/>
         <Button text="Open GUI console" onMouseClicked="#openGUIConsole"/>
+        <Button text="Open GUI data collection" onMouseClicked="#openDataCollectionGUI"/>
     </HBox>
     <Label fx:id="currentSelectedLabel"/>
     <VBox styleClass="consoleVBox">

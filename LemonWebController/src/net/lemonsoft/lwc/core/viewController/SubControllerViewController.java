@@ -139,6 +139,13 @@ public class SubControllerViewController implements Initializable, CoreControlle
     }
 
     /**
+     * 打开数据收集池的GUI界面
+     */
+    public void openDataCollectionGUI(){
+        belongSubController.showDataCollectionGUI();
+    }
+
+    /**
      * 设置tableView选中指定的浏览器ID对应的行
      *
      * @param browserId 要设置选中行的浏览器id

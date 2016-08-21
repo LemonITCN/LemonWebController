@@ -1,0 +1,21 @@
+.root{
+    -fx-pref-width: 550px;
+    -fx-pref-height: 500px;
+}
+#dataKeyField{
+    -fx-pref-width: 220px;
+}
+#dataValueField{
+    -fx-pref-width: 230px;
+}
+.putDataBox{
+    -fx-spacing: 5px;
+}
+.operateBox{
+    -fx-padding: 10px;
+    -fx-spacing: 5px;
+}
+.copyrightLabel{
+    -fx-pref-width: 550px;
+    -fx-alignment: center;
+}

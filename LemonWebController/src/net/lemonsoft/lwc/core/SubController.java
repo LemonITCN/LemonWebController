@@ -1,10 +1,12 @@
 package net.lemonsoft.lwc.core;
 
+import com.sun.scenario.effect.impl.prism.PrImage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import net.lemonsoft.lwc.core.viewController.SubControllerConsoleViewController;
+import net.lemonsoft.lwc.core.viewController.SubControllerDataCollectionViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
 
 import java.net.URL;
@@ -27,12 +29,17 @@ public class SubController implements Core {
     public SubControllerViewController viewController;
     private SubControllerConsoleViewController defaultConsole;
     private Stage defaultConsoleStage;// 默认的控制台stage
+    private SubControllerDataCollectionViewController defaultDataCollectionViewController;
+    private Stage defaultDataCollectionStage;// 默认的数据收集池的GUI界面
 
     private static final String FILE_NAME = "SubControllerStage";
     private static final String WINDOW_NAME = "SubController[GUI]";
 
     private static final String CONSOLE_FILE_NAME = "SubControllerConsoleStage";
     private static final String CONSOLE_WINDOW_NAME = "SubControllerConsoleViewController[GUI]";
+
+    private static final String DATA_COLLECTION_NAME = "SubControllerDataCollectionStage";
+    private static final String DATA_COLLECTION_WINDOW_NAME = "SubControllerDataCollectionStage[GUI]";
 
     protected SubController(MainManager belongMainManager) {
         super();
@@ -188,6 +195,28 @@ public class SubController implements Core {
      */
     public void putData(String key, Object value) {
         dataCollectionPool.put(key, value);
+        if (defaultDataCollectionViewController != null)
+            defaultDataCollectionViewController.refresh();
+    }
+
+    /**
+     * 删除指定的数据
+     *
+     * @param key 要删除的数据的键
+     */
+    public void removeData(String key) {
+        dataCollectionPool.remove(key);
+        if (defaultDataCollectionViewController != null)
+            defaultDataCollectionViewController.refresh();
+    }
+
+    /**
+     * 删除所有数据
+     */
+    public void removeAllData() {
+        dataCollectionPool.clear();
+        if (defaultDataCollectionViewController != null)
+            defaultDataCollectionViewController.refresh();
     }
 
     /**
@@ -247,6 +276,39 @@ public class SubController implements Core {
             }
         }
         return defaultConsole;
+    }
+
+    /**
+     * 显示数据收集池的GUI界面
+     */
+    public void showDataCollectionGUI() {
+        if (defaultDataCollectionStage == null) {
+            defaultDataCollectionStage = new Stage();
+            try {
+                String corePath = getClass().getResource("").toString();
+                FXMLLoader loader = new FXMLLoader(new URL(String.format("%slayout/%s.fxml", corePath, DATA_COLLECTION_NAME)));
+                Scene rootScene = new Scene(loader.load());
+                rootScene.getStylesheets().add(String.format("%sstylesheet/%s.css", corePath, DATA_COLLECTION_NAME));
+                defaultDataCollectionStage.setScene(rootScene);
+                defaultDataCollectionStage.setTitle(String.format("%s - %s", DATA_COLLECTION_WINDOW_NAME, this.getId()));
+                defaultDataCollectionStage.setResizable(false);
+                defaultDataCollectionViewController = loader.getController();
+                defaultDataCollectionViewController.setBelongSubController(this);
+                this.refreshGUI();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        defaultDataCollectionStage.show();
+        defaultDataCollectionViewController.refresh();
+    }
+
+    /**
+     * 隐藏数据收集池的GUI界面
+     */
+    public void hideDataCollectionGUI() {
+        if (defaultDataCollectionStage != null)
+            defaultDataCollectionStage.hide();
     }
 
     /**
