@@ -28,18 +28,15 @@ public class Tty {
         super();
         if (systemCommandJSCode == null) {
             systemCommandJSCode = new StringBuilder();
-            File file = new File(getClass().getResource("").toString().substring(5) + "systemCommand/SystemCommand.min.js");
-            if (file.isFile() && file.exists()) {
-                try {
-                    InputStreamReader reader = new InputStreamReader(new FileInputStream(file), "UTF-8");
-                    BufferedReader bufferedReader = new BufferedReader(reader);
-                    String line = null;
-                    while ((line = bufferedReader.readLine()) != null) {
-                        systemCommandJSCode.append(line);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+            InputStream inputStream = getClass().getResourceAsStream("systemCommand/SystemCommand.min.js");
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String line = null;
+                while ((line = bufferedReader.readLine()) != null) {
+                    systemCommandJSCode.append(line);
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         Tty self = this;
