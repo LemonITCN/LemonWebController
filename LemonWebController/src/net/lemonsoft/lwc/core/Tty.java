@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.scene.web.WebView;
 import net.lemonsoft.lwc.core.ttyCommand.BrowserManageCommand;
+import net.lemonsoft.lwc.core.ttyCommand.CommunicationCommand;
 import net.lemonsoft.lwc.core.ttyCommand.DataCollectionCommand;
 import net.lemonsoft.lwc.core.ttyCommand.LogCommand;
 import netscape.javascript.JSObject;
@@ -52,11 +53,13 @@ public class Tty {
         BrowserManageCommand manageCommand = new BrowserManageCommand(belongSubController , this);
         DataCollectionCommand collectionCommand = new DataCollectionCommand(belongSubController);
         LogCommand logCommand = new LogCommand(belongSubController);
+        CommunicationCommand communicationCommand = new CommunicationCommand(belongSubController);
 
         window.setMember("execute", ttyExecute);
         window.setMember("browser", manageCommand);
         window.setMember("dataCollection" , collectionCommand);
         window.setMember("log" , logCommand);
+        window.setMember("communication" , communicationCommand);
         container.getEngine().executeScript(systemCommandJSCode.toString());
         container.getEngine().getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
             @Override
@@ -65,6 +68,7 @@ public class Tty {
                 window.setMember("browser", manageCommand);
                 window.setMember("dataCollection" , collectionCommand);
                 window.setMember("log" , logCommand);
+                window.setMember("communication" , communicationCommand);
                 container.getEngine().executeScript(systemCommandJSCode.toString());
             }
         });

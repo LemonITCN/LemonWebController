@@ -98,6 +98,7 @@ public class MainManagerViewController implements Initializable , CoreController
         private Integer ttyCount;
         private Integer logCount;
         private Integer dataCount;
+        private Integer communicationHandlerCount;
 
         public String getId() {
             return id;
@@ -119,12 +120,17 @@ public class MainManagerViewController implements Initializable , CoreController
             return dataCount;
         }
 
+        public Integer getCommunicationHandlerCount() {
+            return communicationHandlerCount;
+        }
+
         public SubControllerCellModel(SubController controller) {
             this.id = controller.getId();
             this.browserCount = controller.getBrowserPoolInfo().size();
             this.ttyCount = controller.getConsole().countTtys();
             this.logCount = controller.countLogs();
             this.dataCount = controller.countData();
+            this.communicationHandlerCount = controller.countCommunicationHandler();
         }
     }
 

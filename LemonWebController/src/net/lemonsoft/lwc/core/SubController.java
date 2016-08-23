@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import net.lemonsoft.lwc.core.handler.CommunicationHandler;
 import net.lemonsoft.lwc.core.viewController.SubControllerConsoleViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerDataCollectionViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
@@ -23,6 +24,7 @@ public class SubController implements Core {
     private Map<String, String> consoleOutputPool;// 控制台输出池
     private Map<String, Object> dataCollectionPool;// 数据收集池, 每个子控制器有一个独立的数据收集池,子控制器下所有的浏览器收集到的数据都会集中放到这个池中
     private List<String> logList;// 日志表
+    private Map<String , CommunicationHandler> communicationHandlerPool;// 通信handler池
 
     private MainManager belongMainManager;
     public SubControllerViewController viewController;
@@ -48,6 +50,7 @@ public class SubController implements Core {
         this.dataCollectionPool = new HashMap<>();
         this.logList = new ArrayList<>();
         this.belongMainManager = belongMainManager;
+        this.communicationHandlerPool = new HashMap<>();
     }
 
     public String getId() {
@@ -229,6 +232,50 @@ public class SubController implements Core {
      */
     public Integer countLogs(){
         return logList.size();
+    }
+
+    /**
+     * 添加一个新的通讯handler
+     * @param name 通讯handler的名称
+     * @param handler 添加的通讯handler
+     */
+    public void setCommunicationHandler(String name , CommunicationHandler handler){
+        communicationHandlerPool.put(name , handler);
+    }
+
+    /**
+     * 调用通讯handler
+     * @param name 通讯handler的名称
+     * @param data 返回的数据
+     */
+    public Object callCommunicationHandler(String name , Object data){
+        if (communicationHandlerPool.containsKey(name)){
+            return communicationHandlerPool.get(name).onMessage(data);
+        }
+        return "";
+    }
+
+    /**
+     * 移除指定名称的通讯handler
+     * @param name 通讯handler的名称
+     */
+    public void removeCommunicationHandlerByName(String name){
+        communicationHandlerPool.remove(name);
+    }
+
+    /**
+     * 移除所有的通讯handler
+     */
+    public void removeAllCommunicationHandler(){
+        communicationHandlerPool.clear();
+    }
+
+    /**
+     * 当前子控制器中的通讯handler数量
+     * @return 通讯handler的数量
+     */
+    public Integer countCommunicationHandler(){
+        return communicationHandlerPool.size();
     }
 
     /**
