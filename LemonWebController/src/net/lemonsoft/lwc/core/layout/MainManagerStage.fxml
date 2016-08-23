@@ -11,19 +11,24 @@
                     <PropertyValueFactory property="id"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Browser Count" minWidth="130">
+            <TableColumn text="Browser Count" minWidth="120">
                 <cellValueFactory>
                     <PropertyValueFactory property="browserCount"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="System Command Count" minWidth="170">
+            <TableColumn text="Tty Count" minWidth="115">
                 <cellValueFactory>
-                    <PropertyValueFactory property="systemCommandCount"/>
+                    <PropertyValueFactory property="ttyCount"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Custom Command Count" minWidth="170">
+            <TableColumn text="Log Count" minWidth="115">
                 <cellValueFactory>
-                    <PropertyValueFactory property="customCommandCount"/>
+                    <PropertyValueFactory property="logCount"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Data Count" minWidth="115">
+                <cellValueFactory>
+                    <PropertyValueFactory property="dataCount"/>
                 </cellValueFactory>
             </TableColumn>
         </columns>

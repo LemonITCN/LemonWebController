@@ -23,7 +23,9 @@ function LogModel(content , type) {
  */
 Log.msg = function (typeIndex, info) {
     var classArr = ["logItemSuccess" , "logItemError" , "logItemInfo" , "logItemWarning"];
+    var typeArr = ["success" , "error" , "info" , "warning"];
     try {
+        window.log.addLog(JSON.stringify(new LogModel(info , typeArr[typeIndex])));
         var logElement = document.createElement("div");
         logElement.setAttribute("class", classArr[typeIndex]);
         logElement.innerText = "[LOG]" + info;

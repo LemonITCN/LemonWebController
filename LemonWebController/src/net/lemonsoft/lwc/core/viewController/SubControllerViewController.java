@@ -128,7 +128,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
      * 关闭一个浏览器 - GUI调用
      */
     public void closeBrowser() {
-
+        belongSubController.closeBrowserById(getCurrentSelectedBrowser().getId());
     }
 
     /**

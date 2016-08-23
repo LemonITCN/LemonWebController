@@ -1,6 +1,5 @@
 package net.lemonsoft.lwc.core;
 
-import com.sun.scenario.effect.impl.prism.PrImage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
@@ -23,8 +22,8 @@ public class SubController implements Core {
     private Map<String, Browser> browserPool;
     private Map<String, String> consoleOutputPool;// 控制台输出池
     private Map<String, Object> dataCollectionPool;// 数据收集池, 每个子控制器有一个独立的数据收集池,子控制器下所有的浏览器收集到的数据都会集中放到这个池中
-    private Map<String, BrowserCommand> systemCommandPool;// 系统命令池
-    private Map<String, BrowserCommand> customCommandPool;// 自定义命令池
+    private List<String> logList;// 日志表
+
     private MainManager belongMainManager;
     public SubControllerViewController viewController;
     private SubControllerConsoleViewController defaultConsole;
@@ -47,13 +46,20 @@ public class SubController implements Core {
         this.browserPool = new HashMap<>();
         this.consoleOutputPool = new HashMap<>();
         this.dataCollectionPool = new HashMap<>();
-        this.systemCommandPool = new HashMap<>();
-        this.customCommandPool = new HashMap<>();
+        this.logList = new ArrayList<>();
         this.belongMainManager = belongMainManager;
     }
 
     public String getId() {
         return id;
+    }
+
+    /**
+     * 获取所属的主管理器
+     * @return 所属的主管理器对象
+     */
+    public MainManager getBelongMainManager(){
+        return belongMainManager;
     }
 
     /**
@@ -103,6 +109,16 @@ public class SubController implements Core {
         Browser browser = browserPool.get(id);
         browser.close();
         browserPool.remove(id);
+        refreshGUI();
+    }
+
+    /**
+     * 关闭当前子控制器中所有的浏览器
+     */
+    public void closeAllBrowser(){
+        for (String id : browserPool.keySet()){
+            closeBrowserById(id);
+        }
     }
 
     /**
@@ -123,49 +139,6 @@ public class SubController implements Core {
      */
     public Browser getBrowserById(String id) {
         return browserPool.get(id);
-    }
-
-    /**
-     * 添加一个浏览器命令 - 通过命令对象添加
-     *
-     * @param command 浏览器命令对象
-     */
-    public void addBrowserCommand(BrowserCommand command) {
-        this.systemCommandPool.put(UUID.randomUUID().toString(), command);
-        refreshGUI();
-    }
-
-    /**
-     * 获取系统命令池
-     *
-     * @return 获取命令池对象
-     */
-    public Map<String, BrowserCommand> getSystemCommandPool() {
-        return systemCommandPool;
-    }
-
-    /**
-     * 获取自定义命令池
-     *
-     * @return 获取自定义命令池对象
-     */
-    public Map<String, BrowserCommand> getCustomCommandPool() {
-        return customCommandPool;
-    }
-
-    /**
-     * 添加一个浏览器命令 - 通过命令的实际内容来构建并添加
-     *
-     * @param commandName      命令名称
-     * @param commandIntroduce 命令介绍
-     * @param commandCode      命令的执行JS代码
-     */
-    public void addBrowserCommand(String commandName, String commandIntroduce, String commandCode) {
-        BrowserCommand command = new BrowserCommand();
-        command.setName(commandName);
-        command.setIntroduce(commandIntroduce);
-        command.setJavaScriptCode(commandCode);
-        this.addBrowserCommand(command);
     }
 
     /**
@@ -217,6 +190,45 @@ public class SubController implements Core {
         dataCollectionPool.clear();
         if (defaultDataCollectionViewController != null)
             defaultDataCollectionViewController.refresh();
+    }
+
+    /**
+     * 获取数据收集池中的数据数量
+     * @return 数据收集池中的数据数量
+     */
+    public Integer countData(){
+        return dataCollectionPool.size();
+    }
+
+    /**
+     * 添加一个log
+     * @param logStr log的内容
+     */
+    public void addLog(String logStr){
+        logList.add(logStr);
+    }
+
+    /**
+     * 移除指定索引的log
+     * @param index 要移除的log的索引
+     */
+    public void removeLogByIndex(Integer index){
+        logList.remove(index);
+    }
+
+    /**
+     * 移除log表中的所有log
+     */
+    public void removeAllLogs(){
+        logList.clear();
+    }
+
+    /**
+     * 查询当前日志表中的日志的数量
+     * @return 当前日志表的日志数量
+     */
+    public Integer countLogs(){
+        return logList.size();
     }
 
     /**

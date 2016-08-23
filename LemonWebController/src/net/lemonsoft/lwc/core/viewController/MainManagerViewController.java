@@ -95,8 +95,9 @@ public class MainManagerViewController implements Initializable , CoreController
     public class SubControllerCellModel {
         private String id;
         private Integer browserCount;
-        private Integer systemCommandCount;
-        private Integer customCommandCount;
+        private Integer ttyCount;
+        private Integer logCount;
+        private Integer dataCount;
 
         public String getId() {
             return id;
@@ -106,19 +107,24 @@ public class MainManagerViewController implements Initializable , CoreController
             return browserCount;
         }
 
-        public Integer getSystemCommandCount() {
-            return systemCommandCount;
+        public Integer getTtyCount() {
+            return ttyCount;
         }
 
-        public Integer getCustomCommandCount() {
-            return customCommandCount;
+        public Integer getLogCount() {
+            return logCount;
+        }
+
+        public Integer getDataCount() {
+            return dataCount;
         }
 
         public SubControllerCellModel(SubController controller) {
             this.id = controller.getId();
             this.browserCount = controller.getBrowserPoolInfo().size();
-            this.systemCommandCount = controller.getSystemCommandPool().size();
-            this.customCommandCount = controller.getCustomCommandPool().size();
+            this.ttyCount = controller.getConsole().countTtys();
+            this.logCount = controller.countLogs();
+            this.dataCount = controller.countData();
         }
     }
 

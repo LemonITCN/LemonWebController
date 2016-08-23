@@ -6,6 +6,7 @@ import javafx.concurrent.Worker;
 import javafx.scene.web.WebView;
 import net.lemonsoft.lwc.core.ttyCommand.BrowserManageCommand;
 import net.lemonsoft.lwc.core.ttyCommand.DataCollectionCommand;
+import net.lemonsoft.lwc.core.ttyCommand.LogCommand;
 import netscape.javascript.JSObject;
 
 import java.io.*;
@@ -50,10 +51,12 @@ public class Tty {
         TtyExecute ttyExecute = new TtyExecute(container);
         BrowserManageCommand manageCommand = new BrowserManageCommand(belongSubController , this);
         DataCollectionCommand collectionCommand = new DataCollectionCommand(belongSubController);
+        LogCommand logCommand = new LogCommand(belongSubController);
 
         window.setMember("execute", ttyExecute);
         window.setMember("browser", manageCommand);
         window.setMember("dataCollection" , collectionCommand);
+        window.setMember("log" , logCommand);
         container.getEngine().executeScript(systemCommandJSCode.toString());
         container.getEngine().getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
             @Override
@@ -61,6 +64,7 @@ public class Tty {
                 window.setMember("execute", ttyExecute);
                 window.setMember("browser", manageCommand);
                 window.setMember("dataCollection" , collectionCommand);
+                window.setMember("log" , logCommand);
                 container.getEngine().executeScript(systemCommandJSCode.toString());
             }
         });

@@ -399,7 +399,9 @@ function LogModel(content , type) {
  */
 Log.msg = function (typeIndex, info) {
     var classArr = ["logItemSuccess" , "logItemError" , "logItemInfo" , "logItemWarning"];
+    var typeArr = ["success" , "error" , "info" , "warning"];
     try {
+        window.log.addLog(JSON.stringify(new LogModel(info , typeArr[typeIndex])));
         var logElement = document.createElement("div");
         logElement.setAttribute("class", classArr[typeIndex]);
         logElement.innerText = "[LOG]" + info;
@@ -440,7 +442,6 @@ Log.info = function (info) {
 Log.warning = function (info) {
     this.msg(3 , info);
 };
-
 function Util() {
 }
 

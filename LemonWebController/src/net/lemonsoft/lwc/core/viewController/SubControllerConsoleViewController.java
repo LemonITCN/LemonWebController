@@ -102,6 +102,14 @@ public class SubControllerConsoleViewController implements Initializable {
     }
 
     /**
+     * 查询当前的tty总数量
+     * @return tty的数量
+     */
+    public Integer countTtys(){
+        return ttyPool.size();
+    }
+
+    /**
      * 通过TTYID移除tty
      *
      * @param ttyId 要移除的TTYid

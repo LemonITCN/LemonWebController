@@ -73,6 +73,9 @@ public class Browser extends Stage {
         });
         final boolean[] shift_press = {false};
         final boolean[] s_press = {false};
+        final boolean[] m_press = {false};
+        final boolean[] d_press = {false};
+        final boolean[] c_press = {false};
         this.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -84,10 +87,25 @@ public class Browser extends Stage {
                     case S:
                         s_press[0] = true;
                         break;
+                    case M:
+                        m_press[0] = true;
+                        break;
+                    case D:
+                        d_press[0] = true;
+                        break;
+                    case C:
+                        c_press[0] = true;
+                        break;
                     default:
                 }
                 if (shift_press[0] && s_press[0])
                     belongSubController.getGUIStage().show();// 触发shift-s执行代码
+                if (shift_press[0] && m_press[0])
+                    belongSubController.getBelongMainManager().getGUIStage().show();// 触发shift-d执行代码
+                if (shift_press[0] && d_press[0])
+                    belongSubController.showDataCollectionGUI();
+                if (shift_press[0] && c_press[0])
+                    belongSubController.getConsole().show();
             }
         });
         this.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
@@ -100,6 +118,15 @@ public class Browser extends Stage {
                         break;
                     case S:
                         s_press[0] = false;
+                        break;
+                    case M:
+                        m_press[0] = false;
+                        break;
+                    case D:
+                        d_press[0] = false;
+                        break;
+                    case C:
+                        c_press[0] = false;
                         break;
                     default:
                 }
