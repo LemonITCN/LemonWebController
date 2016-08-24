@@ -405,8 +405,8 @@ function Log() {
  * @constructor
  */
 function LogModel(content , type) {
-    this.content;
-    this.type;
+    this.content = content;
+    this.type = type;
     this.time = Math.round(new Date().getTime());
 }
 

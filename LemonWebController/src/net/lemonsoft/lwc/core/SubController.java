@@ -24,7 +24,7 @@ public class SubController implements Core {
     private Map<String, String> consoleOutputPool;// 控制台输出池
     private Map<String, Object> dataCollectionPool;// 数据收集池, 每个子控制器有一个独立的数据收集池,子控制器下所有的浏览器收集到的数据都会集中放到这个池中
     private List<String> logList;// 日志表
-    private Map<String , CommunicationHandler> communicationHandlerPool;// 通信handler池
+    private Map<String, CommunicationHandler> communicationHandlerPool;// 通信handler池
 
     private MainManager belongMainManager;
     public SubControllerViewController viewController;
@@ -59,9 +59,10 @@ public class SubController implements Core {
 
     /**
      * 获取所属的主管理器
+     *
      * @return 所属的主管理器对象
      */
-    public MainManager getBelongMainManager(){
+    public MainManager getBelongMainManager() {
         return belongMainManager;
     }
 
@@ -118,8 +119,8 @@ public class SubController implements Core {
     /**
      * 关闭当前子控制器中所有的浏览器
      */
-    public void closeAllBrowser(){
-        for (String id : browserPool.keySet()){
+    public void closeAllBrowser() {
+        for (String id : browserPool.keySet()) {
             closeBrowserById(id);
         }
     }
@@ -197,59 +198,74 @@ public class SubController implements Core {
 
     /**
      * 获取数据收集池中的数据数量
+     *
      * @return 数据收集池中的数据数量
      */
-    public Integer countData(){
+    public Integer countData() {
         return dataCollectionPool.size();
     }
 
     /**
      * 添加一个log
+     *
      * @param logStr log的内容
      */
-    public void addLog(String logStr){
+    public void addLog(String logStr) {
         logList.add(logStr);
     }
 
     /**
      * 移除指定索引的log
+     *
      * @param index 要移除的log的索引
      */
-    public void removeLogByIndex(Integer index){
+    public void removeLogByIndex(Integer index) {
         logList.remove(index);
     }
 
     /**
      * 移除log表中的所有log
      */
-    public void removeAllLogs(){
+    public void removeAllLogs() {
         logList.clear();
     }
 
     /**
      * 查询当前日志表中的日志的数量
+     *
      * @return 当前日志表的日志数量
      */
-    public Integer countLogs(){
+    public Integer countLogs() {
         return logList.size();
     }
 
     /**
+     * 获取日志列表
+     *
+     * @return 日志列表
+     */
+    public List<String> getLogList() {
+        return logList;
+    }
+
+    /**
      * 添加一个新的通讯handler
-     * @param name 通讯handler的名称
+     *
+     * @param name    通讯handler的名称
      * @param handler 添加的通讯handler
      */
-    public void setCommunicationHandler(String name , CommunicationHandler handler){
-        communicationHandlerPool.put(name , handler);
+    public void setCommunicationHandler(String name, CommunicationHandler handler) {
+        communicationHandlerPool.put(name, handler);
     }
 
     /**
      * 调用通讯handler
+     *
      * @param name 通讯handler的名称
      * @param data 返回的数据
      */
-    public Object callCommunicationHandler(String name , Object data){
-        if (communicationHandlerPool.containsKey(name)){
+    public Object callCommunicationHandler(String name, Object data) {
+        if (communicationHandlerPool.containsKey(name)) {
             return communicationHandlerPool.get(name).onMessage(data);
         }
         return "";
@@ -257,24 +273,26 @@ public class SubController implements Core {
 
     /**
      * 移除指定名称的通讯handler
+     *
      * @param name 通讯handler的名称
      */
-    public void removeCommunicationHandlerByName(String name){
+    public void removeCommunicationHandlerByName(String name) {
         communicationHandlerPool.remove(name);
     }
 
     /**
      * 移除所有的通讯handler
      */
-    public void removeAllCommunicationHandler(){
+    public void removeAllCommunicationHandler() {
         communicationHandlerPool.clear();
     }
 
     /**
      * 当前子控制器中的通讯handler数量
+     *
      * @return 通讯handler的数量
      */
-    public Integer countCommunicationHandler(){
+    public Integer countCommunicationHandler() {
         return communicationHandlerPool.size();
     }
 
