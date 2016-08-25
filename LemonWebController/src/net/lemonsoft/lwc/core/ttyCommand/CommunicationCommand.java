@@ -21,7 +21,7 @@ public class CommunicationCommand {
      * @param data 传输的数据
      */
     public Object call(String name , Object data){
-        return belongSubController.callCommunicationHandler(name , data);
+        return belongSubController.callCommunicationHandler(name , data.toString());
     }
 
 }

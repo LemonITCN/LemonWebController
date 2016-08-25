@@ -92,6 +92,7 @@ public class SubControllerConsoleViewController implements Initializable {
         tab.setContent(tty.getContainer());
         consoleTabPane.getTabs().add(tab);
         ttyPool.put(tty.getId(), tty);
+        ttyList.add(tty.getId());
         tab.setOnClosed(new EventHandler<Event>() {
             @Override
             public void handle(Event event) {// 设置TTY的GUI关闭事件
@@ -116,10 +117,11 @@ public class SubControllerConsoleViewController implements Initializable {
      */
     public void removeTtyById(String ttyId) {
         Tty tty = ttyPool.get(ttyId);
-        tty.getContainer().getEngine().load("http://");
+//        tty.getContainer().getEngine().load("http://www.baidu.com");
         ttyPool.remove(ttyId);
         int index = ttyList.indexOf(ttyId);
         consoleTabPane.getTabs().remove(index);
+        ttyList.remove(index);
     }
 
     /**

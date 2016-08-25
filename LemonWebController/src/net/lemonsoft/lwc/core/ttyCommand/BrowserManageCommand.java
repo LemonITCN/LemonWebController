@@ -4,6 +4,8 @@ import net.lemonsoft.lwc.core.Browser;
 import net.lemonsoft.lwc.core.SubController;
 import net.lemonsoft.lwc.core.Tty;
 
+import java.util.UUID;
+
 /**
  * 浏览器管理命令
  * window.browser
@@ -105,12 +107,12 @@ public class BrowserManageCommand {
         browser.loadUrl(url, new Browser.LoadURLHandler() {
             @Override
             public void loadSuccess() {
-                Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();_lk_success_c=null;" , successCallback));
+                Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();_lk_success_c=null;", successCallback));
             }
 
             @Override
             public void loadFailed() {
-                belongTty.executeJavaScript(String.format("var _lk_failed_c = %s();_lk_failed_c=null;" , failedCallback));
+                belongTty.executeJavaScript(String.format("var _lk_failed_c = %s();_lk_failed_c=null;", failedCallback));
             }
         });
     }

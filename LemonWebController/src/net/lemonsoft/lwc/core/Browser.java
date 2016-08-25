@@ -171,6 +171,7 @@ public class Browser extends Stage {
      */
     public Object executeJavaScript(String jsCode) {
         Object result = webView.getEngine().executeScript(jsCode);
+        System.out.println("reslut:" + result);
         if (result != null)
             browserConsoleCommand.result(result.toString());
         return result;
