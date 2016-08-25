@@ -114,9 +114,41 @@ function BrowserDataGet(browserObj) {
         try {
             var result = this.getDomProperty(domSelector, "href");
             Log.success("根据脚本命令获取指定A标记的的链接URL成功");
-            return "aa" + result;
+            return result;
         }catch (e){
             Log.warning("获取指定A标记的的链接URL失败:" + e);
+            return null;
+        }
+    };
+
+    /**
+     * 获取指定节点的所有的子元素节点数组
+     * @param domSelector 要获取的指定节点的css选择器字符串
+     * @returns Array
+     */
+    this.getChildren = function (domSelector) {
+        try {
+            var result = this.getDomProperty(domSelector, "children");
+            Log.success("根据脚本命令获取指定节点的所有的子元素节点数组成功");
+            return result;
+        }catch (e){
+            Log.warning("获取指定节点的所有的子元素节点数组失败:" + e);
+            return null;
+        }
+    };
+
+    /**
+     * 获取指定节点的所有的子元素节点数组中的元素数量
+     * @param domSelector 要获取的指定节点的css选择器字符串
+     * @returns {*}
+     */
+    this.getChildrenCount = function (domSelector) {
+        try {
+            var result = this.getDomProperty(domSelector, "children").length;
+            Log.success("根据脚本命令获取指定节点的所有的子元素节点数组中的元素数量成功");
+            return result;
+        }catch (e){
+            Log.warning("获取指定节点的所有的子元素节点数组中的元素数量失败:" + e);
             return null;
         }
     };
