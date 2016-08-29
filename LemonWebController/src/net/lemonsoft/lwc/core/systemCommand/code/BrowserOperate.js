@@ -45,7 +45,8 @@ function BrowserOperate(browserObj) {
      * @param actionName 要触发的鼠标事件名称  ‘click’, ‘mousedown’, ‘mousemove’, ‘mouseout’, ‘mouseover’, ‘mouseup’.
      */
     this.invokeDomMouseAction = function (domSelector , actionName) {
-        browser.executeJavaScript(String.format("window.eval(\"var event = document.createEvent('MouseEvents');event.initMouseEvent('%s',true,true,window,0,0,0,0,0,false,false,false,false,0,null);document.querySelector('%s').dispatchEvent(event);\")" , actionName , domSelector));
+        var code = "var _tevent = document.createEvent('MouseEvents');_tevent.initMouseEvent('" + actionName + "',true,true,window,0,0,0,0,0,false,false,false,false,0,null);document.querySelector('" + domSelector + "').dispatchEvent(_tevent);";
+        browser.executeJavaScript(code);
     };
 
     /**
@@ -115,7 +116,7 @@ function BrowserOperate(browserObj) {
      * @param y 让页面要滚动到的位置的y坐标
      */
     this.scrollToPosition = function (x , y) {
-        this.executeJS("window.scrollTo(" + x + " , " + y + ")");
+        browser.executeJavaScript("window.scrollTo(" + x + " , " + y + ")");
         Log.success("让当前页面滚动到指定的位置成功");
     };
 
