@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import net.lemonsoft.lwc.core.Browser;
 import net.lemonsoft.lwc.core.SubController;
 
 import java.net.URL;
@@ -51,7 +50,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
         data.removeAll(data);
         currentSelectedLabel.setText("Current selected: none!");
         int i = 0;
-        for (Browser browser : belongSubController.getBrowserPool().values()) {
+        for (BrowserViewController browser : belongSubController.getBrowserPool().values()) {
             BrowserCellModel currentModel = new BrowserCellModel(browser);
             data.add(currentModel);
             if (browser.getId().equals(selectedBrowserId)) {
@@ -68,7 +67,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
         rootTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                Browser browser = getCurrentSelectedBrowser();
+                BrowserViewController browser = getCurrentSelectedBrowser();
                 selectedBrowserId = browser.getId();
                 currentSelectedLabel.setText(String.format("Current selected: %s", selectedBrowserId));
                 setShowOrHideButtonTitle(browser.isShowing());
@@ -110,7 +109,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
         });
     }
 
-    public Browser getCurrentSelectedBrowser() {
+    public BrowserViewController getCurrentSelectedBrowser() {
         return belongSubController.getBrowserById(data.get(rootTableView.getSelectionModel().selectedIndexProperty().getValue()).getId());
     }
 
@@ -152,7 +151,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
      */
     public void setCurrentSelectRowByBrowserId(String browserId) {
         int i = 0;
-        for (Browser browser : belongSubController.getBrowserPool().values()) {
+        for (BrowserViewController browser : belongSubController.getBrowserPool().values()) {
             if (browser.getId().equals(selectedBrowserId)) {
                 TableView.TableViewSelectionModel singleSelectionModel = rootTableView.getSelectionModel();
                 singleSelectionModel.select(i);
@@ -208,7 +207,7 @@ public class SubControllerViewController implements Initializable, CoreControlle
             return visibility;
         }
 
-        public BrowserCellModel(Browser browser) {
+        public BrowserCellModel(BrowserViewController browser) {
             this.id = browser.getId();
             this.url = belongSubController.getBrowserCurrentUrlByBrowserId(this.id);
             this.title = belongSubController.getBrowserCurrentTitleByBrowserId(this.id);

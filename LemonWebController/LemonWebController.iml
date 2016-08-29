@@ -9,5 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="controlsfx-8.40.11" level="project" />
     <orderEntry type="library" name="gson-2.6.2" level="project" />
+    <orderEntry type="library" name="jxbrowser-6.5.1" level="project" />
+    <orderEntry type="library" name="licence" level="project" />
   </component>
 </module>

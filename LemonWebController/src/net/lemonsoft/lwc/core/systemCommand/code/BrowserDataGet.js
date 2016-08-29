@@ -144,7 +144,8 @@ function BrowserDataGet(browserObj) {
      */
     this.getChildrenCount = function (domSelector) {
         try {
-            var result = this.getDomProperty(domSelector, "children").length;
+            var result = this.getDomProperty(domSelector, "children.length");
+            Log.error(this.getDomProperty(domSelector, "children.length"));
             Log.success("根据脚本命令获取指定节点的所有的子元素节点数组中的元素数量成功");
             return result;
         }catch (e){

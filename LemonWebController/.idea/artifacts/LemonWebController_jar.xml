@@ -3,8 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/LemonWebController_jar</output-path>
     <root id="archive" name="LemonWebController.jar">
       <element id="module-output" name="LemonWebController" />
-      <element id="library" level="project" name="gson-2.6.2" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/library/controlsfx-8.40.11.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

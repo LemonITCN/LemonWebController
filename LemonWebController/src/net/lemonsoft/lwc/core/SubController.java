@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import net.lemonsoft.lwc.core.handler.CommunicationHandler;
+import net.lemonsoft.lwc.core.viewController.BrowserViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerConsoleViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerDataCollectionViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
@@ -20,7 +21,7 @@ public class SubController implements Core {
 
     private String id;
     private Stage defaultStage = null;
-    private Map<String, Browser> browserPool;
+    private Map<String, BrowserViewController> browserPool;
     private Map<String, String> consoleOutputPool;// 控制台输出池
     private Map<String, Object> dataCollectionPool;// 数据收集池, 每个子控制器有一个独立的数据收集池,子控制器下所有的浏览器收集到的数据都会集中放到这个池中
     private List<String> logList;// 日志表
@@ -79,7 +80,7 @@ public class SubController implements Core {
         return infoMap;
     }
 
-    public Map<String, Browser> getBrowserPool() {
+    public Map<String, BrowserViewController> getBrowserPool() {
         return browserPool;
     }
 
@@ -98,7 +99,7 @@ public class SubController implements Core {
      * @return 新创建的浏览器ID
      */
     public String createBrowser() {
-        Browser browser = new Browser(this);
+        BrowserViewController browser = new BrowserViewController(this);
         browserPool.put(browser.getId(), browser);
         refreshGUI();
         return browser.getId();
@@ -110,7 +111,7 @@ public class SubController implements Core {
      * @param id 要关闭的浏览器的id
      */
     public void closeBrowserById(String id) {
-        Browser browser = browserPool.get(id);
+        BrowserViewController browser = browserPool.get(id);
         browser.close();
         browserPool.remove(id);
         refreshGUI();
@@ -141,7 +142,7 @@ public class SubController implements Core {
      * @param id 要获取的浏览器id
      * @return 获取到的浏览器对象
      */
-    public Browser getBrowserById(String id) {
+    public BrowserViewController getBrowserById(String id) {
         return browserPool.get(id);
     }
 
@@ -151,7 +152,7 @@ public class SubController implements Core {
      * @param browserId 要操作的浏览器的id
      */
     public void hideOrShowBrowser(String browserId) {
-        Browser browser = getBrowserById(browserId);
+        BrowserViewController browser = getBrowserById(browserId);
         browser.setShowOrHide(!browser.isShowing());
     }
 

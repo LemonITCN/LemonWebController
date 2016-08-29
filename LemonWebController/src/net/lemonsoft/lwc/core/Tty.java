@@ -115,7 +115,7 @@ public class Tty {
         }
 
         public Object execute(String command) {
-            Object result = container.getEngine().executeScript(command).toString();
+            Object result = container.getEngine().executeScript(command);
             return result;
         }
     }

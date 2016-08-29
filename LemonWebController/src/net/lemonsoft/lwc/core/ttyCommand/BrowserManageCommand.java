@@ -1,10 +1,10 @@
 package net.lemonsoft.lwc.core.ttyCommand;
 
-import net.lemonsoft.lwc.core.Browser;
+import com.teamdev.jxbrowser.chromium.*;
+import javafx.application.Platform;
+import net.lemonsoft.lwc.core.viewController.BrowserViewController;
 import net.lemonsoft.lwc.core.SubController;
 import net.lemonsoft.lwc.core.Tty;
-
-import java.util.UUID;
 
 /**
  * 浏览器管理命令
@@ -79,7 +79,7 @@ public class BrowserManageCommand {
      * @param y         要设置成的y坐标
      */
     public void setPosition(String browserId, double x, double y) {
-        Browser browser = belongController.getBrowserById(browserId);
+        BrowserViewController browser = belongController.getBrowserById(browserId);
         browser.setX(x);
         browser.setY(y);
     }
@@ -91,7 +91,25 @@ public class BrowserManageCommand {
      * @param jsCode    要执行的js代码
      */
     public Object executeJavaScript(String browserId, String jsCode) {
-        return belongController.getBrowserById(browserId).executeJavaScript(jsCode);
+        JSValue result = belongController.getBrowserById(browserId).executeJavaScript(jsCode);
+        if (result.getClass().equals(JSObject.class)){
+
+        }
+        else if (result.getClass().equals(JSArray.class)){
+
+        }
+        else if (result.getClass().equals(JSFunction.class)){
+
+        }
+        else if (result.getClass().equals(String.class)){
+
+        }
+        else if (result.getClass().equals(Boolean.class)){
+
+        }
+        else {
+            return result.getNumberValue();
+        }
     }
 
     /**
@@ -103,16 +121,29 @@ public class BrowserManageCommand {
      * @param failedCallback  加载失败的回调函数
      */
     public void loadURL(String browserId, String url, Object successCallback, Object failedCallback) {
-        Browser browser = belongController.getBrowserById(browserId);
-        browser.loadUrl(url, new Browser.LoadURLHandler() {
+        BrowserViewController browser = belongController.getBrowserById(browserId);
+        browser.loadUrl(url, new BrowserViewController.LoadURLHandler() {
             @Override
             public void loadSuccess() {
-                Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();_lk_success_c=null;", successCallback));
+                System.out.println("SUCCESS");
+//                System.out.println(String.format("var _lk_success_c = %s();_lk_success_c=null;", successCallback));
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();_lk_success_c=null;", successCallback));
+                    }
+                });
+
             }
 
             @Override
             public void loadFailed() {
-                belongTty.executeJavaScript(String.format("var _lk_failed_c = %s();_lk_failed_c=null;", failedCallback));
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        belongTty.executeJavaScript(String.format("var _lk_failed_c = %s();_lk_failed_c=null;", failedCallback));
+                    }
+                });
             }
         });
     }
