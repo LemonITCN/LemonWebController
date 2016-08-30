@@ -93,23 +93,27 @@ public class BrowserManageCommand {
     public Object executeJavaScript(String browserId, String jsCode) {
         JSValue result = belongController.getBrowserById(browserId).executeJavaScript(jsCode);
         if (result.getClass().equals(JSObject.class)){
-
+            System.out.println("RE OBJ" + result.asObject().toString());
         }
         else if (result.getClass().equals(JSArray.class)){
-
+            System.out.println("RE ARR" + result.asArray().toString());
         }
         else if (result.getClass().equals(JSFunction.class)){
-
+            System.out.println("RE FUN" + result.asFunction().toString());
         }
-        else if (result.getClass().equals(String.class)){
-
+        else if (result.getClass().equals(JSString.class)){
+            System.out.println("RE STR" + result.asString().getStringValue());
+            return result.asString().getStringValue();
         }
-        else if (result.getClass().equals(Boolean.class)){
-
+        else if (result.getClass().equals(JSBoolean.class)){
+            System.out.println("RE BOO" + result);
+            return result.asBoolean().getBooleanValue();
         }
         else {
-            return result.getNumberValue();
+            System.out.println("RE NUM" + result.asNumber().getDouble());
+            return result.asNumber().getDouble();
         }
+        return result;
     }
 
     /**
