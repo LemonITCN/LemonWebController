@@ -2,9 +2,9 @@ package net.lemonsoft.lwc.core.ttyCommand;
 
 import com.teamdev.jxbrowser.chromium.*;
 import javafx.application.Platform;
-import net.lemonsoft.lwc.core.viewController.BrowserViewController;
 import net.lemonsoft.lwc.core.SubController;
 import net.lemonsoft.lwc.core.Tty;
+import net.lemonsoft.lwc.core.viewController.BrowserViewController;
 
 /**
  * 浏览器管理命令
@@ -92,24 +92,20 @@ public class BrowserManageCommand {
      */
     public Object executeJavaScript(String browserId, String jsCode) {
         JSValue result = belongController.getBrowserById(browserId).executeJavaScript(jsCode);
-        if (result.getClass().equals(JSObject.class)){
+
+        if (result.getClass().equals(JSObject.class)) {
             System.out.println("RE OBJ" + result.asObject().toString());
-        }
-        else if (result.getClass().equals(JSArray.class)){
+        } else if (result.getClass().equals(JSArray.class)) {
             System.out.println("RE ARR" + result.asArray().toString());
-        }
-        else if (result.getClass().equals(JSFunction.class)){
+        } else if (result.getClass().equals(JSFunction.class)) {
             System.out.println("RE FUN" + result.asFunction().toString());
-        }
-        else if (result.getClass().equals(JSString.class)){
+        } else if (result.getClass().equals(JSString.class)) {
             System.out.println("RE STR" + result.asString().getStringValue());
             return result.asString().getStringValue();
-        }
-        else if (result.getClass().equals(JSBoolean.class)){
+        } else if (result.getClass().equals(JSBoolean.class)) {
             System.out.println("RE BOO" + result);
             return result.asBoolean().getBooleanValue();
-        }
-        else {
+        } else {
             System.out.println("RE NUM" + result.asNumber().getDouble());
             return result.asNumber().getDouble();
         }
