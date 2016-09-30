@@ -130,7 +130,11 @@ public class BrowserManageCommand {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();_lk_success_c=null;", successCallback));
+                        try {
+                            Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();_lk_success_c=null;", successCallback));
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
                     }
                 });
 

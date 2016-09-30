@@ -151,7 +151,7 @@ public class BrowserViewController extends Stage {
         });
     }
 
-    public void loadCompleteDeal(){
+    public void loadCompleteDeal() {
         try {
             loadURLHandler = null;
             belongSubController.refreshGUI();
@@ -205,14 +205,17 @@ public class BrowserViewController extends Stage {
      * @return 代码执行的返回值
      */
     public JSValue executeJavaScript(String jsCode) {
-        String jsCommand = String.format("JSON.stringify(eval(\"%s\"))" , jsCode);
+        String jsCommand = String.format("JSON.stringify(eval(\"%s\"))", jsCode);
         JSValue result = browser.executeJavaScriptAndReturnValue(jsCommand);
-        if (result != null) {
+        // 临时判断采集的返回值类型，确保不出现位置的ak对象
+        if (result != null && !result.getClass().getName().contains("chromium.ak")) {
             try {
                 browserConsoleCommand.result(result.getStringValue());
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else {
+            System.out.println(" OMHG!!!");
         }
         return result;
     }
@@ -238,6 +241,16 @@ public class BrowserViewController extends Stage {
             this.show();
         else
             this.hide();
+    }
+
+    /**
+     * 关闭浏览器窗口
+     */
+    public void closeBrowser() {
+        browser.stop();
+        browser.loadHTML("<html><body>1em0nsOft</body></html>");
+        browser.stop();
+        close();
     }
 
     /**
