@@ -93,6 +93,8 @@ public class BrowserViewController extends Stage {
         final boolean[] m_press = {false};
         final boolean[] d_press = {false};
         final boolean[] c_press = {false};
+        // 监听键盘的快捷键组合
+        // shift+s shift+m shift+m shift+d shift+c
         this.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -244,13 +246,12 @@ public class BrowserViewController extends Stage {
     }
 
     /**
-     * 关闭浏览器窗口
+     * 隐藏浏览器窗口看，通常放到浏览器复用池中时候调用
      */
     public void closeBrowser() {
         browser.stop();
         browser.loadHTML("<html><body>1em0nsOft</body></html>");
-        browser.stop();
-        close();
+//        hide();
     }
 
     /**

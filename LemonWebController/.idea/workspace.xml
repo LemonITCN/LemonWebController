@@ -9,7 +9,6 @@
     <list default="true" readonly="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -77,25 +76,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BrowserViewController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BrowserViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="251" column="23" selection-start-line="251" selection-start-column="23" selection-end-line="251" selection-end-column="23" />
+            <state relative-caret-position="650">
+              <caret line="262" column="11" selection-start-line="262" selection-start-column="11" selection-end-line="262" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SubController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SubController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
-              <folding>
-                <element signature="e#4321#4322#0" expanded="true" />
-                <element signature="e#4363#4364#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1145">
+              <caret line="131" column="18" selection-start-line="131" selection-start-column="18" selection-end-line="131" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubControllerViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1282">
+              <caret line="58" column="60" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -155,7 +161,6 @@
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerConsoleStage.fxml" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerDataCollectionStage.fxml" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerStage.fxml" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerDataCollectionViewController.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/DataCollectionCommand.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/stylesheet/SubControllerDataCollectionStage.css" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerViewController.java" />
@@ -177,8 +182,9 @@
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/Tty.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerDataCollectionViewController.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java" />
       </list>
     </option>
   </component>
@@ -187,6 +193,13 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/node_modules" />
@@ -250,8 +263,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -534,7 +548,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -558,11 +571,12 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="FullScreen" value="true" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="lemonwebcontroller" />
+    <property name="FullScreen" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="createBrowser&#9;PSI&#9;JAVA://net.lemonsoft.lwc.core.SubController#createBrowser" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1089,6 +1103,7 @@
       <workItem from="1475070224003" duration="239000" />
       <workItem from="1475104873689" duration="630000" />
       <workItem from="1475235533566" duration="2060000" />
+      <workItem from="1475406616968" duration="2720000" />
     </task>
     <task id="LOCAL-00001" summary="临时提交一次">
       <created>1471505650228</created>
@@ -1157,7 +1172,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163116000" />
+    <option name="totallyTimeSpent" value="165836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-367" y="-1440" width="2560" height="1440" extended-state="0" />
@@ -1261,13 +1276,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerConsoleTty.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
@@ -1315,18 +1323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerDataCollectionViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1475">
-          <caret line="72" column="44" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1829#1830#0" expanded="false" />
-            <element signature="e#1880#1881#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/MainManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-301">
@@ -1343,16 +1339,6 @@
         <state relative-caret-position="96">
           <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="130" column="44" selection-start-line="130" selection-start-column="44" selection-end-line="130" selection-end-column="44" />
-          <folding>
-            <element signature="e#4377#4378#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1378,24 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/MainManagerViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="132" column="84" selection-start-line="132" selection-start-column="84" selection-end-line="132" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3107#3108#0" expanded="false" />
-            <element signature="e#3140#3141#0" expanded="false" />
-            <element signature="e#3184#3185#0" expanded="false" />
-            <element signature="e#3227#3228#0" expanded="false" />
-            <element signature="e#3267#3268#0" expanded="false" />
-            <element signature="e#3306#3307#0" expanded="false" />
-            <element signature="e#3346#3347#0" expanded="false" />
-            <element signature="e#3385#3386#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/MainManagerStage.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1415,13 +1383,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/handler/TtyExceptionHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/BrowserCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -1615,14 +1576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/CoreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1651,22 +1604,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/MainManagerPool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="251" column="23" selection-start-line="251" selection-start-column="23" selection-end-line="251" selection-end-column="23" />
+        <state relative-caret-position="231">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/CoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/MainManagerViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1237">
+          <caret line="132" column="84" selection-start-line="132" selection-start-column="84" selection-end-line="132" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/BrowserCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerDataCollectionViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding>
+            <element signature="e#1829#1830#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1282">
+          <caret line="58" column="60" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
-          <folding>
-            <element signature="e#4321#4322#0" expanded="true" />
-            <element signature="e#4363#4364#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1145">
+          <caret line="131" column="18" selection-start-line="131" selection-start-column="18" selection-end-line="131" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="262" column="11" selection-start-line="262" selection-start-column="11" selection-end-line="262" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

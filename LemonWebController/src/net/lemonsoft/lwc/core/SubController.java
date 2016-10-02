@@ -43,6 +43,8 @@ public class SubController implements Core {
     private static final String DATA_COLLECTION_NAME = "SubControllerDataCollectionStage";
     private static final String DATA_COLLECTION_WINDOW_NAME = "SubControllerDataCollectionStage[GUI]";
 
+    private List<BrowserViewController> reuseBrowserPool;// 浏览器stage重池
+
     protected SubController(MainManager belongMainManager) {
         super();
         this.id = UUID.randomUUID().toString();
@@ -52,6 +54,7 @@ public class SubController implements Core {
         this.logList = new ArrayList<>();
         this.belongMainManager = belongMainManager;
         this.communicationHandlerPool = new HashMap<>();
+        this.reuseBrowserPool = new ArrayList<>();
     }
 
     public String getId() {
@@ -99,7 +102,12 @@ public class SubController implements Core {
      * @return 新创建的浏览器ID
      */
     public String createBrowser() {
-        BrowserViewController browser = new BrowserViewController(this);
+        BrowserViewController browser;
+        if (reuseBrowserPool.size() > 0) {
+            browser = reuseBrowserPool.get(0);
+            reuseBrowserPool.remove(0);
+        } else
+            browser = new BrowserViewController(this);
         browserPool.put(browser.getId(), browser);
         refreshGUI();
         return browser.getId();
@@ -111,10 +119,17 @@ public class SubController implements Core {
      * @param id 要关闭的浏览器的id
      */
     public void closeBrowserById(String id) {
+        System.out.println("HAHAHAHAHAHAHAH  --> 1" + id);
         BrowserViewController browser = browserPool.get(id);
+        System.out.println("HAHAHAHAHAHAHAH  --> 2" + id);
         browser.closeBrowser();
+        System.out.println("HAHAHAHAHAHAHAH  --> 3" + id);
+        reuseBrowserPool.add(browser);
+        System.out.println("HAHAHAHAHAHAHAH  --> 4" + id);
         browserPool.remove(id);
+        System.out.println("HAHAHAHAHAHAHAH  --> 5" + id);
         refreshGUI();
+        System.out.println("HAHAHAHAHAHAHAH  --> 6" + id);
     }
 
     /**
@@ -122,7 +137,9 @@ public class SubController implements Core {
      */
     public void closeAllBrowser() {
         for (String id : browserPool.keySet()) {
+            System.out.println("START: " + id);
             closeBrowserById(id);
+            System.out.println("END: " + id);
         }
     }
 
