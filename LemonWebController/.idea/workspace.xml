@@ -6,9 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+    <list default="true" readonly="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="添加了Log机制">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -79,8 +78,8 @@
       <file leaf-file-name="BrowserViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="262" column="11" selection-start-line="262" selection-start-column="11" selection-end-line="262" selection-end-column="11" />
+            <state relative-caret-position="672">
+              <caret line="245" column="5" selection-start-line="245" selection-start-column="5" selection-end-line="245" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -89,9 +88,45 @@
       <file leaf-file-name="SubController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1145">
+            <state relative-caret-position="2464">
               <caret line="131" column="18" selection-start-line="131" selection-start-column="18" selection-end-line="131" selection-end-column="18" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2573#2574#0" expanded="false" />
+                <element signature="e#2598#2599#0" expanded="false" />
+                <element signature="e#2712#2713#0" expanded="false" />
+                <element signature="e#2752#2753#0" expanded="false" />
+                <element signature="e#3163#3164#0" expanded="false" />
+                <element signature="e#3197#3198#0" expanded="false" />
+                <element signature="e#3309#3310#0" expanded="false" />
+                <element signature="e#3350#3351#0" expanded="false" />
+                <element signature="e#4888#4889#0" expanded="false" />
+                <element signature="e#4938#4939#0" expanded="false" />
+                <element signature="e#5097#5098#0" expanded="false" />
+                <element signature="e#5139#5140#0" expanded="false" />
+                <element signature="e#5527#5528#0" expanded="false" />
+                <element signature="e#5568#5569#0" expanded="false" />
+                <element signature="e#6482#6483#0" expanded="false" />
+                <element signature="e#6530#6531#0" expanded="false" />
+                <element signature="e#6637#6638#0" expanded="false" />
+                <element signature="e#6672#6673#0" expanded="false" />
+                <element signature="e#6795#6796#0" expanded="false" />
+                <element signature="e#6832#6833#0" expanded="false" />
+                <element signature="e#6904#6905#0" expanded="false" />
+                <element signature="e#6935#6936#0" expanded="false" />
+                <element signature="e#7040#7041#0" expanded="false" />
+                <element signature="e#7077#7078#0" expanded="false" />
+                <element signature="e#7174#7175#0" expanded="false" />
+                <element signature="e#7204#7205#0" expanded="false" />
+                <element signature="e#7944#7945#0" expanded="false" />
+                <element signature="e#7997#7998#0" expanded="false" />
+                <element signature="e#8086#8087#0" expanded="false" />
+                <element signature="e#8134#8135#0" expanded="false" />
+                <element signature="e#8262#8263#0" expanded="false" />
+                <element signature="e#8316#8317#0" expanded="false" />
+                <element signature="e#13967#13968#0" expanded="false" />
+                <element signature="e#14027#14028#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,9 +134,27 @@
       <file leaf-file-name="SubControllerViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1282">
+            <state relative-caret-position="1012">
               <caret line="58" column="60" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="60" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#4380#4381#0" expanded="false" />
+                <element signature="e#4469#4470#0" expanded="false" />
+                <element signature="e#4539#4540#0" expanded="false" />
+                <element signature="e#4594#4595#0" expanded="false" />
+                <element signature="e#4673#4674#0" expanded="false" />
+                <element signature="e#4732#4733#0" expanded="false" />
+                <element signature="e#5373#5374#0" expanded="false" />
+                <element signature="e#5445#5446#0" expanded="false" />
+                <element signature="e#6128#6129#0" expanded="false" />
+                <element signature="e#6161#6162#0" expanded="false" />
+                <element signature="e#6195#6196#0" expanded="false" />
+                <element signature="e#6229#6230#0" expanded="false" />
+                <element signature="e#6265#6266#0" expanded="false" />
+                <element signature="e#6301#6302#0" expanded="false" />
+                <element signature="e#6342#6343#0" expanded="false" />
+                <element signature="e#6383#6384#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -201,15 +254,11 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/node_modules" />
-  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-367" />
-    <option name="y" value="-1440" />
-    <option name="width" value="2560" />
-    <option name="height" value="1440" />
+    <option name="y" value="24" />
+    <option name="width" value="1920" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -263,9 +312,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -548,6 +595,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -575,7 +624,6 @@
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="lemonwebcontroller" />
-    <property name="FullScreen" value="true" />
     <property name="SearchEverywhereHistoryKey" value="createBrowser&#9;PSI&#9;JAVA://net.lemonsoft.lwc.core.SubController#createBrowser" />
   </component>
   <component name="RecentsManager">
@@ -1104,6 +1152,8 @@
       <workItem from="1475104873689" duration="630000" />
       <workItem from="1475235533566" duration="2060000" />
       <workItem from="1475406616968" duration="2720000" />
+      <workItem from="1475466939973" duration="1210000" />
+      <workItem from="1475473878390" duration="952000" />
     </task>
     <task id="LOCAL-00001" summary="临时提交一次">
       <created>1471505650228</created>
@@ -1172,15 +1222,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165836000" />
+    <option name="totallyTimeSpent" value="167998000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-367" y="-1440" width="2560" height="1440" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32460734" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1190,7 +1239,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.223635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30704564" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30683032" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1204,6 +1253,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32460734" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1288,25 +1338,25 @@
     <entry file="file://$PROJECT_DIR$/hs_err_pid25654.log" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/netscape/javascript/JSObject.java" />
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerConsoleStage.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerDataCollectionStage.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerDataCollectionStage.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="21" column="40" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="40" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/stylesheet/SubControllerStage.css">
@@ -1332,14 +1382,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/SubControllerStage.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/LogCommand.java">
@@ -1365,14 +1415,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/layout/MainManagerStage.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="775">
           <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Log.js">
@@ -1423,26 +1473,6 @@
             <element signature="e#3485#3486#0" expanded="false" />
             <element signature="e#3534#3535#0" expanded="false" />
             <element signature="e#3578#3579#0" expanded="false" />
-            <marker date="1472468351000" expanded="false" signature="55:550" ph="..." />
-            <marker date="1472468351000" expanded="true" signature="552:603" ph="/**...*/" />
-            <marker date="1472468351000" expanded="false" signature="1055:1065" ph=" { " />
-            <marker date="1472468351000" expanded="false" signature="1087:1093" ph=" }" />
-            <marker date="1472468351000" expanded="true" signature="1176:1287" ph="{...}" />
-            <marker date="1472468351000" expanded="false" signature="1323:1334" ph=" { " />
-            <marker date="1472468351000" expanded="false" signature="1354:1360" ph=" }" />
-            <marker date="1472468351000" expanded="false" signature="1413:1424" ph=" { " />
-            <marker date="1472468351000" expanded="false" signature="1457:1463" ph=" }" />
-            <marker date="1472468351000" expanded="true" signature="1469:1498" ph="/**...*/" />
-            <marker date="1472468351000" expanded="false" signature="1521:1532" ph=" { " />
-            <marker date="1472468351000" expanded="false" signature="1552:1558" ph=" }" />
-            <marker date="1472468351000" expanded="true" signature="1564:1593" ph="/**...*/" />
-            <marker date="1472468351000" expanded="false" signature="1616:1627" ph=" { " />
-            <marker date="1472468351000" expanded="false" signature="1647:1653" ph=" }" />
-            <marker date="1472468351000" expanded="true" signature="1659:1690" ph="/**...*/" />
-            <marker date="1472468351000" expanded="true" signature="1726:2154" ph="{...}" />
-            <marker date="1472468351000" expanded="true" signature="2160:2186" ph="/**...*/" />
-            <marker date="1472468351000" expanded="true" signature="2229:2460" ph="{...}" />
-            <marker date="1472468351000" expanded="true" signature="3211:3232" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1455,35 +1485,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/scene/web/WebEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="981" column="0" selection-start-line="981" selection-start-column="0" selection-end-line="981" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="923">
-          <caret line="2494" column="0" selection-start-line="2494" selection-start-column="0" selection-end-line="2494" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="198" column="0" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/scene/web/WebView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="1150" column="0" selection-start-line="1150" selection-start-column="0" selection-end-line="1150" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/scene/web/WebEngine.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/scene/Scene.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/event/Event.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/scene/web/WebView.java" />
     <entry file="jar://$PROJECT_DIR$/src/net/lemonsoft/lwc/library/jxbrowser-6.5.1.jar!/com/teamdev/jxbrowser/chromium/Browser.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -1491,13 +1496,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/stage/Stage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="720" column="46" selection-start-line="720" selection-start-column="46" selection-end-line="720" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/javafx/stage/Stage.java" />
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/DataCollectionCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="759">
@@ -1534,48 +1533,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/misc/Trampoline.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/com/sun/webkit/Utilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/security/AccessController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="651" column="8" selection-start-line="651" selection-start-column="8" selection-end-line="651" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="497" column="0" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/misc/Trampoline.class" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/javafx-src.zip!/com/sun/webkit/Utilities.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/security/AccessController.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/src.zip!/java/lang/reflect/Method.java" />
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1589,7 +1552,7 @@
         <state relative-caret-position="664">
           <caret line="124" column="31" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1599,7 +1562,7 @@
         <state relative-caret-position="1192">
           <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
-            <element signature="e#3887#3888#0" expanded="true" />
+            <element signature="e#3887#3888#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1616,7 +1579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1641,32 +1603,86 @@
         <state relative-caret-position="379">
           <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
           <folding>
-            <element signature="e#1829#1830#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1829#1830#0" expanded="false" />
+            <element signature="e#1880#1881#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/SubControllerViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1282">
+        <state relative-caret-position="1012">
           <caret line="58" column="60" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="60" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4380#4381#0" expanded="false" />
+            <element signature="e#4469#4470#0" expanded="false" />
+            <element signature="e#4539#4540#0" expanded="false" />
+            <element signature="e#4594#4595#0" expanded="false" />
+            <element signature="e#4673#4674#0" expanded="false" />
+            <element signature="e#4732#4733#0" expanded="false" />
+            <element signature="e#5373#5374#0" expanded="false" />
+            <element signature="e#5445#5446#0" expanded="false" />
+            <element signature="e#6128#6129#0" expanded="false" />
+            <element signature="e#6161#6162#0" expanded="false" />
+            <element signature="e#6195#6196#0" expanded="false" />
+            <element signature="e#6229#6230#0" expanded="false" />
+            <element signature="e#6265#6266#0" expanded="false" />
+            <element signature="e#6301#6302#0" expanded="false" />
+            <element signature="e#6342#6343#0" expanded="false" />
+            <element signature="e#6383#6384#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1145">
+        <state relative-caret-position="2464">
           <caret line="131" column="18" selection-start-line="131" selection-start-column="18" selection-end-line="131" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2573#2574#0" expanded="false" />
+            <element signature="e#2598#2599#0" expanded="false" />
+            <element signature="e#2712#2713#0" expanded="false" />
+            <element signature="e#2752#2753#0" expanded="false" />
+            <element signature="e#3163#3164#0" expanded="false" />
+            <element signature="e#3197#3198#0" expanded="false" />
+            <element signature="e#3309#3310#0" expanded="false" />
+            <element signature="e#3350#3351#0" expanded="false" />
+            <element signature="e#4888#4889#0" expanded="false" />
+            <element signature="e#4938#4939#0" expanded="false" />
+            <element signature="e#5097#5098#0" expanded="false" />
+            <element signature="e#5139#5140#0" expanded="false" />
+            <element signature="e#5527#5528#0" expanded="false" />
+            <element signature="e#5568#5569#0" expanded="false" />
+            <element signature="e#6482#6483#0" expanded="false" />
+            <element signature="e#6530#6531#0" expanded="false" />
+            <element signature="e#6637#6638#0" expanded="false" />
+            <element signature="e#6672#6673#0" expanded="false" />
+            <element signature="e#6795#6796#0" expanded="false" />
+            <element signature="e#6832#6833#0" expanded="false" />
+            <element signature="e#6904#6905#0" expanded="false" />
+            <element signature="e#6935#6936#0" expanded="false" />
+            <element signature="e#7040#7041#0" expanded="false" />
+            <element signature="e#7077#7078#0" expanded="false" />
+            <element signature="e#7174#7175#0" expanded="false" />
+            <element signature="e#7204#7205#0" expanded="false" />
+            <element signature="e#7944#7945#0" expanded="false" />
+            <element signature="e#7997#7998#0" expanded="false" />
+            <element signature="e#8086#8087#0" expanded="false" />
+            <element signature="e#8134#8135#0" expanded="false" />
+            <element signature="e#8262#8263#0" expanded="false" />
+            <element signature="e#8316#8317#0" expanded="false" />
+            <element signature="e#13967#13968#0" expanded="false" />
+            <element signature="e#14027#14028#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="262" column="11" selection-start-line="262" selection-start-column="11" selection-end-line="262" selection-end-column="11" />
+        <state relative-caret-position="672">
+          <caret line="245" column="5" selection-start-line="245" selection-start-column="5" selection-end-line="245" selection-end-column="5" />
           <folding />
         </state>
       </provider>

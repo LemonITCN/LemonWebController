@@ -251,7 +251,7 @@ public class BrowserViewController extends Stage {
     public void closeBrowser() {
         browser.stop();
         browser.loadHTML("<html><body>1em0nsOft</body></html>");
-//        hide();
+        hide();
     }
 
     /**
