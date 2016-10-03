@@ -246,15 +246,6 @@ public class BrowserViewController extends Stage {
     }
 
     /**
-     * 隐藏浏览器窗口看，通常放到浏览器复用池中时候调用
-     */
-    public void closeBrowser() {
-        browser.stop();
-        browser.loadHTML("<html><body>1em0nsOft</body></html>");
-        hide();
-    }
-
-    /**
      * 在浏览器中执行命令对象
      *
      * @param command 要执行的浏览器命令对象
