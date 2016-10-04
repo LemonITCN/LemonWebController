@@ -114,7 +114,6 @@ public class SubController implements Core {
     public void closeBrowserById(String id) {
         BrowserViewController browser = browserPool.get(id);
         browser.close();
-        browserPool.remove(id);
         refreshGUI();
     }
 
@@ -125,6 +124,7 @@ public class SubController implements Core {
         for (String id : browserPool.keySet()) {
             closeBrowserById(id);
         }
+        browserPool.clear();
     }
 
     /**
