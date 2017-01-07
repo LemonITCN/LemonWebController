@@ -13,6 +13,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import net.lemonsoft.lwc.core.BrowserCommand;
 import net.lemonsoft.lwc.core.SubController;
+import netscape.javascript.JSObject;
 
 import java.util.UUID;
 
@@ -62,26 +63,15 @@ public class BrowserViewController extends Stage {
             @Override
             public void changed(ObservableValue<? extends State> observable, State oldValue, State newValue) {
                 if (newValue == State.SUCCEEDED) {
-                    //添加節點，或者把app注入到網頁腳本當中
+                    if (loadURLHandler != null)
+                        loadURLHandler.loadSuccess();
+                    loadCompleteDeal();
                 }
-            }
-        });
-        this.browser.addLoadListener(new LoadAdapter() {
-
-            @Override
-            public void onDocumentLoadedInFrame(FrameLoadEvent frameLoadEvent) {
-                super.onDocumentLoadedInFrame(frameLoadEvent);
-                if (loadURLHandler != null)
-                    loadURLHandler.loadSuccess();
-                loadCompleteDeal();
-            }
-
-            @Override
-            public void onFailLoadingFrame(FailLoadingEvent failLoadingEvent) {
-                super.onFailLoadingFrame(failLoadingEvent);
-                if (loadURLHandler != null)
-                    loadURLHandler.loadFailed();
-                loadCompleteDeal();
+                if (newValue == State.FAILED) {
+                    if (loadURLHandler != null)
+                        loadURLHandler.loadFailed();
+                    loadCompleteDeal();
+                }
             }
         });
         this.showingProperty().addListener(new ChangeListener<Boolean>() {
@@ -165,9 +155,8 @@ public class BrowserViewController extends Stage {
                     setTitle(String.format("[%s] - %s", id, (String) browser.getTitle()));
                 }
             });
-
-            JSValue window = browser.executeJavaScriptAndReturnValue("window");
-            window.asObject().setProperty("console", browserConsoleCommand);// 设置控制台命令
+            JSObject jsObject = (JSObject) browser.executeScript("window");
+            jsObject.setMember("console", browserConsoleCommand);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -188,8 +177,7 @@ public class BrowserViewController extends Stage {
      * @return 当前浏览器加载的url
      */
     public String getCurrentUrl() {
-        String result = executeJavaScript("location.href").getStringValue();
-        return result;
+        return executeJavaScript("location.href").toString();
     }
 
     /**
@@ -198,8 +186,7 @@ public class BrowserViewController extends Stage {
      * @return 当前浏览器应显示的标题
      */
     public String getCurrentTitle() {
-        String result = executeJavaScript("document.title").getStringValue();
-        return result;
+        return executeJavaScript("document.title").toString();
     }
 
     /**
@@ -208,20 +195,9 @@ public class BrowserViewController extends Stage {
      * @param jsCode 要在浏览器中执行的js代码
      * @return 代码执行的返回值
      */
-    public JSValue executeJavaScript(String jsCode) {
+    public Object executeJavaScript(String jsCode) {
         String jsCommand = String.format("JSON.stringify(eval(\"%s\"))", jsCode);
-        JSValue result = browser.executeJavaScriptAndReturnValue(jsCommand);
-        // 临时判断采集的返回值类型，确保不出现位置的ak对象
-        if (result != null && !result.getClass().getName().contains("chromium.ak")) {
-            try {
-                browserConsoleCommand.result(result.getStringValue());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println(" OMHG!!!");
-        }
-        return result;
+        return browser.executeScript(jsCommand);
     }
 
     /**
@@ -232,7 +208,7 @@ public class BrowserViewController extends Stage {
      */
     public void loadUrl(String url, LoadURLHandler loadURLHandler) {
         this.loadURLHandler = loadURLHandler;
-        this.browser.loadURL(url);
+        this.browser.load(url);
     }
 
     /**
