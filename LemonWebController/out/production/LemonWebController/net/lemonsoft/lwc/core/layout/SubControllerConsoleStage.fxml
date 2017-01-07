@@ -1,0 +1,17 @@
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="net.lemonsoft.lwc.core.viewController.SubControllerConsoleViewController"
+          styleClass="rootFlowPane">
+    <HBox styleClass="operateBox">
+        <Label>Please enter the new tty's name:</Label>
+        <TextField fx:id="newTtyNameTextField" />
+        <Button text="Add a tty" onMouseClicked="#createTtyWithGUI"/>
+    </HBox>
+    <TabPane fx:id="consoleTabPane">
+    </TabPane>
+    <Label styleClass="copyrightLabel">Powered by Lemon Software Studio LiuRi</Label>
+</FlowPane>

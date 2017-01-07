@@ -1,0 +1,74 @@
+<LWC-SysCmd>
+    <LWC-CmdGrp name="Util"
+                introduce="This group contains a number of tools to help you complete a number of other features.">
+        <LWC-CmdItm>
+            <name>sleep</name>
+            <introduce>After using this function, the command queue in the console will be dormant for a period of
+                time.
+            </introduce>
+            <parameters>
+                <param>timeInterval:integer|Sleep time, unit: ms.</param>
+            </parameters>
+            <return>void</return>
+            <code>
+                function(timeInterval){var now=new Date();var exitTime=now.getTime()+timeInterval;while(true){now=new
+                Date();if(now.getTime()>exitTime){return}}};
+            </code>
+        </LWC-CmdItm>
+        <LWC-CmdItm>
+            <name>getUnixTimeStamp</name>
+            <introduce>
+                Get current system Unix time stamp, accurate to milliseconds.
+            </introduce>
+            <parameters/>
+            <return>unixTimeStamp:integer|Current system Unix time stamp, accurate to milliseconds.</return>
+            <code>
+                function(){return Math.round(new Date().getTime())};
+            </code>
+        </LWC-CmdItm>
+        <LWC-CmdItm>
+            <name>randomUUID</name>
+            <introduce>
+                Through JavaScript create a UUID and return it.
+            </introduce>
+            <parameters>
+                <param>void</param>
+            </parameters>
+            <return>uuid:string|New created UUID.</return>
+            <code>
+                function(){var s=[];var hexDigits="0123456789abcdef";for(var i=0;i&lt;
+                36;i++){s[i]=hexDigits.substr(Math.floor(Math.random()*16),1)}s[14]="4";s[19]=hexDigits.substr((s[19]&
+                3)|8,1);s[8]=s[13]=s[18]=s[23]="-";var uuid=s.join("");return uuid};
+            </code>
+        </LWC-CmdItm>
+    </LWC-CmdGrp>
+    <LWC-CmdGrp name="DataCollection"
+                introduce="The function in this group can help you collect the specified data into the data collection pool.">
+        <LWC-CmdItm>
+            <name>saveKeyValue</name>
+            <introduce>
+
+            </introduce>
+            <parameters>
+                <param>n:t|i</param>
+            </parameters>
+            <return>void</return>
+            <code>
+
+            </code>
+        </LWC-CmdItm>
+        <LWC-CmdItm>
+            <name></name>
+            <introduce>
+
+            </introduce>
+            <parameters>
+                <param>n:t|i</param>
+            </parameters>
+            <return>void</return>
+            <code>
+
+            </code>
+        </LWC-CmdItm>
+    </LWC-CmdGrp>
+</LWC-SysCmd>

@@ -1,0 +1,54 @@
+body{
+    padding:0px;
+    margin:0px;
+}
+.ttyConsoleOutput{
+    position: fixed;
+    width: 100%;
+    height: 75%;
+    overflow: scroll;
+    top: 0;
+}
+.ttyConsoleOutput div{
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: 微软雅黑;
+}
+.ttyConsoleOutput div:hover{
+    background: #eeeeee;
+}
+.ttyConsoleOutput .logItemSuccess{
+    color: #5bb75b;
+}
+.ttyConsoleOutput .logItemError{
+    color: #da4f49;
+}
+.ttyConsoleOutput .logItemInfo{
+    color: #363636;
+}
+.ttyConsoleOutput .logItemWarning{
+    color: #faa732;
+}
+.ttyConsoleInput{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 25%;
+}
+.ttyConsoleInput #ttyConsoleInputTextArea{
+    position: relative;
+    left: 0;
+    top: 0;
+    min-width: 90%;
+    min-height: 99%;
+    max-height: 99%;
+    max-width: 90%;
+    border:0;
+}
+.ttyConsoleInput #ttyConsoleInputRunButton{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 9%;
+    height: 100%;
+}

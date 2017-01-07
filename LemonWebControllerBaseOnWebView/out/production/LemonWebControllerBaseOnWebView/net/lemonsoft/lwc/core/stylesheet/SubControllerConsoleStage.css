@@ -1,0 +1,21 @@
+.root{
+    -fx-pref-width: 720px;
+    -fx-pref-height: 640px;
+}
+#consoleTabPane{
+    -fx-pref-width: 720px;
+    -fx-pref-height: 620px;
+}
+.operateBox{
+    -fx-padding: 10px;
+    -fx-spacing: 5px;
+    -fx-alignment: baseline-center;
+}
+.ttyWebView{
+    -fx-pref-width: 720px;
+    -fx-pref-height: 600px;
+}
+.copyrightLabel{
+    -fx-pref-width: 720px;
+    -fx-alignment: center;
+}
