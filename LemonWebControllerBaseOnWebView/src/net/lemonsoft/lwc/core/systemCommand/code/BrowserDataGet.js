@@ -17,6 +17,7 @@ function BrowserDataGet(browserObj) {
      * @param propertyName
      */
     this.getDomProperty = function (domSelector, propertyName) {
+        Log.info()
         return browser.executeJavaScript("document.querySelector('" + domSelector + "')." + propertyName);
     };
 
