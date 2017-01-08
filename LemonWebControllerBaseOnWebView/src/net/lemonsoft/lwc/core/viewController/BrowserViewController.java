@@ -196,8 +196,7 @@ public class BrowserViewController extends Stage {
      * @return 代码执行的返回值
      */
     public Object executeJavaScript(String jsCode) {
-        String jsCommand = String.format("JSON.stringify(eval(\"%s\"))", jsCode);
-        return browser.executeScript(jsCommand);
+        return browser.executeScript(jsCode);
     }
 
     /**

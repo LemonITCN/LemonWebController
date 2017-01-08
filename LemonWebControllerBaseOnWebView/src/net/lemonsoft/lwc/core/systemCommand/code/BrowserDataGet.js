@@ -7,8 +7,10 @@ function BrowserDataGet(browserObj) {
      * @param attributeName 要获取的属性名
      * @returns {string} 获取到的属性值
      */
-    this.getDomAttribute = function (domSelector , attributeName) {
-        return browser.executeJavaScript("document.querySelector('" + domSelector + "').getAttribute('" + attributeName + "')");
+    this.getDomAttribute = function (domSelector, attributeName) {
+        var script = "document.querySelector('" + domSelector + "').getAttribute('" + attributeName + "')";
+        Log.info("getDomAttribute:" + script);
+        return browser.executeJavaScript(script);
     };
 
     /**
@@ -17,8 +19,9 @@ function BrowserDataGet(browserObj) {
      * @param propertyName
      */
     this.getDomProperty = function (domSelector, propertyName) {
-        Log.info()
-        return browser.executeJavaScript("document.querySelector('" + domSelector + "')." + propertyName);
+        var script = "document.querySelector('" + domSelector + "')." + propertyName;
+        Log.info("getProperty:" + script);
+        return browser.executeJavaScript(script);
     };
 
     /**
@@ -28,10 +31,10 @@ function BrowserDataGet(browserObj) {
      */
     this.getInnerHTML = function (domSelector) {
         try {
-            var result = this.getDomProperty(domSelector , "innerHTML");
+            var result = this.getDomProperty(domSelector, "innerHTML");
             Log.success("根据脚本命令获取指定元素的innerHTML成功");
             return result;
-        }catch (e){
+        } catch (e) {
             Log.warning("获取指定元素的innerHTML失败:" + e);
             return null;
         }
@@ -44,10 +47,10 @@ function BrowserDataGet(browserObj) {
      */
     this.getOuterHTML = function (domSelector) {
         try {
-            var result = this.getDomProperty(domSelector , "outerHTML");
+            var result = this.getDomProperty(domSelector, "outerHTML");
             Log.success("根据脚本命令获取指定元素的outerHTML成功");
             return result;
-        }catch (e){
+        } catch (e) {
             Log.warning("获取指定元素的outerHTML失败:" + e);
             return null;
         }
@@ -60,10 +63,10 @@ function BrowserDataGet(browserObj) {
      */
     this.getInnerText = function (domSelector) {
         try {
-            var result = this.getDomProperty(domSelector , "innerText");
+            var result = this.getDomProperty(domSelector, "innerText");
             Log.success("根据脚本命令获取指定元素的innerText成功");
             return result;
-        }catch (e){
+        } catch (e) {
             Log.warning("获取指定元素的innerText失败:" + e);
             return null;
         }
@@ -80,7 +83,7 @@ function BrowserDataGet(browserObj) {
             var result = this.executeJS("location.href");
             Log.success("根据脚本命令获取当前采集数据的界面的URL成功");
             return result;
-        }catch (e){
+        } catch (e) {
             Log.warning("获取当前采集数据的界面的URL失败:" + e);
             return null;
         }
@@ -95,10 +98,10 @@ function BrowserDataGet(browserObj) {
      */
     this.getImgDomURL = function (domSelector) {
         try {
-            var result = this.getDomProperty(domSelector , "src");
+            var result = this.getDomProperty(domSelector, "src");
             Log.success("根据脚本命令获取指定图片Dom元素的图片URL成功");
             return result;
-        }catch (e){
+        } catch (e) {
             Log.warning("获取指定图片Dom元素的图片URL失败:" + e);
             return null;
         }
@@ -116,7 +119,7 @@ function BrowserDataGet(browserObj) {
             var result = this.getDomProperty(domSelector, "href");
             Log.success("根据脚本命令获取指定A标记的的链接URL成功");
             return result;
-        }catch (e){
+        } catch (e) {
             Log.warning("获取指定A标记的的链接URL失败:" + e);
             return null;
         }
@@ -132,7 +135,7 @@ function BrowserDataGet(browserObj) {
             var result = this.getDomProperty(domSelector, "children");
             Log.success("根据脚本命令获取指定节点的所有的子元素节点数组成功");
             return result;
-        }catch (e){
+        } catch (e) {
             Log.warning("获取指定节点的所有的子元素节点数组失败:" + e);
             return null;
         }
@@ -149,7 +152,7 @@ function BrowserDataGet(browserObj) {
             Log.error(this.getDomProperty(domSelector, "children.length"));
             Log.success("根据脚本命令获取指定节点的所有的子元素节点数组中的元素数量成功");
             return result;
-        }catch (e){
+        } catch (e) {
             Log.warning("获取指定节点的所有的子元素节点数组中的元素数量失败:" + e);
             return null;
         }
