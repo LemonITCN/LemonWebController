@@ -36,7 +36,7 @@ public class SubControllerConsoleViewController implements Initializable {
     @FXML
     private TextField newTtyNameTextField;// 新Tty名称输入框
 
-    public TabPane getConsoleTabPane(){
+    public TabPane getConsoleTabPane() {
         return consoleTabPane;
     }
 
@@ -87,7 +87,7 @@ public class SubControllerConsoleViewController implements Initializable {
      * 添加一个TTY
      */
     public Tty createATty(String ttyName) {
-        Tty tty = new Tty(ttyName , belongSubController);
+        Tty tty = new Tty(ttyName, belongSubController);
         Tab tab = new Tab(ttyName);
         tab.setContent(tty.getContainer());
         consoleTabPane.getTabs().add(tab);
@@ -104,14 +104,15 @@ public class SubControllerConsoleViewController implements Initializable {
 
     /**
      * 查询当前的tty总数量
+     *
      * @return tty的数量
      */
-    public Integer countTtys(){
+    public Integer countTtys() {
         return ttyPool.size();
     }
 
     /**
-     * 通过TTYID移除tty
+     * 通过TTY ID移除tty
      *
      * @param ttyId 要移除的TTYid
      */
