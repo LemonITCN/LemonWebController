@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import net.lemonsoft.lwc.core.SubController;
 import net.lemonsoft.lwc.core.Tty;
 import net.lemonsoft.lwc.core.viewController.BrowserViewController;
+import net.lemonsoft.lwc.core.viewController.CallBackBundle;
 
 /**
  * 浏览器管理命令
@@ -113,7 +114,7 @@ public class BrowserManageCommand {
                     public void run() {
                         try {
                             Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();_lk_success_c=null;", successCallback));
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
@@ -131,6 +132,39 @@ public class BrowserManageCommand {
                 });
             }
         });
+    }
+
+    /**
+     * 设置关闭回调函数
+     *
+     * @param browserId
+     * @param closeCallBack
+     */
+    public void setOnClose(String browserId, Object closeCallBack) {
+        BrowserViewController browser = belongController.getBrowserById(browserId);
+        browser.setOnClose(new CallBackBundle(closeCallBack, belongTty));
+    }
+
+    /**
+     * 设置加载成功回调
+     *
+     * @param browserId
+     * @param onSuccessCallBack
+     */
+    public void setOnLoadSuccess(String browserId, Object onSuccessCallBack) {
+        BrowserViewController browser = belongController.getBrowserById(browserId);
+        browser.setOnLoadSuccess(new CallBackBundle(onSuccessCallBack, belongTty));
+    }
+
+    /**
+     * 设置加载失败回调
+     *
+     * @param browserId
+     * @param onFailedCallBack
+     */
+    public void setOnLoadFailed(String browserId, Object onFailedCallBack) {
+        BrowserViewController browser = belongController.getBrowserById(browserId);
+        browser.setOnLoadFailed(new CallBackBundle(onFailedCallBack, belongTty));
     }
 
 }

@@ -11,8 +11,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import net.lemonsoft.lwc.core.BrowserCommand;
 import net.lemonsoft.lwc.core.SubController;
+import net.lemonsoft.lwc.core.Tty;
 import netscape.javascript.JSObject;
 
 import java.util.UUID;
@@ -35,6 +37,13 @@ public class BrowserViewController extends Stage {
     private BrowserConsoleCommand browserConsoleCommand;
 
     private LoadURLHandler loadURLHandler;
+
+    // JS回调函数 - 浏览器关闭
+    private CallBackBundle onClose;
+    // JS回调函数 - 浏览器加载URL成功
+    private CallBackBundle onLoadSuccess;
+    // JS回调函数 - 浏览器加载URL失败
+    private CallBackBundle onLoadFailed;
 
     private BrowserViewController() {
         super();
@@ -59,17 +68,28 @@ public class BrowserViewController extends Stage {
         this.rootScene = new Scene(browserView);
         this.setScene(rootScene);
         browserConsoleCommand = new BrowserConsoleCommand();
+        this.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                if (onClose != null)
+                    onClose.getTty().executeJavaScript(String.format("%s()", onClose.getCallback()));
+            }
+        });
         this.browser.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             @Override
             public void changed(ObservableValue<? extends State> observable, State oldValue, State newValue) {
                 if (newValue == State.SUCCEEDED) {
                     if (loadURLHandler != null)
                         loadURLHandler.loadSuccess();
+                    if (onLoadSuccess != null)
+                        onLoadSuccess.getTty().executeJavaScript(String.format("%s()", onLoadSuccess.getCallback()));
                     loadCompleteDeal();
                 }
                 if (newValue == State.FAILED) {
                     if (loadURLHandler != null)
                         loadURLHandler.loadFailed();
+                    if (onLoadFailed != null)
+                        onLoadFailed.getTty().executeJavaScript(String.format("%s()", onLoadFailed.getCallback()));
                     loadCompleteDeal();
                 }
             }
@@ -274,4 +294,16 @@ public class BrowserViewController extends Stage {
         void loadFailed();
     }
 
+    public void setOnClose(CallBackBundle onClose) {
+        this.onClose = onClose;
+    }
+
+    public void setOnLoadSuccess(CallBackBundle onLoadSuccess) {
+        this.onLoadSuccess = onLoadSuccess;
+    }
+
+    public void setOnLoadFailed(CallBackBundle onLoadFailed) {
+        this.onLoadFailed = onLoadFailed;
+    }
 }
+
