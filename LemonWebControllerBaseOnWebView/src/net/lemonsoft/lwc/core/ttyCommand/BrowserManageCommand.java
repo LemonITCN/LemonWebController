@@ -167,4 +167,15 @@ public class BrowserManageCommand {
         browser.setOnLoadFailed(new CallBackBundle(onFailedCallBack, belongTty));
     }
 
+    /**
+     * 放置自定义的回调函数到自定义回调池中
+     * @param browserId 浏览器id
+     * @param callbackKey 回调函数key
+     * @param callback 回调函数函数体
+     */
+    public void putCustomCallback(String browserId, String callbackKey, Object callback) {
+        BrowserViewController browser = belongController.getBrowserById(browserId);
+        browser.putCustomCallback(callbackKey, new CallBackBundle(callback, belongTty));
+    }
+
 }

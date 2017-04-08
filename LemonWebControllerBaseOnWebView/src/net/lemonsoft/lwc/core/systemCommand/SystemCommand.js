@@ -238,6 +238,16 @@ function BrowserDataGet(browserObj) {
     };
 
     /**
+     * 获取指定的class的所有dom节点对象
+     * @param className 要获取的节点数组的class名称
+     */
+    this.getNodesWithClassName = function (className) {
+        var script = "document.getElementsByClassName('" + className + "')";
+        Log.info("获取指定class的所有节点 :" + className);
+        return browser.executeJavaScript(script);
+    };
+
+    /**
      * 获取指定节点的所有的子元素节点数组中的元素数量
      * @param domSelector 要获取的指定节点的css选择器字符串
      * @returns {*}
@@ -399,6 +409,40 @@ function BrowserOperate(browserObj) {
         Log.success("触发指定Dom元素的鼠标悬浮事件成功");
     };
 
+    /**
+     * 放置自定义函数到自定义回调池中
+     * @param callbackKey 自定义回调的key
+     * @param callbackFunc 回调的函数体
+     */
+    this.putCustomCallback = function (callbackKey, callbackFunc) {
+        Log.success('防止回调函数到回调池：' + callbackKey);
+        window.browser.putCustomCallback(browser.getId() , callbackKey , callbackFunc);
+    };
+
+    /**
+     * 缓冲全屏数据
+     * @param v 速度，每屏等待时长，单位毫秒
+     * @param endCallback 所有数据缓冲结束后的回调函数
+     */
+    this.bufferAllScreen = function(v , endCallback){
+        var endCallbackKey = "K_BUFF_END_CALLBACK";
+        this.putCustomCallback(endCallbackKey , endCallback);
+        Log.success('准备执行自动缓冲脚本');
+        var script = "(function(){var currentCount=0;var timer=setInterval(function(){console.log('GOGOGO');document.body.scrollTop=window.innerHeight*currentCount;currentCount++;if(document.body.scrollTop>=(document.body.scrollHeight-window.innerHeight)){window.clearInterval(timer);try{window.callback.invoke('K_BUFF_END_CALLBACK','');}catch(e){console.log('error:' + e.message);}console.log('OK!!!!!');}}," + v + ");})()";
+        Log.success('SCRIPT = ' + script);
+        browser.executeJavaScript(script);
+        // var currentCount = 0;
+        // var timer = setInterval(function(){
+        //     document.body.scrollTop = window.innerHeight * currentCount;
+        //     currentCount ++;
+        //     if (document.body.scrollTop >= (document.body.scrollHeight - window.innerHeight)){
+        //         window.clearInterval(timer);
+        //         window.callback.invoke('K_BUFF_END_CALLBACK','');
+        //     }
+        // } , v);
+    };
+    // Log.success('全屏数据缓冲完毕！自动缓冲滚动操作了' + currentCount + '次 ， 总页面高度 + ' + document.body.scrollHeight + ',浏览器窗口高度：' + window.innerHeight);
+    // endCallback();
 }
 /**
  * 通讯类 - 用于tty的命令与

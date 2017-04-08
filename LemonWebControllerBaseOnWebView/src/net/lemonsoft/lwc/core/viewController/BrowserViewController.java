@@ -17,6 +17,7 @@ import net.lemonsoft.lwc.core.SubController;
 import net.lemonsoft.lwc.core.Tty;
 import netscape.javascript.JSObject;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -35,6 +36,7 @@ public class BrowserViewController extends Stage {
     private SubController belongSubController;// 归属于的子控制器
 
     private BrowserConsoleCommand browserConsoleCommand;
+    private BrowserCallback browserCallback;
 
     private LoadURLHandler loadURLHandler;
 
@@ -44,6 +46,8 @@ public class BrowserViewController extends Stage {
     private CallBackBundle onLoadSuccess;
     // JS回调函数 - 浏览器加载URL失败
     private CallBackBundle onLoadFailed;
+    // JS回调函数 - 自定义回调池
+    private HashMap<String, CallBackBundle> customCallbackPool = new HashMap<>();
 
     private BrowserViewController() {
         super();
@@ -68,13 +72,7 @@ public class BrowserViewController extends Stage {
         this.rootScene = new Scene(browserView);
         this.setScene(rootScene);
         browserConsoleCommand = new BrowserConsoleCommand();
-        this.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                if (onClose != null)
-                    onClose.getTty().executeJavaScript(String.format("%s()", onClose.getCallback()));
-            }
-        });
+        browserCallback = new BrowserCallback();
         this.browser.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             @Override
             public void changed(ObservableValue<? extends State> observable, State oldValue, State newValue) {
@@ -82,14 +80,14 @@ public class BrowserViewController extends Stage {
                     if (loadURLHandler != null)
                         loadURLHandler.loadSuccess();
                     if (onLoadSuccess != null)
-                        onLoadSuccess.getTty().executeJavaScript(String.format("%s()", onLoadSuccess.getCallback()));
+                        onLoadSuccess.getTty().executeJavaScript(String.format("(%s)('%s')", onLoadSuccess.getCallback(), browser.getLocation()));
                     loadCompleteDeal();
                 }
                 if (newValue == State.FAILED) {
                     if (loadURLHandler != null)
                         loadURLHandler.loadFailed();
                     if (onLoadFailed != null)
-                        onLoadFailed.getTty().executeJavaScript(String.format("%s()", onLoadFailed.getCallback()));
+                        onLoadFailed.getTty().executeJavaScript(String.format("(%s)('%s')", onLoadFailed.getCallback(), browser.getLocation()));
                     loadCompleteDeal();
                 }
             }
@@ -177,6 +175,8 @@ public class BrowserViewController extends Stage {
             });
             JSObject jsObject = (JSObject) browser.executeScript("window");
             jsObject.setMember("console", browserConsoleCommand);
+            // 监听浏览器激活回调函数
+            jsObject.setMember("callback", browserCallback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -242,6 +242,13 @@ public class BrowserViewController extends Stage {
             this.hide();
     }
 
+    @Override
+    public void close() {
+        super.close();
+        if (onClose != null)
+            onClose.getTty().executeJavaScript(String.format("(%s)()", onClose.getCallback()));
+    }
+
     /**
      * 在浏览器中执行命令对象
      *
@@ -279,6 +286,21 @@ public class BrowserViewController extends Stage {
     }
 
     /**
+     * 回调函数原生JS调用接口
+     */
+    public class BrowserCallback {
+        /**
+         * 激活指定的回调函数
+         *
+         * @param key
+         * @param params
+         */
+        public void invoke(String key, String params) {
+            invokeCustomCallback(key, params);
+        }
+    }
+
+    /**
      * 加载URL的机制
      */
     public interface LoadURLHandler {
@@ -305,5 +327,15 @@ public class BrowserViewController extends Stage {
     public void setOnLoadFailed(CallBackBundle onLoadFailed) {
         this.onLoadFailed = onLoadFailed;
     }
+
+    public void putCustomCallback(String key, CallBackBundle callBackBundle) {
+        customCallbackPool.put(key, callBackBundle);
+    }
+
+    public void invokeCustomCallback(String key, String params) {
+        if (customCallbackPool.containsKey(key))
+            customCallbackPool.get(key).getTty().executeJavaScript(String.format("(%s)(" + params + ")", customCallbackPool.get(key).getCallback()));
+    }
+
 }
 
