@@ -8,12 +8,14 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="5aad8d60-1f18-41cb-9ae4-76901627aebc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/SystemCommand.js" afterPath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/SystemCommand.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/SystemCommand.min.js" afterPath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/SystemCommand.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" afterPath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js" afterPath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js" afterPath="$PROJECT_DIR$/out/production/LemonWebControllerBaseOnWebView/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.min.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" afterPath="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,10 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Browser.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Browser.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-858">
+            <state relative-caret-position="-1701">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -121,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BrowserViewController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BrowserViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="336" column="12" lean-forward="false" selection-start-line="336" selection-start-column="12" selection-end-line="336" selection-end-column="12" />
+            <state relative-caret-position="6">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
                 <element signature="e#9661#9662#0" expanded="true" />
                 <element signature="e#9718#9719#0" expanded="true" />
@@ -157,6 +159,11 @@
       <find>load</find>
       <find>state</find>
       <find>close</find>
+      <find />
+      <find>show</find>
+      <find>show ov</find>
+      <find>show ove</find>
+      <find>show over</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,12 +184,12 @@
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/SystemCommand.min.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserLifeCycle.js" />
-        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/CallBackBundle.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserDataGet.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/ttyCommand/BrowserManageCommand.java" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/BrowserOperate.js" />
         <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java" />
+        <option value="$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js" />
       </list>
     </option>
   </component>
@@ -1087,7 +1094,7 @@
       <workItem from="1487830974412" duration="1924000" />
       <workItem from="1491467755934" duration="4772000" />
       <workItem from="1491483180017" duration="1886000" />
-      <workItem from="1491525500604" duration="25148000" />
+      <workItem from="1491525500604" duration="27735000" />
     </task>
     <task id="LOCAL-00001" summary="完成了迁移工程">
       <created>1483785324760</created>
@@ -1124,11 +1131,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491551131430</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="增加自定义回调函数功能">
+      <created>1491641215124</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1491641215124</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44566000" />
+    <option name="totallyTimeSpent" value="47153000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -1151,6 +1165,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15739268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1162,7 +1177,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1177,7 +1191,8 @@
     <MESSAGE value="修复了采集脚本引擎的若干问题" />
     <MESSAGE value="整理code" />
     <MESSAGE value="添加三个回调" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加三个回调" />
+    <MESSAGE value="增加自定义回调函数功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加自定义回调函数功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1512,69 +1527,69 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1491626969961" expanded="true" signature="70:1961" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="12924:12926" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="6565:6615" ph="/** 加载URL ...*/" />
-            <marker date="1491626969961" expanded="true" signature="6685:6782" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="6789:6975" ph="/** 设置指定Dom元素的Attribute参数 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="7059:7214" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="7221:7369" ph="/** 设置指定Dom元素的属性 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="7450:7593" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="7600:7755" ph="/** 触发指定Dom元素的指定函数 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="7835:7977" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="7984:8177" ph="/** 触发指定Dom元素的鼠标事件,如点击/鼠标悬浮等操作 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="8246:8539" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="8546:8683" ph="/** 在指定的Input文本控件中填写值 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="8742:8857" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="8864:9001" ph="/** 选择指定的下拉菜单的下拉项目 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="9062:9172" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="9179:9323" ph="/** 选中指定radio或checkbox ...*/" />
-            <marker date="1491626969961" expanded="true" signature="9379:9498" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="9505:9598" ph="/** 触发提交指定的表单 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="9644:9748" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="9755:9849" ph="/** 休眠指定的时间之后再继续执行 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="9892:10030" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="10037:10153" ph="/** 让当前页面滚动到指定的位置 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="10199:10323" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="10330:10427" ph="/** 点击指定的Dom元素 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="10471:10573" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="10580:10690" ph="/** 触发指定Dom元素的鼠标悬浮事件 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="10738:10850" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="12927:12969" ph="/** 通讯类 - 用于tty的命令与 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="13000:13117" ph="/** 调用指定的通讯handler ...*/" />
-            <marker date="1491626969961" expanded="true" signature="13169:13231" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="13266:13343" ph="/** 将指定的键值对数据放入到数据收集池中 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="13387:13434" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="13437:13485" ph="/** 将数据收集池中的指定数据取出 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="13522:13568" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="13571:13620" ph="/** 将数据收集池中的指定的数据删除 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="13660:13709" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="13712:13736" ph="/** 删除数据收集池中的所有数据 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="13776:13818" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="13820:13848" ph="/** 日志类 - 包含各种记录日志的方法 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="13869:13945" ph="/** 日志模型 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="13980:14083" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="14085:14192" ph="/** 输出一个日志 - 所有的日志输出方法都调用此方法,再通过日志类型来决定输出的日志种类 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="14230:14783" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="14393:14718" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="14728:14781" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="14786:14828" ph="/** 打印成功的日志 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="14859:14886" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="14889:14933" ph="/** 打印错误信息的日志 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="14962:14989" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="14992:15036" ph="/** 打印普通的信息日志 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="15064:15091" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="15094:15138" ph="/** 打印警告信息的日志 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="15169:15196" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="15214:15217" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="15219:15273" ph="/** 创建一个随机的UUID ...*/" />
-            <marker date="1491626969961" expanded="true" signature="15304:15736" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="15395:15472" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="15739:15792" ph="/** 获取当前的系统时间戳 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="15829:15877" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="15880:15941" ph="/** 休眠(阻塞)指定的时间 ...*/" />
-            <marker date="1491626969961" expanded="true" signature="15979:16166" ph="{...}" />
-            <marker date="1491626969961" expanded="true" signature="16073:16164" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="70:1896" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="12859:12861" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="6565:6615" ph="/** 加载URL ...*/" />
+            <marker date="1491653530810" expanded="true" signature="6685:6782" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="6789:6975" ph="/** 设置指定Dom元素的Attribute参数 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="7059:7214" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="7221:7369" ph="/** 设置指定Dom元素的属性 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="7450:7593" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="7600:7755" ph="/** 触发指定Dom元素的指定函数 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="7835:7977" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="7984:8177" ph="/** 触发指定Dom元素的鼠标事件,如点击/鼠标悬浮等操作 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="8246:8539" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="8546:8683" ph="/** 在指定的Input文本控件中填写值 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="8742:8857" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="8864:9001" ph="/** 选择指定的下拉菜单的下拉项目 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="9062:9172" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="9179:9323" ph="/** 选中指定radio或checkbox ...*/" />
+            <marker date="1491653530810" expanded="true" signature="9379:9498" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="9505:9598" ph="/** 触发提交指定的表单 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="9644:9748" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="9755:9849" ph="/** 休眠指定的时间之后再继续执行 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="9892:10030" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="10037:10153" ph="/** 让当前页面滚动到指定的位置 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="10199:10323" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="10330:10427" ph="/** 点击指定的Dom元素 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="10471:10573" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="10580:10690" ph="/** 触发指定Dom元素的鼠标悬浮事件 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="10738:10850" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="12862:12904" ph="/** 通讯类 - 用于tty的命令与 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="12935:13052" ph="/** 调用指定的通讯handler ...*/" />
+            <marker date="1491653530810" expanded="true" signature="13104:13166" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="13201:13278" ph="/** 将指定的键值对数据放入到数据收集池中 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="13322:13369" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="13372:13420" ph="/** 将数据收集池中的指定数据取出 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="13457:13503" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="13506:13555" ph="/** 将数据收集池中的指定的数据删除 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="13595:13644" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="13647:13671" ph="/** 删除数据收集池中的所有数据 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="13711:13753" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="13755:13783" ph="/** 日志类 - 包含各种记录日志的方法 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="13804:13880" ph="/** 日志模型 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="13915:14018" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="14020:14127" ph="/** 输出一个日志 - 所有的日志输出方法都调用此方法,再通过日志类型来决定输出的日志种类 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="14165:14718" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="14328:14653" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="14663:14716" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="14721:14763" ph="/** 打印成功的日志 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="14794:14821" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="14824:14868" ph="/** 打印错误信息的日志 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="14897:14924" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="14927:14971" ph="/** 打印普通的信息日志 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="14999:15026" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="15029:15073" ph="/** 打印警告信息的日志 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="15104:15131" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="15149:15152" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="15154:15208" ph="/** 创建一个随机的UUID ...*/" />
+            <marker date="1491653530810" expanded="true" signature="15239:15671" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="15330:15407" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="15674:15727" ph="/** 获取当前的系统时间戳 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="15764:15812" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="15815:15876" ph="/** 休眠(阻塞)指定的时间 ...*/" />
+            <marker date="1491653530810" expanded="true" signature="15914:16101" ph="{...}" />
+            <marker date="1491653530810" expanded="true" signature="16008:16099" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1712,14 +1727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-858">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/SubController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2132">
@@ -1730,8 +1737,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/viewController/BrowserViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="336" column="12" lean-forward="false" selection-start-line="336" selection-start-column="12" selection-end-line="336" selection-end-column="12" />
+        <state relative-caret-position="6">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <element signature="e#9661#9662#0" expanded="true" />
             <element signature="e#9718#9719#0" expanded="true" />
@@ -1742,6 +1749,14 @@
             <element signature="e#10210#10211#0" expanded="true" />
             <element signature="e#10258#10259#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand/code/Browser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1701">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

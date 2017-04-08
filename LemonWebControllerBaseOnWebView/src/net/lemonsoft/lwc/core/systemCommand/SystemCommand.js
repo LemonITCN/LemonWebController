@@ -17,13 +17,11 @@ function Browser() {
      * 显示这个浏览器
      */
     this.show = function () {
-        Log.info("run show");
         try {
             window.browser.show(id);
         } catch (e) {
             Log.error("e.message" + e.message);
         }
-        Log.info("run show over");
     };
 
     /**

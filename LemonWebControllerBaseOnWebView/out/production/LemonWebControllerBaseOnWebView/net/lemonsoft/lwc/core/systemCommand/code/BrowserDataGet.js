@@ -142,6 +142,16 @@ function BrowserDataGet(browserObj) {
     };
 
     /**
+     * 获取指定的class的所有dom节点对象
+     * @param className 要获取的节点数组的class名称
+     */
+    this.getNodesWithClassName = function (className) {
+        var script = "document.getElementsByClassName('" + className + "')";
+        Log.info("获取指定class的所有节点 :" + className);
+        return browser.executeJavaScript(script);
+    };
+
+    /**
      * 获取指定节点的所有的子元素节点数组中的元素数量
      * @param domSelector 要获取的指定节点的css选择器字符串
      * @returns {*}

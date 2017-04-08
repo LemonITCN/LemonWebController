@@ -17,13 +17,11 @@ function Browser() {
      * 显示这个浏览器
      */
     this.show = function () {
-        Log.info("run show");
         try {
             window.browser.show(id);
         } catch (e) {
             Log.error("e.message" + e.message);
         }
-        Log.info("run show over");
     };
 
     /**
@@ -68,7 +66,29 @@ function Browser() {
         return window.browser.executeJavaScript(id, jsCode);
     };
 
+    /**
+     * 设置当加载成功的回调函数，不一定是通过LoadUrl加载的，有可能是通过A标签跳转的
+     * @param url 当时的浏览器URL
+     */
+    this.setOnLoadSuccess = function (callback) {
+        window.browser.setOnLoadSuccess(id, callback);
+    };
+
+    /**
+     * 设置当加载失败的回调函数，不一定是通过LoadUrl加载的，有可能是通过A标签跳转的
+     * @param url 当时的浏览器URL
+     */
+    this.setOnLoadFailed = function (callback) {
+        window.browser.setOnLoadFailed(id, callback);
+    };
+
+    /**
+     * 设置被关闭时候的回调函数
+     */
+    this.setOnClose = function (callback) {
+        window.browser.setOnClose(id, callback);
+    };
+
     this.operate = new BrowserOperate(this);
     this.dataGet = new BrowserDataGet(this);
-
 }
