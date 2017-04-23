@@ -53,6 +53,12 @@ public class BrowserViewController extends Stage {
         super();
     }
 
+    private BrowserCallback getBrowserCallback(){
+        if (browserCallback == null)
+            browserCallback = new BrowserCallback();
+        return browserCallback;
+    }
+
     public BrowserViewController(SubController belongSubController) {
         super();
         setTitle("New Blank BrowserViewController");
@@ -72,7 +78,6 @@ public class BrowserViewController extends Stage {
         this.rootScene = new Scene(browserView);
         this.setScene(rootScene);
         browserConsoleCommand = new BrowserConsoleCommand();
-        browserCallback = new BrowserCallback();
         this.browser.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             @Override
             public void changed(ObservableValue<? extends State> observable, State oldValue, State newValue) {
@@ -176,7 +181,7 @@ public class BrowserViewController extends Stage {
             JSObject jsObject = (JSObject) browser.executeScript("window");
             jsObject.setMember("console", browserConsoleCommand);
             // 监听浏览器激活回调函数
-            jsObject.setMember("callback", browserCallback);
+            jsObject.setMember("callback", getBrowserCallback());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -296,6 +301,7 @@ public class BrowserViewController extends Stage {
          * @param params
          */
         public void invoke(String key, String params) {
+            System.out.println("一个回调被激活：" + key + " + pararms = " + params);
             invokeCustomCallback(key, params);
         }
     }

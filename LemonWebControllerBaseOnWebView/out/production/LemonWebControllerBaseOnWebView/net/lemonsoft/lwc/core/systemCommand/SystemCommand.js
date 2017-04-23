@@ -426,7 +426,7 @@ function BrowserOperate(browserObj) {
         var endCallbackKey = "K_BUFF_END_CALLBACK";
         this.putCustomCallback(endCallbackKey , endCallback);
         Log.success('准备执行自动缓冲脚本');
-        var script = "(function(){var currentCount=0;var timer=setInterval(function(){console.log('GOGOGO');document.body.scrollTop=window.innerHeight*currentCount;currentCount++;if(document.body.scrollTop>=(document.body.scrollHeight-window.innerHeight)){window.clearInterval(timer);try{window.callback.invoke('K_BUFF_END_CALLBACK','');}catch(e){console.log('error:' + e.message);}console.log('OK!!!!!');}}," + v + ");})()";
+        var script = "(function(){var currentCount=0;var timer=setInterval(function(){console.log('GOGOGO');document.body.scrollTop=window.innerHeight*currentCount;currentCount++;if(document.body.scrollTop>=(document.body.scrollHeight-window.innerHeight)){window.clearInterval(timer);try{window.callback.invoke('K_BUFF_END_CALLBACK','');}catch(e){console.log('error:' + e.message + ', callback=' + JSON.stringify(window.callback));}console.log('OK!!!!!');}}," + v + ");})()";
         Log.success('SCRIPT = ' + script);
         browser.executeJavaScript(script);
         // var currentCount = 0;
