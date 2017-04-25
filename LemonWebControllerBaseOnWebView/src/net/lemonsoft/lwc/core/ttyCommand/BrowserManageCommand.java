@@ -116,6 +116,7 @@ public class BrowserManageCommand {
                             Object result = belongTty.executeJavaScript(String.format("var _lk_success_c = %s();_lk_success_c=null;", successCallback));
                         } catch (Exception e) {
                             e.printStackTrace();
+                            belongTty.executeJavaScript(String.format("var _lk_failed_c = %s();_lk_failed_c=null;", failedCallback));
                         }
                     }
                 });

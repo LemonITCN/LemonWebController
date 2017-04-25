@@ -12,6 +12,7 @@ var detailTimeoutChecker;
 
 var tuanData = new Array();
 var subData = new Array();
+var detailData = new Array();
 
 var subIndex = 0;
 var detailIndex = -1;
@@ -52,7 +53,7 @@ function grabSubNext(){
     subBrowser.operate.loadURL(tuanData[subIndex].url , function(){
         setTimeout('grabSubList()' , 1000);
     },function(){
-
+        Log.error("URL加载失败！！！" + url );
     });
 }
 
@@ -99,6 +100,14 @@ function grabDetailNext(){
 
 function grabDetailInfo(){
     clearTimeout(detailTimeoutChecker);
+    var detailResult = {};
+    detailResult.shopType = detailBrowser.executeJavaScript('JU_DETAIL_DYNAMIC.shopType');
+    detailResult.onlineStartTime = detailBrowser.executeJavaScript('JU_DETAIL_DYNAMIC.onlineStartTime;');
+    detailResult.onlineEndTime = detailBrowser.executeJavaScript('JU_DETAIL_DYNAMIC.onlineEndTime;');
+    detailResult.sellerName = detailBrowser.dataGet.getInnerText('.sellername');
+    detailResult.sellerUrl = detailBrowser.dataGet.getADomURL('.sellername');
+    Log.success('采集成功 ： ' + JSON.stringify(detailResult));
+    detailData.push(detailResult);
     detailBrowser.close();
 }
 
@@ -107,7 +116,3 @@ tuanBrowser.operate.loadURL('https://ju.taobao.com/jusp/tongzhuangpindao/tp.htm'
 },function(){
     Log.error("无法加载主页面！");
 });
-
-
-
-subBrowser.executeJavaScript('console.log(window.callback.invoke)')

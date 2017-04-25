@@ -81,6 +81,7 @@ public class BrowserViewController extends Stage {
         this.browser.getLoadWorker().stateProperty().addListener(new ChangeListener<State>() {
             @Override
             public void changed(ObservableValue<? extends State> observable, State oldValue, State newValue) {
+                System.out.println("URL = " + browser.getLocation() + " - state to = " + newValue);
                 if (newValue == State.SUCCEEDED) {
                     if (loadURLHandler != null)
                         loadURLHandler.loadSuccess();
@@ -232,6 +233,7 @@ public class BrowserViewController extends Stage {
      */
     public void loadUrl(String url, LoadURLHandler loadURLHandler) {
         this.loadURLHandler = loadURLHandler;
+        this.browser.getLoadWorker().cancel();
         this.browser.load(url);
     }
 

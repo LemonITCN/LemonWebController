@@ -429,15 +429,6 @@ function BrowserOperate(browserObj) {
         var script = "(function(){var currentCount=0;var timer=setInterval(function(){console.log('GOGOGO');document.body.scrollTop=window.innerHeight*currentCount;currentCount++;if(document.body.scrollTop>=(document.body.scrollHeight-window.innerHeight)){window.clearInterval(timer);try{window.callback.invoke('K_BUFF_END_CALLBACK','');}catch(e){console.log('error:' + e.message + ', callback=' + JSON.stringify(window.callback));}console.log('OK!!!!!');}}," + v + ");})()";
         Log.success('SCRIPT = ' + script);
         browser.executeJavaScript(script);
-        // var currentCount = 0;
-        // var timer = setInterval(function(){
-        //     document.body.scrollTop = window.innerHeight * currentCount;
-        //     currentCount ++;
-        //     if (document.body.scrollTop >= (document.body.scrollHeight - window.innerHeight)){
-        //         window.clearInterval(timer);
-        //         window.callback.invoke('K_BUFF_END_CALLBACK','');
-        //     }
-        // } , v);
     };
     // Log.success('全屏数据缓冲完毕！自动缓冲滚动操作了' + currentCount + '次 ， 总页面高度 + ' + document.body.scrollHeight + ',浏览器窗口高度：' + window.innerHeight);
     // endCallback();
