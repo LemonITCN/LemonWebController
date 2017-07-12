@@ -19,6 +19,7 @@ function BrowserOperate(browserObj) {
         browser.executeJavaScript("document.querySelector('" + domSelector + "').setAttribute('" + attributeName + "' , '" + attributeValue +"')");
     };
 
+
     /**
      * 设置指定Dom元素的属性
      * @param domSelector 要设置的属性的Dom元素的css选择器

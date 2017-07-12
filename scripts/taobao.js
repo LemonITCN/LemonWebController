@@ -45,8 +45,10 @@ subBrowser.setOnClose(function(){
 
 function grabSubNext(){
     subIndex ++;
-    if (subIndex == tuanData.length){
+    if (subIndex == 3/*tuanData.length*/){
         Log.success('所有SUB任务采集完毕!');
+        console.log('所有任务采集成功，准备提交至服务器');
+        Communication.call('task' , 'success');
         return;
     }
     subBrowser.show();
@@ -98,6 +100,8 @@ function grabDetailNext(){
     })
 }
 
+var index = 0;
+
 function grabDetailInfo(){
     clearTimeout(detailTimeoutChecker);
     var detailResult = {};
@@ -107,6 +111,7 @@ function grabDetailInfo(){
     detailResult.sellerName = detailBrowser.dataGet.getInnerText('.sellername');
     detailResult.sellerUrl = detailBrowser.dataGet.getADomURL('.sellername');
     Log.success('采集成功 ： ' + JSON.stringify(detailResult));
+    DataCollection.put('data' + index ++ , JSON.stringify(detailResult));
     detailData.push(detailResult);
     detailBrowser.close();
 }
