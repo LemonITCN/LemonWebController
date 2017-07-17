@@ -23,7 +23,7 @@ public class SubController implements Core {
     private Stage defaultStage = null;
     private Map<String, BrowserViewController> browserPool;
     private Map<String, String> consoleOutputPool;// 控制台输出池
-    private Map<String, Object> dataCollectionPool;// 数据收集池, 每个子控制器有一个独立的数据收集池,子控制器下所有的浏览器收集到的数据都会集中放到这个池中
+    private List<String> dataList;// 数据收集池, 每个子控制器有一个独立的数据收集池,子控制器下所有的浏览器收集到的数据都会集中放到这个池中
     private List<String> logList;// 日志表
     private Map<String, CommunicationHandler> communicationHandlerPool;// 通信handler池
 
@@ -48,7 +48,7 @@ public class SubController implements Core {
         this.id = UUID.randomUUID().toString();
         this.browserPool = new HashMap<>();
         this.consoleOutputPool = new HashMap<>();
-        this.dataCollectionPool = new HashMap<>();
+        this.dataList = new ArrayList<>();
         this.logList = new ArrayList<>();
         this.belongMainManager = belongMainManager;
         this.communicationHandlerPool = new HashMap<>();
@@ -162,18 +162,17 @@ public class SubController implements Core {
      *
      * @return 数据收集池对象
      */
-    public Map<String, Object> getDataCollectionPool() {
-        return dataCollectionPool;
+    public List<String> getDataCollectionPool() {
+        return dataList;
     }
 
     /**
-     * 向数据收集池中放入一个键值对数据
+     * 向数据收集池中放入一行数据
      *
-     * @param key   要放入的键
-     * @param value 放入的值
+     * @param row 要放入的键
      */
-    public void putData(String key, Object value) {
-        dataCollectionPool.put(key, value);
+    public void addRow(String row) {
+        dataList.add(row);
         if (defaultDataCollectionViewController != null)
             defaultDataCollectionViewController.refresh();
     }
@@ -181,10 +180,10 @@ public class SubController implements Core {
     /**
      * 删除指定的数据
      *
-     * @param key 要删除的数据的键
+     * @param index 要删除的数据的行索引
      */
-    public void removeData(String key) {
-        dataCollectionPool.remove(key);
+    public void removeData(int index) {
+        dataList.remove(index);
         if (defaultDataCollectionViewController != null)
             defaultDataCollectionViewController.refresh();
     }
@@ -193,7 +192,7 @@ public class SubController implements Core {
      * 删除所有数据
      */
     public void removeAllData() {
-        dataCollectionPool.clear();
+        dataList.clear();
         if (defaultDataCollectionViewController != null)
             defaultDataCollectionViewController.refresh();
     }
@@ -204,7 +203,7 @@ public class SubController implements Core {
      * @return 数据收集池中的数据数量
      */
     public Integer countData() {
-        return dataCollectionPool.size();
+        return dataList.size();
     }
 
     /**

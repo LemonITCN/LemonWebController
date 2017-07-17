@@ -4,6 +4,10 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import net.lemonsoft.lwc.core.MainManager;
 
+import java.awt.*;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseEvent;
+
 public class Main extends Application {
 
     @Override
@@ -16,7 +20,21 @@ public class Main extends Application {
 //        System.out.println(controller.getDataCollectionPool());
     }
 
-    public static void main(String[] args) {
-        launch(args);
+//    public static void main(String[] args) {
+//        launch(args);
+//    }
+
+    public static void main(String[] args) throws AWTException {
+        Robot robot = new Robot();
+
+        while (true) {
+            robot.mouseMove(363, 650);
+            robot.delay(1000);
+            robot.mousePress(InputEvent.BUTTON1_MASK);
+            robot.delay(1000);
+            robot.mouseMove(363, 500);
+            robot.mousePress(InputEvent.BUTTON1_MASK);
+        }
     }
+
 }

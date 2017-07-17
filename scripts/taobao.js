@@ -89,13 +89,13 @@ function grabDetailNext(){
     var dUrl;
     try{
         dUrl = subData[detailIndex].getElementsByClassName('link-box')[0].href;
-    }catch(e){Log.error('获取dURL出错了！！！');}
-    Log.info("打开指定URL：" + dUrl);
-    detailBrowser.operate.loadURL(subData[detailIndex].getElementsByClassName('link-box')[0].href , function(){
-        grabDetailInfo();
-    }, function(){
-        Log.error("无法加载详情页面！");
-    })
+        Log.info("打开指定URL：" + dUrl);
+        detailBrowser.operate.loadURL(dUrl , function(){
+            grabDetailInfo();
+        }, function(){
+            Log.error("无法加载详情页面！");
+        })  
+    }catch(e){Log.error('获取dURL出错了！！！');} 
 }
 
 function grabDetailInfo(){

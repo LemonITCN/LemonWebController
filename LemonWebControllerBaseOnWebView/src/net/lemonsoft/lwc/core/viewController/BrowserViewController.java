@@ -3,12 +3,14 @@ package net.lemonsoft.lwc.core.viewController;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Worker.*;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -53,7 +55,7 @@ public class BrowserViewController extends Stage {
         super();
     }
 
-    private BrowserCallback getBrowserCallback(){
+    private BrowserCallback getBrowserCallback() {
         if (browserCallback == null)
             browserCallback = new BrowserCallback();
         return browserCallback;
@@ -222,6 +224,7 @@ public class BrowserViewController extends Stage {
      * @return 代码执行的返回值
      */
     public Object executeJavaScript(String jsCode) {
+        Object result = browser.executeScript(jsCode);
         return browser.executeScript(jsCode);
     }
 
@@ -233,7 +236,8 @@ public class BrowserViewController extends Stage {
      */
     public void loadUrl(String url, LoadURLHandler loadURLHandler) {
         this.loadURLHandler = loadURLHandler;
-        this.browser.getLoadWorker().cancel();
+        if (browser.getLoadWorker().isRunning())
+            System.out.println("CANCEL : " + browser.getLoadWorker().cancel());
         this.browser.load(url);
     }
 

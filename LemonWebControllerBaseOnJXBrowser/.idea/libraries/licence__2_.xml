@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="licence (2)">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/libs/licence.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
