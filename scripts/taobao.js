@@ -5,8 +5,10 @@ function TuanItemModel(url , title){
 var tuanBrowser = new Browser();
 var subBrowser = new Browser();
 var detailBrowser = new Browser();
+tuanBrowser.setSize(1440,4000);
 subBrowser.setSize(1440,4000);
 detailBrowser.setSize(1440,2000);
+DataCollection.init('shopType,onlineStartTime,onlineEndTime,sellerName,sellerUrl');
 
 var detailTimeoutChecker;
 
@@ -47,6 +49,7 @@ function grabSubNext(){
     subIndex ++;
     if (subIndex == tuanData.length){
         Log.success('所有SUB任务采集完毕!');
+        DataCollection.flush();
         return;
     }
     subBrowser.show();
@@ -100,14 +103,13 @@ function grabDetailNext(){
 
 function grabDetailInfo(){
     clearTimeout(detailTimeoutChecker);
-    var detailResult = {};
-    detailResult.shopType = detailBrowser.executeJavaScript('JU_DETAIL_DYNAMIC.shopType');
-    detailResult.onlineStartTime = detailBrowser.executeJavaScript('JU_DETAIL_DYNAMIC.onlineStartTime;');
-    detailResult.onlineEndTime = detailBrowser.executeJavaScript('JU_DETAIL_DYNAMIC.onlineEndTime;');
-    detailResult.sellerName = detailBrowser.dataGet.getInnerText('.sellername');
-    detailResult.sellerUrl = detailBrowser.dataGet.getADomURL('.sellername');
-    Log.success('采集成功 ： ' + JSON.stringify(detailResult));
-    detailData.push(detailResult);
+    shopType = detailBrowser.executeJavaScript('JU_DETAIL_DYNAMIC.shopType');
+    onlineStartTime = detailBrowser.executeJavaScript('JU_DETAIL_DYNAMIC.onlineStartTime;');
+    onlineEndTime = detailBrowser.executeJavaScript('JU_DETAIL_DYNAMIC.onlineEndTime;');
+    sellerName = detailBrowser.dataGet.getInnerText('.sellername');
+    sellerUrl = detailBrowser.dataGet.getADomURL('.sellername');
+    Log.success('采集成功 ： ' + JSON.stringify(shopType));
+    DataCollection.addRowItems([shopType,onlineStartTime , onlineEndTime , sellerName , sellerUrl]);
     detailBrowser.close();
 }
 

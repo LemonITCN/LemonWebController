@@ -20,21 +20,8 @@ public class Main extends Application {
 //        System.out.println(controller.getDataCollectionPool());
     }
 
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
-
-    public static void main(String[] args) throws AWTException {
-        Robot robot = new Robot();
-
-        while (true) {
-            robot.mouseMove(363, 650);
-            robot.delay(1000);
-            robot.mousePress(InputEvent.BUTTON1_MASK);
-            robot.delay(1000);
-            robot.mouseMove(363, 500);
-            robot.mousePress(InputEvent.BUTTON1_MASK);
-        }
+    public static void main(String[] args) {
+        launch(args);
     }
 
 }

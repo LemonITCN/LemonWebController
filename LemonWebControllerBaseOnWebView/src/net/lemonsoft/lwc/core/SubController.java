@@ -10,6 +10,7 @@ import net.lemonsoft.lwc.core.viewController.SubControllerConsoleViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerDataCollectionViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
 
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 
@@ -166,15 +167,54 @@ public class SubController implements Core {
         return dataList;
     }
 
+    public void init(String columns){
+        dataList.add(columns);
+    }
+
     /**
      * 向数据收集池中放入一行数据
      *
      * @param row 要放入的键
      */
-    public void addRow(String row) {
+    public synchronized void addRow(String row) {
         dataList.add(row);
-        if (defaultDataCollectionViewController != null)
-            defaultDataCollectionViewController.refresh();
+        if (dataList.size() >= 100) {
+            List<String> tempList = dataList;
+            dataList = new ArrayList<>();
+            outToFile(tempList);
+        }
+//        if (defaultDataCollectionViewController != null)
+//            defaultDataCollectionViewController.refresh();
+    }
+
+    public void flush(){
+        outToFile(dataList);
+    }
+
+    /**
+     * 把数据写出到本地文件
+     * @param list
+     */
+    public void outToFile(List<String> list){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    File file = new File("/Users/liuri/Documents/out.csv");
+                    if (!file.exists())
+                        file.createNewFile();
+                    PrintWriter printWriter = new PrintWriter(new FileWriter(file, true));
+                    for (String line : list)
+                        printWriter.println(line);
+
+                    printWriter.flush();
+                    printWriter.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
     }
 
     /**
@@ -184,8 +224,8 @@ public class SubController implements Core {
      */
     public void removeData(int index) {
         dataList.remove(index);
-        if (defaultDataCollectionViewController != null)
-            defaultDataCollectionViewController.refresh();
+//        if (defaultDataCollectionViewController != null)
+//            defaultDataCollectionViewController.refresh();
     }
 
     /**
@@ -193,8 +233,8 @@ public class SubController implements Core {
      */
     public void removeAllData() {
         dataList.clear();
-        if (defaultDataCollectionViewController != null)
-            defaultDataCollectionViewController.refresh();
+//        if (defaultDataCollectionViewController != null)
+//            defaultDataCollectionViewController.refresh();
     }
 
     /**

@@ -15,8 +15,8 @@ public class DataCollectionCommand {
         this.belongSubController = controller;
     }
 
-    public void init(String columns){
-
+    public void init(String columns) {
+        belongSubController.init(columns);
     }
 
 //    /**
@@ -29,8 +29,12 @@ public class DataCollectionCommand {
 //        belongSubController.putData(key, value);
 //    }
 
-    public void addRow(String row){
+    public void addRow(String row) {
         belongSubController.addRow(row);
+    }
+
+    public void flush() {
+        belongSubController.flush();
     }
 
     /**

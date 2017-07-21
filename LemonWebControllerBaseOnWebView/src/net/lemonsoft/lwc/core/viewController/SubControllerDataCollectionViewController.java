@@ -46,24 +46,25 @@ public class SubControllerDataCollectionViewController implements Initializable 
     public void refresh() {
         data = rootTableView.getItems();
         data.removeAll(data);
-        for (String key : belongSubController.getDataCollectionPool().keySet()){
-            data.add(new DataCellModel(key , belongSubController.getDataCollectionPool().get(key)));
-        }
+//        for (String key : belongSubController.getDataCollectionPool().keySet()){
+//            data.add(new DataCellModel(key , belongSubController.getDataCollectionPool().get(key)));
+//        }
     }
 
     /**
      * 添加数据 - GUI调用
      */
     public void putData() {
-        belongSubController.putData(dataKeyField.getText() , dataValueField.getText());
+        belongSubController.addRow(dataValueField.getText());
+//        belongSubController.putData(dataKeyField.getText() , dataValueField.getText());
     }
 
     /**
      * 删除选中的数据
      */
     public void removeSelected() {
-        DataCellModel dataCellModel = data.get(rootTableView.getSelectionModel().getSelectedIndex());
-        belongSubController.removeData(dataCellModel.getKey());
+//        DataCellModel dataCellModel = data.get(rootTableView.getSelectionModel().getSelectedIndex());
+//        belongSubController.removeData(dataCellModel.getKey());
     }
 
     /**
