@@ -14,6 +14,10 @@ function LogModel(content , type) {
     this.content = content;
     this.type = type;
     this.time = Math.round(new Date().getTime());
+
+    this.toStr = function(){
+        return this.type + "," + this.time+ "," + this.content;
+    }
 }
 
 /**
@@ -25,7 +29,7 @@ Log.msg = function (typeIndex, info) {
     var classArr = ["logItemSuccess" , "logItemError" , "logItemInfo" , "logItemWarning"];
     var typeArr = ["success" , "error" , "info" , "warning"];
     try {
-        window.log.addLog(JSON.stringify(new LogModel(info , typeArr[typeIndex])));
+        window.log.addLog(new LogModel(info , typeArr[typeIndex]).toStr());
         var logElement = document.createElement("div");
         logElement.setAttribute("class", classArr[typeIndex]);
         logElement.innerText = "[LOG]" + info;
