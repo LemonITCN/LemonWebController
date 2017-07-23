@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$/src/net/lemonsoft/lwc/core/systemCommand" libraries="{LemonWebController/src/net/lemonsoft/lwc/core/systemCommand/node_modules}" />
-  </component>
-</project>
