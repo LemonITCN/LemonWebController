@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="LemonWebController:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/LemonWebController_jar</output-path>
-    <root id="archive" name="LemonWebController.jar">
-      <element id="module-output" name="LemonWebControllerBaseOnWebView" />
-    </root>
-  </artifact>
-</component>
