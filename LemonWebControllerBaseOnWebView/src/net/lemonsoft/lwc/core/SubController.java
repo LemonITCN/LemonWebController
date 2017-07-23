@@ -11,6 +11,7 @@ import net.lemonsoft.lwc.core.viewController.SubControllerDataCollectionViewCont
 import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
 
 import java.io.*;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.*;
 
@@ -35,6 +36,12 @@ public class SubController implements Core {
     private SubControllerDataCollectionViewController defaultDataCollectionViewController;
     private Stage defaultDataCollectionStage;// 默认的数据收集池的GUI界面
 
+    // 本地存储采集结果数据的文件名
+    private String local_file_name;
+    // 本地存储文件的对象
+    private File local_file;
+    private File local_log_file;
+
     private static final String FILE_NAME = "SubControllerStage";
     private static final String WINDOW_NAME = "SubController[GUI]";
 
@@ -53,6 +60,57 @@ public class SubController implements Core {
         this.logList = new ArrayList<>();
         this.belongMainManager = belongMainManager;
         this.communicationHandlerPool = new HashMap<>();
+    }
+
+    public void setLocal_file_name(String local_file_name) {
+        // 不为null才允许设置文件名，防止生成双文件
+        if (this.local_file_name != null)
+            this.local_file_name = local_file_name;
+    }
+
+    public String getLocal_file_name() {
+        if (local_file_name == null)
+            local_file_name = UUID.randomUUID().toString();
+        return local_file_name;
+    }
+
+    public File getLocal_file() {
+        if (local_file == null) {
+            local_file = new File(System.getProperty("user.home") + "/lwc_data/" + getLocal_file_name() + ".csv");
+            local_file.mkdirs();
+            if (local_file.exists())
+                local_file.delete();
+            try {
+                local_file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return local_file;
+    }
+
+    public File getLocal_log_file() {
+        if (local_log_file == null) {
+            local_log_file = new File(System.getProperty("user.home") + "/lwc_data/" + getLocal_file_name() + "_log.csv");
+            local_log_file.mkdirs();
+            if (local_log_file.exists())
+                local_log_file.delete();
+            try {
+                local_log_file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return local_log_file;
+    }
+
+    public PrintWriter createPrintWriter(File file) {
+        try {
+            return new PrintWriter(new FileWriter(file, true));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public String getId() {
@@ -167,7 +225,7 @@ public class SubController implements Core {
         return dataList;
     }
 
-    public void init(String columns){
+    public void init(String columns) {
         dataList.add(columns);
     }
 
@@ -181,32 +239,39 @@ public class SubController implements Core {
         if (dataList.size() >= 100) {
             List<String> tempList = dataList;
             dataList = new ArrayList<>();
-            outToFile(tempList);
+            outToFile(tempList, getLocal_file());
         }
 //        if (defaultDataCollectionViewController != null)
 //            defaultDataCollectionViewController.refresh();
     }
 
-    public void flush(){
-        outToFile(dataList);
+    public void flush() {
+        outToFile(dataList, getLocal_file());
+        outToFile(logList, getLocal_log_file());
+    }
+
+    /**
+     * 重置-置空变量，使其下次能够重新命名
+     */
+    public void reset() {
+        this.local_file_name = null;
+        this.local_file = null;
+        this.local_log_file = null;
     }
 
     /**
      * 把数据写出到本地文件
+     *
      * @param list
      */
-    public void outToFile(List<String> list){
+    public void outToFile(List<String> list, File file) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    File file = new File("/Users/liuri/Documents/out.csv");
-                    if (!file.exists())
-                        file.createNewFile();
-                    PrintWriter printWriter = new PrintWriter(new FileWriter(file, true));
+                    PrintWriter printWriter = createPrintWriter(file);
                     for (String line : list)
                         printWriter.println(line);
-
                     printWriter.flush();
                     printWriter.close();
                 } catch (Exception e) {
@@ -253,6 +318,11 @@ public class SubController implements Core {
      */
     public void addLog(String logStr) {
         logList.add(logStr);
+        if (logList.size() >= 300) {
+            List<String> tempList = logList;
+            logList = new ArrayList<>();
+            outToFile(tempList, getLocal_log_file());
+        }
     }
 
     /**
