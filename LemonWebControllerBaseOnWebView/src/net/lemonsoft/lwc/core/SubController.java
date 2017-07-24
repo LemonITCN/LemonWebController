@@ -37,7 +37,7 @@ public class SubController implements Core {
     private Stage defaultDataCollectionStage;// 默认的数据收集池的GUI界面
 
     // 本地存储采集结果数据的文件名
-    private String local_file_name;
+    public String local_file_name;
     // 本地存储文件的对象
     private File local_file;
     private File local_log_file;
@@ -64,13 +64,13 @@ public class SubController implements Core {
 
     public void setLocal_file_name(String local_file_name) {
         // 不为null才允许设置文件名，防止生成双文件
-        if (this.local_file_name != null)
+        if (this.local_file_name == null)
             this.local_file_name = local_file_name;
     }
 
     public String getLocal_file_name() {
         if (local_file_name == null)
-            local_file_name = UUID.randomUUID().toString();
+            setLocal_file_name(UUID.randomUUID().toString());
         return local_file_name;
     }
 
