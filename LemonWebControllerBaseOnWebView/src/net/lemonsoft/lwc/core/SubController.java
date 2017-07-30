@@ -76,7 +76,7 @@ public class SubController implements Core {
 
     public File getLocal_file() {
         if (local_file == null) {
-            local_file = new File(System.getProperty("user.home") + "/lwc_data/" + getLocal_file_name() + ".csv");
+            local_file = new File(System.getProperty("user.home") + File.separator + "lwc_data" + File.separator + getLocal_file_name() + ".csv");
             local_file.mkdirs();
             if (local_file.exists())
                 local_file.delete();
@@ -91,7 +91,7 @@ public class SubController implements Core {
 
     public File getLocal_log_file() {
         if (local_log_file == null) {
-            local_log_file = new File(System.getProperty("user.home") + "/lwc_data/" + getLocal_file_name() + "_log.csv");
+            local_log_file = new File(System.getProperty("user.home") + File.separator + "lwc_data" + File.separator + getLocal_file_name() + "_log.csv");
             local_log_file.mkdirs();
             if (local_log_file.exists())
                 local_log_file.delete();

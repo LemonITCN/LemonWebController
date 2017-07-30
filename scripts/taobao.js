@@ -47,9 +47,11 @@ subBrowser.setOnClose(function(){
 
 function grabSubNext(){
     subIndex ++;
-    if (subIndex == tuanData.length){
+    if (subIndex == 2 /*== tuanData.length*/){
         Log.success('所有SUB任务采集完毕!');
+        console.log('All task grab complete');
         DataCollection.flush();
+        Communication.call('task' , 'success');
         return;
     }
     subBrowser.show();
