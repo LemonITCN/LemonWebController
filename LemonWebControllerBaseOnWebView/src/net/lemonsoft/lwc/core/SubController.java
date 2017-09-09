@@ -10,9 +10,14 @@ import net.lemonsoft.lwc.core.viewController.SubControllerConsoleViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerDataCollectionViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
 
+import javax.swing.plaf.nimbus.State;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 
 /**
@@ -41,6 +46,12 @@ public class SubController implements Core {
     // 本地存储文件的对象
     private File local_file;
     private File local_log_file;
+
+    /**
+     * 本地数据存储用的SQLITE3数据库连接
+     */
+    private Connection dbConnection;
+    private String columns;
 
     private static final String FILE_NAME = "SubControllerStage";
     private static final String WINDOW_NAME = "SubController[GUI]";
@@ -72,6 +83,27 @@ public class SubController implements Core {
         if (local_file_name == null)
             setLocal_file_name(UUID.randomUUID().toString());
         return local_file_name;
+    }
+
+    public Connection getDBConnection() {
+        try {
+            if (dbConnection == null || dbConnection.isClosed()) {
+                Class.forName("org.sqlite.JDBC");
+                dbConnection = DriverManager.getConnection("jdbc:sqlite:" + System.getProperty("user.home") + File.separator + "lwc_data" + File.separator + getLocal_file_name() + ".db");
+                if (!dbConnection.isClosed()) {
+                    Statement statement = dbConnection.createStatement();
+                    // 创建日志表
+                    statement.executeUpdate("CREATE TABLE IF NOT EXISTS logs (id INTEGER \n" +
+                            "PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
+                            "state TEXT,time INT,\n" +
+                            "content TEXT) ");
+                    statement.close();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dbConnection;
     }
 
     public File getLocal_file() {
@@ -226,7 +258,25 @@ public class SubController implements Core {
     }
 
     public void init(String columns) {
-        dataList.add(columns);
+//        dataList.add(columns);
+        this.columns = columns;
+
+        // 初始化数据建表语句
+        StringBuilder sqlBuilder = new StringBuilder("CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL");
+        for (String item : columns.split(",")) {
+            sqlBuilder.append("," + item + " TEXT");
+        }
+        sqlBuilder.append(")");
+        // 获取数据库连接，开始建表
+        Connection connection = getDBConnection();
+        Statement statement;
+        try {
+            statement = connection.createStatement();
+            statement.executeUpdate(sqlBuilder.toString());
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -239,15 +289,15 @@ public class SubController implements Core {
         if (dataList.size() >= 100) {
             List<String> tempList = dataList;
             dataList = new ArrayList<>();
-            outToFile(tempList, getLocal_file());
+            outToFile(tempList, true);
         }
 //        if (defaultDataCollectionViewController != null)
 //            defaultDataCollectionViewController.refresh();
     }
 
     public void flush() {
-        outToFile(dataList, getLocal_file());
-        outToFile(logList, getLocal_log_file());
+        outToFile(dataList, true);
+        outToFile(logList, false);
     }
 
     /**
@@ -264,17 +314,37 @@ public class SubController implements Core {
      *
      * @param list
      */
-    public void outToFile(List<String> list, File file) {
+    public void outToFile(List<String> list, boolean isData) {
         new Thread(new Runnable() {
             @Override
             public void run() {
+//                try {
+//                    PrintWriter printWriter = createPrintWriter(file);
+//                    for (String line : list)
+//                        printWriter.println(line);
+//                    printWriter.flush();
+//                    printWriter.close();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//                StringBuilder sqlBuilder = new StringBuilder();
+//                System.out.println("sql = " + sqlBuilder.toString());
+                Connection connection = getDBConnection();
                 try {
-                    PrintWriter printWriter = createPrintWriter(file);
-                    for (String line : list)
-                        printWriter.println(line);
-                    printWriter.flush();
-                    printWriter.close();
-                } catch (Exception e) {
+                    Statement statement = connection.createStatement();
+                    for (String item : list) {
+                        String itemSQL = "INSERT INTO " + (isData ? "data" : "logs") + " (" + (isData ? columns : "state,time,content") + ") " + " VALUES ('" + item.replace("\'", "\'\'").replace(",", "','") + "');";
+                        System.out.println("currentSQL = " + itemSQL);
+                        try {
+                            statement.executeUpdate(itemSQL);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                            continue;
+                        }
+//                    sqlBuilder.append("INSERT INTO (" + (isData ? columns : "state,time,content") + ") " + (isData ? "data" : "logs") + " VALUES ('" + item.replace("\'", "\'\'").replace(",", "','") + "');");
+                    }
+                    statement.close();
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
 
@@ -321,7 +391,8 @@ public class SubController implements Core {
         if (logList.size() >= 300) {
             List<String> tempList = logList;
             logList = new ArrayList<>();
-            outToFile(tempList, getLocal_log_file());
+            outToFile(tempList, false);
+            getDBConnection();
         }
     }
 

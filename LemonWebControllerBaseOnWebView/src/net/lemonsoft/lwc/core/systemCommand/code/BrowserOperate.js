@@ -145,7 +145,7 @@ function BrowserOperate(browserObj) {
     /**
      * 放置自定义函数到自定义回调池中
      * @param callbackKey 自定义回调的key
-     * @param callbackFunc 回调的函数体
+     * @param callbackFunc 回调的函数体URL
      */
     this.putCustomCallback = function (callbackKey, callbackFunc) {
         Log.success('防止回调函数到回调池：' + callbackKey);
@@ -161,7 +161,7 @@ function BrowserOperate(browserObj) {
         var endCallbackKey = "K_BUFF_END_CALLBACK";
         this.putCustomCallback(endCallbackKey , endCallback);
         Log.success('准备执行自动缓冲脚本');
-        var script = "(function(){var currentCount=0;var timer=setInterval(function(){console.log('GOGOGO');document.body.scrollTop=window.innerHeight*currentCount;currentCount++;if(document.body.scrollTop>=(document.body.scrollHeight-window.innerHeight)){window.clearInterval(timer);try{window.callback.invoke('K_BUFF_END_CALLBACK','');}catch(e){console.log('error:' + e.message + ', callback=' + JSON.stringify(window.callback));}console.log('OK!!!!!');}}," + v + ");})()";
+        var script = "(function(){var currentCount=0;var timer=setInterval(function(){document.body.scrollTop=window.innerHeight*currentCount;currentCount++;if(document.body.scrollTop>=(document.body.scrollHeight-window.innerHeight)){window.clearInterval(timer);try{window.callback.invoke('K_BUFF_END_CALLBACK','');}catch(e){console.log('error:' + e.message + ', callback=' + JSON.stringify(window.callback));}console.log('OK!!!!!');}}," + v + ");})()";
         Log.success('SCRIPT = ' + script);
         browser.executeJavaScript(script);
     };

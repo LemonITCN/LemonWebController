@@ -36,7 +36,7 @@ function grabTuanList(){
         var tTitle = lisArr[i].title;
         tuanData.push(new TuanItemModel(tUrl, tTitle));
     }
-    Log.success("采集任务执行完毕！ data:" + JSON.stringify(tuanData));
+    Log.success("采集任务执行完毕");
     tuanBrowser.close();
     grabSubNext();
 }
