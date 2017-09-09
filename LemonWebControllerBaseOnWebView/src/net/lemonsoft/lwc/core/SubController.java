@@ -310,6 +310,19 @@ public class SubController implements Core {
     }
 
     /**
+     * 清除数据库连接
+     */
+    public void clearConnection() {
+        try {
+            if (this.dbConnection != null && !this.dbConnection.isClosed())
+                this.dbConnection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        this.dbConnection = null;
+    }
+
+    /**
      * 把数据写出到本地文件
      *
      * @param list
