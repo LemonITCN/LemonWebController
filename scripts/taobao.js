@@ -47,7 +47,7 @@ subBrowser.setOnClose(function(){
 
 function grabSubNext(){
     subIndex ++;
-    if (subIndex == 2 /*== tuanData.length*/){
+    if (subIndex == 4 /*== tuanData.length*/){
         Log.success('所有SUB任务采集完毕!');
         console.log('All task grab complete');
         DataCollection.flush();
@@ -116,7 +116,9 @@ function grabDetailInfo(){
 }
 
 tuanBrowser.operate.loadURL('https://ju.taobao.com/jusp/tongzhuangpindao/tp.htm',function(){
-    setTimeout('grabTuanList()' , 2000);
+    tuanBrowser.operate.bufferAllScreen(800,function(){
+		grabTuanList()
+    });
 },function(){
     Log.error("无法加载主页面！");
 });
