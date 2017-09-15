@@ -10,9 +10,10 @@ import net.lemonsoft.lwc.core.viewController.SubControllerConsoleViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerDataCollectionViewController;
 import net.lemonsoft.lwc.core.viewController.SubControllerViewController;
 
-import javax.swing.plaf.nimbus.State;
-import java.io.*;
-import java.lang.reflect.Field;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -89,7 +90,7 @@ public class SubController implements Core {
         try {
             if (dbConnection == null || dbConnection.isClosed()) {
                 Class.forName("org.sqlite.JDBC");
-                dbConnection = DriverManager.getConnection("jdbc:sqlite:" + System.getProperty("user.home") + File.separator + "lwc_data" + File.separator + getLocal_file_name() + ".db");
+                dbConnection = DriverManager.getConnection("jdbc:sqlite:" + System.getProperty("user.home") + File.separator + "lwc_data" + File.separator + getLocal_file_name() + ".db?useUnicode=true&characterEncoding=UTF-8");
                 if (!dbConnection.isClosed()) {
                     Statement statement = dbConnection.createStatement();
                     // 创建日志表
