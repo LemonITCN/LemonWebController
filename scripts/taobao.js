@@ -51,6 +51,7 @@ function grabSubNext(){
         Log.success('所有SUB任务采集完毕!');
         console.log('All task grab complete');
         DataCollection.flush();
+	subBrowser.close();
         Communication.call('task' , 'success');
         return;
     }
